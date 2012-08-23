@@ -1,0 +1,6 @@
+August, 23, 2012
+This file is for remind me about things that must be done in this project.
+
+* Refactor classes in order to have more customized names.
+* Refactor classes internally for more organization.
+* Include a way to register the dose (and/or energy) deposited in the detector.
