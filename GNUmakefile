@@ -3,7 +3,11 @@
 # GNUmakefile for examples module.  Gabriele Cosmo, 06/04/98.
 # --------------------------------------------------------------
 
-name := teste
+#
+# Modified by Sandro Boschetti in August 24, 2012
+#
+
+name := Geant4MasterDissertationSimulation
 G4TARGET := $(name)
 G4EXLIB := true
 

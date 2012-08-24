@@ -1,11 +1,11 @@
-//
-// $Id: teste.cc,v 0.1 2010/11/30 22:31:00  $
-// GEANT4 tag $Name: geant4-09-03-patch-02 $
-//
-// 
-// --------------------------------------------------------------
-//      GEANT 4 - teste.cc
-// --------------------------------------------------------------
+/**
+ * @author Sandro Boschetti
+ * @version 0.1
+ *
+ * This is the main routine, i.e., the entry point for the program simulation. It's
+ * based on the example N01 from Geant4.9.3.p02.
+ *
+ */
 
 
 #include "G4RunManager.hh"
