@@ -29,6 +29,9 @@
 
 //#include "SrBRandom.hh"
 
+
+void setupUIProgramaticaly(G4UImanager *UI);
+
 /**
  * Entry point function for the whole simulation.
  */
@@ -41,6 +44,15 @@ int main(G4int argc, char** argv) {
 	G4RunManager* runManager = new G4RunManager;
 	//runManager->SetUserAction(new BeamTestEventAction);
 
+	/**
+	 * G4VisManager is a singleton and an abstract class and the user must derive
+	 * and implement its virtual function RegisterGraphicsSystems(). It's intended
+	 * to be used for graphical UI purposes.
+	 *
+	 * G4VisExecutive is a concrete Visualization Manager that implements the
+	 * virtual functions RegisterGraphicsSystems and RegisterModelFactories which
+	 * are executed when you Initialise() OR Initialize().
+	 */
 	#ifdef G4VIS_USE
 		// Visualization manager construction
 		G4VisManager* visManager = new G4VisExecutive;
@@ -73,21 +85,6 @@ int main(G4int argc, char** argv) {
 	 */
 	runManager->Initialize();
 
-/*	G4UImanager* UI = G4UImanager::GetUIpointer();
-	UI->ApplyCommand("/run/verbose 1");
-	UI->ApplyCommand("/event/verbose 1");
-	UI->ApplyCommand("/tracking/verbose 1");
-
-	UI->ApplyCommand("/vis/viewer/list");
-
-	UI->ApplyCommand("/vis/open OGLIX");
-	UI->ApplyCommand("/vis/drawVolume");
-	UI->ApplyCommand("/vis/scene/add/trajectories smooth");
-	UI->ApplyCommand("/vis/viewer/create");
-
-	G4int numberOfEvent = 3;
-	runManager->BeamOn(numberOfEvent); */
-
 	/**
 	 *	This class helps automatic instantiation of user session
 	 *	according to your environment variable like G4UI_USE_XXX.
@@ -118,9 +115,30 @@ int main(G4int argc, char** argv) {
 	 * Singleton class and its constructor must not be called by the user.
 	 * This object controls the command manipulation and the user interface(s).
 	 */
-/* ALL of this can be put in a macro
 	G4UImanager* UI = G4UImanager::GetUIpointer();
 
+	setupUIProgramaticaly(UI);
+	G4int numberOfEvent = 30;
+	runManager->BeamOn(numberOfEvent);
+
+//	G4String command = "/control/execute ";
+//	G4String fileName = "myMacro.mac"; //argv[1];
+//	UI->ApplyCommand(command+fileName);
+
+
+	/**
+	 * Related to G4UIExecutive class
+	 */
+	session->SessionStart();
+	delete session;
+
+	delete runManager;
+
+	return 0;
+}
+
+
+void setupUIProgramaticaly(G4UImanager *UI){
 	UI->ApplyCommand("/vis/open OGLIX");
 	//UI->ApplyCommand("/vis/drawView");
 	UI->ApplyCommand("/vis/drawVolume");
@@ -139,29 +157,8 @@ int main(G4int argc, char** argv) {
 	//UI->ApplyCommand("/tracking/storeTrajectory");
 	//UI->ApplyCommand("/vis/viewer/set/style surface"); //wireframe or surface
 	//UI->ApplyCommand("/tracking/storeTrajectory 20");
-	G4int numberOfEvent = 30;
 	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 30");
-	runManager->BeamOn(numberOfEvent);
- */
-
-	  //read a macro file of commands
-	  G4UImanager* UI = G4UImanager::GetUIpointer();
-	  G4String command = "/control/execute ";
-	  G4String fileName = "myMacro.mac"; //argv[1];
-	  UI->ApplyCommand(command+fileName);
-
-
-	/**
-	 * Related to G4UIExecutive class
-	 */
-	session->SessionStart();
-	delete session;
-
-	delete runManager;
-
-	return 0;
 }
-
 
 
 //void teste(){
