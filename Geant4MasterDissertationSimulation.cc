@@ -73,9 +73,6 @@ int main(G4int argc, char** argv) {
 	 */
 	runManager->Initialize();
 
-	// Get the pointer to the UI manager and set verbosities
-	//
-
 /*	G4UImanager* UI = G4UImanager::GetUIpointer();
 	UI->ApplyCommand("/run/verbose 1");
 	UI->ApplyCommand("/event/verbose 1");
@@ -86,17 +83,10 @@ int main(G4int argc, char** argv) {
 	UI->ApplyCommand("/vis/open OGLIX");
 	UI->ApplyCommand("/vis/drawVolume");
 	UI->ApplyCommand("/vis/scene/add/trajectories smooth");
-	UI->ApplyCommand("/vis/viewer/create");*/
+	UI->ApplyCommand("/vis/viewer/create");
 
-
-//	G4int numberOfEvent = 3;
-//	runManager->BeamOn(numberOfEvent);
-
-	/**
-	 * Singleton class and its constructor must not be called by the user.
-	 * This object controls the command manipulation and the user interface(s).
-	 */
-	G4UImanager* UI = G4UImanager::GetUIpointer();
+	G4int numberOfEvent = 3;
+	runManager->BeamOn(numberOfEvent); */
 
 	/**
 	 *	This class helps automatic instantiation of user session
@@ -122,6 +112,15 @@ int main(G4int argc, char** argv) {
 	 * Using G4UImanager object it is possible to set a variety of
 	 * information for the simulation.
 	 */
+
+
+	/**
+	 * Singleton class and its constructor must not be called by the user.
+	 * This object controls the command manipulation and the user interface(s).
+	 */
+/* ALL of this can be put in a macro
+	G4UImanager* UI = G4UImanager::GetUIpointer();
+
 	UI->ApplyCommand("/vis/open OGLIX");
 	//UI->ApplyCommand("/vis/drawView");
 	UI->ApplyCommand("/vis/drawVolume");
@@ -134,25 +133,33 @@ int main(G4int argc, char** argv) {
 	//UI->ApplyCommand("/vis/scene/add/axes 0 0 0 5 m"); // x, y, z, comprimento, unidade
 	UI->ApplyCommand("/vis/viewer/zoom 1.3");
 
-  //UI->ApplyCommand("/vis/drawView");
-  //UI->ApplyCommand("/vis/scene/add/trajectories smooth");
-  //UI->ApplyCommand("/vis/scene/add/hits");
-  //UI->ApplyCommand("/tracking/storeTrajectory");
-  //UI->ApplyCommand("/vis/viewer/set/style surface"); //wireframe or surface
-  //UI->ApplyCommand("/tracking/storeTrajectory 20");
-  G4int numberOfEvent = 30;
-  UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 30");
-  runManager->BeamOn(numberOfEvent);
+	//UI->ApplyCommand("/vis/drawView");
+	//UI->ApplyCommand("/vis/scene/add/trajectories smooth");
+	//UI->ApplyCommand("/vis/scene/add/hits");
+	//UI->ApplyCommand("/tracking/storeTrajectory");
+	//UI->ApplyCommand("/vis/viewer/set/style surface"); //wireframe or surface
+	//UI->ApplyCommand("/tracking/storeTrajectory 20");
+	G4int numberOfEvent = 30;
+	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 30");
+	runManager->BeamOn(numberOfEvent);
+ */
 
-  /**
-   * Related to G4UIExecutive class
-   */
-  session->SessionStart();
-  delete session;
+	  //read a macro file of commands
+	  G4UImanager* UI = G4UImanager::GetUIpointer();
+	  G4String command = "/control/execute ";
+	  G4String fileName = "myMacro.mac"; //argv[1];
+	  UI->ApplyCommand(command+fileName);
 
-  delete runManager;
 
-  return 0;
+	/**
+	 * Related to G4UIExecutive class
+	 */
+	session->SessionStart();
+	delete session;
+
+	delete runManager;
+
+	return 0;
 }
 
 
