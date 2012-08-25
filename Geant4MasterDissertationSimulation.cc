@@ -161,14 +161,4 @@ void setupUIProgramaticaly(G4UImanager *UI){
 }
 
 
-//void teste(){
-//
-//	SrBRandom *teste = new SrBRandom();
-//
-//	for (int i=0; i<10; i++){
-//		//G4cout << "Numero aleatorio: " << G4UniformRand() << G4endl;
-//		G4cout << "Numero aleatorio: " << teste->getRandomNumber() <<  G4endl;
-//	}
-//}
-
 
