@@ -1,12 +1,5 @@
-/*
- * SrBRandom.h
- *
- *  Created on: Apr 5, 2011
- *      Author: sandro
- */
-
-#ifndef SRBRANDOM_HH_
-#define SRBRANDOM_HH_
+#ifndef MYRANDOM_HH_
+#define MYRANDOM_HH_
 
 #ifndef randomize_h
 #define randomize_h 1
@@ -25,12 +18,12 @@
 	#define 	G4UniformRand()   CLHEP::HepRandom::getTheEngine()->flat()
 #endif // randomize_h
 
-class SrBRandom {
+class MyRandom {
 
 public:
 	double getRandomNumber();
-	SrBRandom();
-	virtual ~SrBRandom();
+	MyRandom();
+	virtual ~MyRandom();
 };
 
-#endif /* SRBRANDOM_H_ */
+#endif /* MYRANDOM_H_ */

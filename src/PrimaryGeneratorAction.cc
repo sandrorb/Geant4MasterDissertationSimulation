@@ -1,6 +1,6 @@
 // Sandro Boschetti
 
-#include "SrBPrimaryGeneratorAction.hh"
+#include "PrimaryGeneratorAction.hh"
 
 #include "G4Event.hh"
 #include "G4ParticleGun.hh"
@@ -8,10 +8,10 @@
 #include "G4ParticleDefinition.hh"
 #include "globals.hh"
 
-#include "SrBRandom.hh"
+#include "MyRandom.hh"
 #include <pthread.h>
 
-SrBPrimaryGeneratorAction::SrBPrimaryGeneratorAction()
+PrimaryGeneratorAction::PrimaryGeneratorAction()
 {
   G4int n_particle = 1;
   particleGun = new G4ParticleGun(n_particle);
@@ -24,12 +24,12 @@ SrBPrimaryGeneratorAction::SrBPrimaryGeneratorAction()
   particleGun->SetParticlePosition(G4ThreeVector(-2.0*m, 0.0, 0.0));
 }
 
-SrBPrimaryGeneratorAction::~SrBPrimaryGeneratorAction()
+PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
   delete particleGun;
 }
 
-void SrBPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
+void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
 //  G4int i = anEvent->GetEventID() % 3;
 //  G4ThreeVector v(1.0,0.0,0.0);

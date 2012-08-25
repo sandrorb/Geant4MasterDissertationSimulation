@@ -11,10 +11,10 @@
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
 
-#include "SrBDetectorConstruction.hh"
+#include "DetectorConstruction.hh"
 //#include "SrBPhysicsList.hh"
 #include "ExN02PhysicsList.hh"
-#include "SrBPrimaryGeneratorAction.hh"
+#include "PrimaryGeneratorAction.hh"
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -63,7 +63,7 @@ int main(G4int argc, char** argv) {
 	 * UserDetectorConstruction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
-	G4VUserDetectorConstruction* detector = new SrBDetectorConstruction;
+	G4VUserDetectorConstruction* detector = new DetectorConstruction;
 	runManager->SetUserInitialization(detector);
 
 	/**
@@ -77,7 +77,7 @@ int main(G4int argc, char** argv) {
 	 * G4VUserPrimaryGeneratorAction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
-	G4VUserPrimaryGeneratorAction* gen_action = new SrBPrimaryGeneratorAction;
+	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
 	runManager->SetUserAction(gen_action);
 
 	/**

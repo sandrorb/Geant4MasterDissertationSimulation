@@ -3,8 +3,8 @@
 // GEANT4 tag $Name: geant4-09-03-patch-02 $
 //
 
-#ifndef SrBDetectorConstruction_H
-#define SrBDetectorConstruction_H 1
+#ifndef DetectorConstruction_H
+#define DetectorConstruction_H 1
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
@@ -12,12 +12,12 @@ class G4VPhysicalVolume;
 #include "G4VUserDetectorConstruction.hh"
 
 
-class SrBDetectorConstruction : public G4VUserDetectorConstruction
+class DetectorConstruction : public G4VUserDetectorConstruction
 {
   public:
 
-	SrBDetectorConstruction();
-    ~SrBDetectorConstruction();
+	DetectorConstruction();
+    ~DetectorConstruction();
 
     G4VPhysicalVolume* Construct();
 
