@@ -1,10 +1,11 @@
-//
-// $Id: ExN01PhysicsList.cc,v 1.6 2006/06/29 17:47:21 gunter Exp $
-// GEANT4 tag $Name: geant4-09-03-patch-02 $
-//
-// 
+/**
+ * @author Sandro Boschetti
+ *
+ * This is the implementation class PhysicsList based on ExN01PhysicsList.cc
+ *
+ */
 
-#include "SrBPhysicsList.hh"
+#include "PhysicsList.hh"
 #include "G4ParticleTypes.hh"
 #include "G4ProcessManager.hh"
 
@@ -16,13 +17,13 @@
 
 
 
-SrBPhysicsList::SrBPhysicsList()
+PhysicsList::PhysicsList()
 {;}
 
-SrBPhysicsList::~SrBPhysicsList()
+PhysicsList::~PhysicsList()
 {;}
 
-void SrBPhysicsList::ConstructParticle()
+void PhysicsList::ConstructParticle()
 {
   // In this method, static member functions should be called
   // for all particles which you want to use.
@@ -35,7 +36,7 @@ void SrBPhysicsList::ConstructParticle()
 
 }
 
-void SrBPhysicsList::ConstructProcess()
+void PhysicsList::ConstructProcess()
 {
   // Define transportation process
 
@@ -50,7 +51,7 @@ void SrBPhysicsList::ConstructProcess()
 
 }
 
-void SrBPhysicsList::SetCuts()
+void PhysicsList::SetCuts()
 {
   // uppress error messages even in case e/gamma/proton do not exist
   G4int temp = GetVerboseLevel();                                                SetVerboseLevel(0);
