@@ -1,5 +1,5 @@
 /**
- * @author Sandro Boschetti
+ * @author Sandro Boschetti, August 24, 2012
  * @version 0.1
  *
  * This is the main routine, i.e., the entry point for the program simulation. It's
@@ -12,16 +12,16 @@
 #include "G4UImanager.hh"
 
 #include "DetectorConstruction.hh"
-//#include "SrBPhysicsList.hh"
+//#include "PhysicsList.hh"
 #include "ExN02PhysicsList.hh"
 #include "PrimaryGeneratorAction.hh"
 
 #ifdef G4VIS_USE
-#include "G4VisExecutive.hh"
+	#include "G4VisExecutive.hh"
 #endif
 
 #ifdef G4UI_USE
-#include "G4UIExecutive.hh"
+	#include "G4UIExecutive.hh"
 #endif
 
 //for sleep(seconds) function
@@ -30,21 +30,21 @@
 //#include "SrBRandom.hh"
 
 
-void setupUIProgramaticaly(G4UImanager *UI);
+void setupUIProgramatically(G4UImanager *UI);
 
 /**
  * Entry point function for the whole simulation.
  */
 int main(G4int argc, char** argv) {
 
-	/**
+	/*
 	 * The first thing that must be done in the main() is create an instance of
 	 * G4RunManager class.
 	 */
 	G4RunManager* runManager = new G4RunManager;
 	//runManager->SetUserAction(new BeamTestEventAction);
 
-	/**
+	/*
 	 * G4VisManager is a singleton and an abstract class and the user must derive
 	 * and implement its virtual function RegisterGraphicsSystems(). It's intended
 	 * to be used for graphical UI purposes.
@@ -59,36 +59,36 @@ int main(G4int argc, char** argv) {
 		visManager->Initialize();
 	#endif
 
-	/**
+	/*
 	 * UserDetectorConstruction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
 	G4VUserDetectorConstruction* detector = new DetectorConstruction;
 	runManager->SetUserInitialization(detector);
 
-	/**
+	/*
 	 * G4VUserPhysicsList is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
 	G4VUserPhysicsList* physics = new ExN02PhysicsList;
 	runManager->SetUserInitialization(physics);
 
-	/**
+	/*
 	 * G4VUserPrimaryGeneratorAction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
 	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
 	runManager->SetUserAction(gen_action);
 
-	/**
+	/*
 	 * Initialize G4 kernel
 	 */
 	runManager->Initialize();
 
-	/**
+	/*
 	 *	This class helps automatic instantiation of user session
 	 *	according to your environment variable like G4UI_USE_XXX.
-	 *
+	 *@code
 	 *	Usage in main():
 	 *		...
 	 *		#include "G4UIExecutive.hh"
@@ -100,24 +100,24 @@ int main(G4int argc, char** argv) {
 	 *
 	 *		myapp-> SessionStart();
 	 *		...
-	 *		delete myapp;
+	 *		delete myapp;@endcode
 	 *
 	 */
 	G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
-	/**
+	/*
 	 * Using G4UImanager object it is possible to set a variety of
 	 * information for the simulation.
 	 */
 
 
-	/**
+	/*
 	 * Singleton class and its constructor must not be called by the user.
 	 * This object controls the command manipulation and the user interface(s).
 	 */
 	G4UImanager* UI = G4UImanager::GetUIpointer();
 
-	setupUIProgramaticaly(UI);
+	setupUIProgramatically(UI);
 	G4int numberOfEvent = 30;
 	runManager->BeamOn(numberOfEvent);
 
@@ -126,7 +126,7 @@ int main(G4int argc, char** argv) {
 //	UI->ApplyCommand(command+fileName);
 
 
-	/**
+	/*
 	 * Related to G4UIExecutive class
 	 */
 	session->SessionStart();
@@ -137,8 +137,10 @@ int main(G4int argc, char** argv) {
 	return 0;
 }
 
-
-void setupUIProgramaticaly(G4UImanager *UI){
+/**
+ * This function has been implemented only for a sake of organization.
+ */
+void setupUIProgramatically(G4UImanager *UI){
 	UI->ApplyCommand("/vis/open OGLIX");
 	//UI->ApplyCommand("/vis/drawView");
 	UI->ApplyCommand("/vis/drawVolume");
