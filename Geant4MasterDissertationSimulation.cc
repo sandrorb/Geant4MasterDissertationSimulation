@@ -12,9 +12,10 @@
 #include "G4UImanager.hh"
 
 #include "DetectorConstruction.hh"
-//#include "PhysicsList.hh"
-#include "ExN02PhysicsList.hh"
+#include "PhysicsList.hh"
 #include "PrimaryGeneratorAction.hh"
+
+#include "RunAction.hh"
 
 #ifdef G4VIS_USE
 	#include "G4VisExecutive.hh"
@@ -70,7 +71,7 @@ int main(G4int argc, char** argv) {
 	 * G4VUserPhysicsList is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
-	G4VUserPhysicsList* physics = new ExN02PhysicsList;
+	G4VUserPhysicsList* physics = new PhysicsList;
 	runManager->SetUserInitialization(physics);
 
 	/*
@@ -79,6 +80,12 @@ int main(G4int argc, char** argv) {
 	 */
 	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
 	runManager->SetUserAction(gen_action);
+
+	/**
+	 *  Adding user action
+	 */
+	G4UserRunAction* run_action = new RunAction;
+	runManager->SetUserAction(run_action);
 
 	/*
 	 * Initialize G4 kernel
@@ -131,6 +138,10 @@ int main(G4int argc, char** argv) {
 	 */
 	session->SessionStart();
 	delete session;
+
+	#ifdef G4VIS_USE
+		delete visManager;
+	#endif
 
 	delete runManager;
 
