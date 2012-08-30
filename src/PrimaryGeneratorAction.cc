@@ -46,10 +46,23 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 //  }
 
 	//SrBRandom *teste = new SrBRandom();
+
+	MyRandom *myRand = new MyRandom();
+
+	G4double randX = myRand->getRandomNumber();
+	G4double randY = myRand->getRandomNumber();
+	G4double randZ = myRand->getRandomNumber();
+
+	G4double px = 2 * randX - 1;
+	G4double py = 2 * randY - 1;
+	G4double pz = 2 * randZ - 1;
+
+	G4ThreeVector v(px, py, pz);
+
 //	G4double py = (2 * teste->getRandomNumber() - 1) * 0.1;
 //	G4double pz = (2 * teste->getRandomNumber() - 1) * 0.1;
 //	G4ThreeVector v(1.0, py, pz);
-	G4ThreeVector v(1.0, 0.0, 0.0);
+//	G4ThreeVector v(1.0, 0.0, 0.0);
 	//sleep(1);
 
   particleGun->SetParticleMomentumDirection(v);

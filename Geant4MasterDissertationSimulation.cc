@@ -124,13 +124,14 @@ int main(G4int argc, char** argv) {
 	 */
 	G4UImanager* UI = G4UImanager::GetUIpointer();
 
-	setupUIProgramatically(UI);
-	G4int numberOfEvent = 30;
-	runManager->BeamOn(numberOfEvent);
+//	setupUIProgramatically(UI);
 
-//	G4String command = "/control/execute ";
-//	G4String fileName = "myMacro.mac"; //argv[1];
-//	UI->ApplyCommand(command+fileName);
+//	G4int numberOfEvent = 100;
+//	runManager->BeamOn(numberOfEvent);
+
+	G4String command = "/control/execute ";
+	G4String fileName = "myMacro.mac"; //argv[1];
+	UI->ApplyCommand(command+fileName);
 
 
 	/*
