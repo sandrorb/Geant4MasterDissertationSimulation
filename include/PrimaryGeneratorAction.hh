@@ -6,10 +6,13 @@
 #ifndef PrimaryGeneratorAction_h
 #define PrimaryGeneratorAction_h 1
 
+#include "globals.hh"
 #include "G4VUserPrimaryGeneratorAction.hh"
 
 class G4ParticleGun;
 class G4Event;
+
+//class Teste;
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
@@ -19,9 +22,11 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 
   public:
     void GeneratePrimaries(G4Event* anEvent);
+//    void setSourcePosition(G4double pos);
 
   private:
     G4ParticleGun* particleGun;
+//    G4double sourcePosition;
 };
 
 #endif

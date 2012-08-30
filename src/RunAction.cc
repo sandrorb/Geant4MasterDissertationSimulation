@@ -46,8 +46,9 @@ void RunAction::EndOfRunAction(const G4Run* aRun) {
 //  G4double nEvt = (G4double)(theRun->GetNumberOfEvent());
 //  G4cout << "Numero de Eventos: " << nEvt << G4endl;
 
-  G4cout << "Energia depositada: " << G4BestUnit(theRun->GetTotalEnergyDeposited(),"Energy") << G4endl;
-//  G4cout << "Energia depositada: " << theRun->GetTotalEnergyDeposited()*MeV << G4endl;
+//  G4cout << "Energia depositada: " << G4BestUnit(theRun->GetTotalEnergyDeposited(),"Energy") << G4endl;
+  G4cout << "Energia depositada: " << theRun->GetTotalEnergyDeposited()*MeV << G4endl;
+  G4cout << "Numero de Eventos: " << theRun->GetNumberOfEvent() << G4endl;
 
 //  for(size_t i=0;i<3;i++)
 //  {

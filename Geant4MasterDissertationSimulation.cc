@@ -28,7 +28,6 @@
 //for sleep(seconds) function
 //#include <pthread.h>
 
-//#include "SrBRandom.hh"
 
 
 void setupUIProgramatically(G4UImanager *UI);
@@ -54,11 +53,11 @@ int main(G4int argc, char** argv) {
 	 * virtual functions RegisterGraphicsSystems and RegisterModelFactories which
 	 * are executed when you Initialise() OR Initialize().
 	 */
-	#ifdef G4VIS_USE
-		// Visualization manager construction
-		G4VisManager* visManager = new G4VisExecutive;
-		visManager->Initialize();
-	#endif
+//	#ifdef G4VIS_USE
+//		// Visualization manager construction
+//		G4VisManager* visManager = new G4VisExecutive;
+//		visManager->Initialize();
+//	#endif
 
 	/*
 	 * UserDetectorConstruction is one of the three mandatory classes for
@@ -79,7 +78,13 @@ int main(G4int argc, char** argv) {
 	 * GEANT4 simulation that the user must implement.
 	 */
 	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
+//	PrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
 	runManager->SetUserAction(gen_action);
+
+//	G4double sourcePosition = 2.5*m;
+//	PrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
+//	gen_action->setSourcePosition(sourcePosition);
+//	runManager->SetUserAction(gen_action);
 
 	/**
 	 *  Adding user action
@@ -110,7 +115,7 @@ int main(G4int argc, char** argv) {
 	 *		delete myapp;@endcode
 	 *
 	 */
-	G4UIExecutive* session = new G4UIExecutive(argc, argv);
+//	G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
 	/*
 	 * Using G4UImanager object it is possible to set a variety of
@@ -122,27 +127,35 @@ int main(G4int argc, char** argv) {
 	 * Singleton class and its constructor must not be called by the user.
 	 * This object controls the command manipulation and the user interface(s).
 	 */
-	G4UImanager* UI = G4UImanager::GetUIpointer();
+//	G4UImanager* UI = G4UImanager::GetUIpointer();
 
 //	setupUIProgramatically(UI);
 
-//	G4int numberOfEvent = 100;
-//	runManager->BeamOn(numberOfEvent);
+	G4int numberOfEvent = 100000000;
+	runManager->BeamOn(numberOfEvent);
 
-	G4String command = "/control/execute ";
-	G4String fileName = "myMacro.mac"; //argv[1];
-	UI->ApplyCommand(command+fileName);
+//	for (int i=0; i<2; i++) {
+//		runManager->BeamOn(numberOfEvent);
+//		sourcePosition = sourcePosition - 0.5*m;
+//		gen_action = new PrimaryGeneratorAction;
+//		gen_action->setSourcePosition(sourcePosition);
+//		runManager->SetUserAction(gen_action);
+//	}
+
+//	G4String command = "/control/execute ";
+//	G4String fileName = "myMacro.mac"; //argv[1];
+//	UI->ApplyCommand(command+fileName);
 
 
 	/*
 	 * Related to G4UIExecutive class
 	 */
-	session->SessionStart();
-	delete session;
+//	session->SessionStart();
+//	delete session;
 
-	#ifdef G4VIS_USE
-		delete visManager;
-	#endif
+//	#ifdef G4VIS_USE
+//		delete visManager;
+//	#endif
 
 	delete runManager;
 

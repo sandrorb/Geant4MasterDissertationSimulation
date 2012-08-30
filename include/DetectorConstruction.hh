@@ -20,6 +20,8 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     ~DetectorConstruction();
 
     G4VPhysicalVolume* Construct();
+//    void setDetectorPosition(G4double pos);
+    G4double detectorPosition;
 
   private:
     
@@ -34,6 +36,8 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     G4VPhysicalVolume* experimentalHall_phys;
     G4VPhysicalVolume* detector_phys;
     G4VPhysicalVolume* cubo_phys;
+
+//    G4double detectorPosition;
 };
 
 #endif

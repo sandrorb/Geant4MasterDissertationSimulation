@@ -21,13 +21,18 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   //particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="geantino"));
   particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
   particleGun->SetParticleEnergy(0.140*MeV);
-  particleGun->SetParticlePosition(G4ThreeVector(-2.0*m, 0.0, 0.0));
+//  particleGun->SetParticlePosition(G4ThreeVector(Teste::teste, 0.0, 0.0));
+  particleGun->SetParticlePosition(G4ThreeVector(0.5*m, 0.0, 0.0));
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
   delete particleGun;
 }
+
+//void PrimaryGeneratorAction::setSourcePosition(G4double pos){
+//	this->sourcePosition = pos;
+//}
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {

@@ -34,4 +34,4 @@
 #/vis/viewer/set/style surface
 #/tracking/storeTrajectory 20
 /vis/scene/endOfEventAction accumulate 30
-/run/beamOn 100
+/run/beamOn 1000000
