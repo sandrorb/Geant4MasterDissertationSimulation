@@ -8,6 +8,7 @@
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
+class MyMaterial;
 
 #include "G4VUserDetectorConstruction.hh"
 
@@ -20,8 +21,6 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     ~DetectorConstruction();
 
     G4VPhysicalVolume* Construct();
-//    void setDetectorPosition(G4double pos);
-    G4double detectorPosition;
 
   private:
     
@@ -37,7 +36,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     G4VPhysicalVolume* detector_phys;
     G4VPhysicalVolume* cubo_phys;
 
-//    G4double detectorPosition;
+    MyMaterial* myMaterial;
 };
 
 #endif

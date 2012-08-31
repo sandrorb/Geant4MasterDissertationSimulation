@@ -1,6 +1,13 @@
-August, 23, 2012
-This file is for remind me about things that must be done in this project.
+August 23, 2012: This file is for remind me about things that must be done in this project.
 
-* Maybe it is interesting to put the materials construction in another class.
-* It is necessary to understand better about Sensitive Detector and how to accumulate
-  information like radiation dose.
+
+List of things that must be done:
+
+	* Maybe it is interesting to put the materials construction in another class.
+	* It is necessary to understand better about Sensitive Detector and how to accumulate
+	  information like radiation dose.
+
+ 
+ 
+August 30, 2012
+	Today was finished a test simulation for the inverse-square law.

@@ -1,4 +1,6 @@
-// Sandro Boschetti
+/**
+ * @author Sandro Boschetti, August 30, 2012
+ */
 
 #include "PrimaryGeneratorAction.hh"
 
@@ -28,28 +30,8 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
   delete particleGun;
 }
 
-//void PrimaryGeneratorAction::setSourcePosition(G4double pos){
-//	this->sourcePosition = pos;
-//}
-
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-//  G4int i = anEvent->GetEventID() % 3;
-//  G4ThreeVector v(1.0,0.0,0.0);
-//  switch(i)
-//  {
-//    case 0:
-//      break;
-//    case 1:
-//      v.setY(0.1);
-//      break;
-//    case 2:
-//      v.setZ(0.1);
-//      break;
-//  }
-
-	//SrBRandom *teste = new SrBRandom();
-
 	MyRandom *myRand = new MyRandom();
 
 	G4double randX = myRand->getRandomNumber();
@@ -62,14 +44,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
 	G4ThreeVector v(px, py, pz);
 
-//	G4double py = (2 * teste->getRandomNumber() - 1) * 0.1;
-//	G4double pz = (2 * teste->getRandomNumber() - 1) * 0.1;
-//	G4ThreeVector v(1.0, py, pz);
-//	G4ThreeVector v(1.0, 0.0, 0.0);
-	//sleep(1);
-
-  particleGun->SetParticleMomentumDirection(v);
-  particleGun->GeneratePrimaryVertex(anEvent);
+	particleGun->SetParticleMomentumDirection(v);
+	particleGun->GeneratePrimaryVertex(anEvent);
 }
 
 

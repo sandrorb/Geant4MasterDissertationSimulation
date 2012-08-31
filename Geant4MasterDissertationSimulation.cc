@@ -1,21 +1,23 @@
 /**
  * @author Sandro Boschetti, August 24, 2012
- * @version 0.1
+ * @version 0.2
  *
  * This is the main routine, i.e., the entry point for the program simulation. It's
  * based on the example N01 from Geant4.9.3.p02.
  *
  */
 
-#include <ctime>
+#include <ctime> // Used to get time to calculate duration simulation.
 
-#include "G4RunManager.hh"
+#include "G4RunManager.hh" // This class must be instatiated by the user. It controls the whole simulation.
 #include "G4UImanager.hh"
 
+/**
+ * List of classes that must be implemented by the user.
+ */
 #include "DetectorConstruction.hh"
 #include "PhysicsList.hh"
 #include "PrimaryGeneratorAction.hh"
-
 #include "RunAction.hh"
 
 #ifdef G4VIS_USE
@@ -29,9 +31,6 @@
 //for sleep(seconds) function
 //#include <pthread.h>
 
-//#include "Teste.hh"
-//
-//class Teste;
 
 void setupUIProgramatically(G4UImanager *UI);
 
@@ -40,15 +39,10 @@ void setupUIProgramatically(G4UImanager *UI);
  */
 int main(G4int argc, char** argv) {
 
-//		G4cout << "Teste counting : " << Teste::teste << G4endl;
-//		Teste::teste++;
-//		G4cout << "Teste counting : " << Teste::teste << G4endl;
-//
-//		return 0;
-
-	   time_t timeAtBegin = time(0);
-//	   char* dt = ctime(&now);
-	   G4cout << "Time at the beginning of the simulation: " << timeAtBegin << G4endl;
+	/**
+	 * This gets the actual time for simulation duration computation.
+	 */
+	time_t timeAtBegin = time(0);
 
 	/*
 	 * The first thing that must be done in the main() is create an instance of
@@ -72,6 +66,7 @@ int main(G4int argc, char** argv) {
 //		visManager->Initialize();
 //	#endif
 
+
 	/*
 	 * UserDetectorConstruction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
@@ -91,7 +86,6 @@ int main(G4int argc, char** argv) {
 	 * GEANT4 simulation that the user must implement.
 	 */
 	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
-//	PrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
 	runManager->SetUserAction(gen_action);
 
 //	G4double sourcePosition = 2.5*m;
@@ -144,17 +138,9 @@ int main(G4int argc, char** argv) {
 
 //	setupUIProgramatically(UI);
 
-	G4int numberOfEvent = 100000000;
-//	G4int numberOfEvent = 10000;
+//	G4int numberOfEvent = 100000000;
+	G4int numberOfEvent = 10000;
 	runManager->BeamOn(numberOfEvent);
-
-//	for (int i=0; i<2; i++) {
-//		runManager->BeamOn(numberOfEvent);
-//		sourcePosition = sourcePosition - 0.5*m;
-//		gen_action = new PrimaryGeneratorAction;
-//		gen_action->setSourcePosition(sourcePosition);
-//		runManager->SetUserAction(gen_action);
-//	}
 
 //	G4String command = "/control/execute ";
 //	G4String fileName = "myMacro.mac"; //argv[1];

@@ -1,4 +1,7 @@
-August 30, 2012
+August 30, 2012  - version 0.2
+	Today is the beginning of some learning and refactoring.
+
+August 30, 2012 - version 0.1
 	This is the 0.1 version used for a simulation test.
 	The result of this simulation is in the folder "results".
 	This project needs tons of refactoring and documentation.
