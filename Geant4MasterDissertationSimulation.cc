@@ -29,8 +29,7 @@
 #endif
 
 //for sleep(seconds) function
-//#include <pthread.h>
-
+#include <pthread.h>
 
 void setupUIProgramatically(G4UImanager *UI);
 
@@ -60,18 +59,19 @@ int main(G4int argc, char** argv) {
 	 * virtual functions RegisterGraphicsSystems and RegisterModelFactories which
 	 * are executed when you Initialise() OR Initialize().
 	 */
-//	#ifdef G4VIS_USE
-//		// Visualization manager construction
-//		G4VisManager* visManager = new G4VisExecutive;
-//		visManager->Initialize();
-//	#endif
+	#ifdef G4VIS_USE
+		// Visualization manager construction
+		G4VisManager* visManager = new G4VisExecutive;
+		visManager->Initialize();
+	#endif
 
 
 	/*
 	 * UserDetectorConstruction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
-	G4VUserDetectorConstruction* detector = new DetectorConstruction;
+//	G4VUserDetectorConstruction* detector = new DetectorConstruction;
+	DetectorConstruction* detector = new DetectorConstruction;
 	runManager->SetUserInitialization(detector);
 
 	/*
@@ -88,11 +88,6 @@ int main(G4int argc, char** argv) {
 	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
 	runManager->SetUserAction(gen_action);
 
-//	G4double sourcePosition = 2.5*m;
-//	PrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
-//	gen_action->setSourcePosition(sourcePosition);
-//	runManager->SetUserAction(gen_action);
-
 	/**
 	 *  Adding user action
 	 */
@@ -103,6 +98,7 @@ int main(G4int argc, char** argv) {
 	 * Initialize G4 kernel
 	 */
 	runManager->Initialize();
+
 
 	/*
 	 *	This class helps automatic instantiation of user session
@@ -122,7 +118,7 @@ int main(G4int argc, char** argv) {
 	 *		delete myapp;@endcode
 	 *
 	 */
-//	G4UIExecutive* session = new G4UIExecutive(argc, argv);
+	G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
 	/*
 	 * Using G4UImanager object it is possible to set a variety of
@@ -134,36 +130,43 @@ int main(G4int argc, char** argv) {
 	 * Singleton class and its constructor must not be called by the user.
 	 * This object controls the command manipulation and the user interface(s).
 	 */
-//	G4UImanager* UI = G4UImanager::GetUIpointer();
+	G4UImanager* UI = G4UImanager::GetUIpointer();
 
-//	setupUIProgramatically(UI);
+	setupUIProgramatically(UI);
 
 //	G4int numberOfEvent = 100000000;
-	G4int numberOfEvent = 10000;
+	G4int numberOfEvent = 30;
 	runManager->BeamOn(numberOfEvent);
 
+	/**
+	 * This tanslates the physical volume
+	 */
+//	detector->getCube()->SetTranslation(G4ThreeVector( 0.0*m, 0.0*m, 0.0*m));
+//	runManager->GeometryHasBeenModified();
+//	runManager->BeamOn(numberOfEvent);
+
+
 //	G4String command = "/control/execute ";
-//	G4String fileName = "myMacro.mac"; //argv[1];
+//	G4String fileName = "myMacro.mac"; //arrgv[1];
 //	UI->ApplyCommand(command+fileName);
 
 
 	/*
 	 * Related to G4UIExecutive class
 	 */
-//	session->SessionStart();
-//	delete session;
+	session->SessionStart();
+	delete session;
 
-//	#ifdef G4VIS_USE
-//		delete visManager;
-//	#endif
+	#ifdef G4VIS_USE
+		delete visManager;
+	#endif
 
 	delete runManager;
 
 
 	   time_t timeAtEnd = time(0);
 //	   dt = ctime(&now);
-	   G4cout << "Time at the end of the simulation: " << timeAtEnd << G4endl;
-	   G4cout << "Time at the beginning of the simulation: " << timeAtBegin << G4endl;
+	   G4cout << "Inicio: " << timeAtBegin << G4endl << " Fim: " << timeAtEnd << G4endl;
 	   G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 
 	return 0;

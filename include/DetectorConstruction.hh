@@ -22,10 +22,17 @@ class DetectorConstruction : public G4VUserDetectorConstruction
 
     G4VPhysicalVolume* Construct();
 
+    // by Sandro Boschetti
+    G4VPhysicalVolume* getWordVolume();
+    G4VPhysicalVolume* getCube();
+
   private:
     
     // Logical volumes
     //
+
+    MyMaterial* myMaterial;
+
     G4LogicalVolume* experimentalHall_log;
     G4LogicalVolume* detector_log;
     G4LogicalVolume* cubo_log;
@@ -36,7 +43,6 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     G4VPhysicalVolume* detector_phys;
     G4VPhysicalVolume* cubo_phys;
 
-    MyMaterial* myMaterial;
 };
 
 #endif
