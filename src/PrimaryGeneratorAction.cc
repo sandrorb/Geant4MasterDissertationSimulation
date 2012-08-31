@@ -18,11 +18,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4String particleName;
-  //particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="geantino"));
   particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
   particleGun->SetParticleEnergy(0.140*MeV);
-//  particleGun->SetParticlePosition(G4ThreeVector(Teste::teste, 0.0, 0.0));
-  particleGun->SetParticlePosition(G4ThreeVector(0.5*m, 0.0, 0.0));
+  particleGun->SetParticlePosition(G4ThreeVector(2.6*m, 0.0, 0.0));
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()

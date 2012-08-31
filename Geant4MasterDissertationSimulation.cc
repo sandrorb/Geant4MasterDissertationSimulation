@@ -7,6 +7,7 @@
  *
  */
 
+#include <ctime>
 
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
@@ -28,7 +29,9 @@
 //for sleep(seconds) function
 //#include <pthread.h>
 
-
+//#include "Teste.hh"
+//
+//class Teste;
 
 void setupUIProgramatically(G4UImanager *UI);
 
@@ -36,6 +39,16 @@ void setupUIProgramatically(G4UImanager *UI);
  * Entry point function for the whole simulation.
  */
 int main(G4int argc, char** argv) {
+
+//		G4cout << "Teste counting : " << Teste::teste << G4endl;
+//		Teste::teste++;
+//		G4cout << "Teste counting : " << Teste::teste << G4endl;
+//
+//		return 0;
+
+	   time_t timeAtBegin = time(0);
+//	   char* dt = ctime(&now);
+	   G4cout << "Time at the beginning of the simulation: " << timeAtBegin << G4endl;
 
 	/*
 	 * The first thing that must be done in the main() is create an instance of
@@ -132,6 +145,7 @@ int main(G4int argc, char** argv) {
 //	setupUIProgramatically(UI);
 
 	G4int numberOfEvent = 100000000;
+//	G4int numberOfEvent = 10000;
 	runManager->BeamOn(numberOfEvent);
 
 //	for (int i=0; i<2; i++) {
@@ -158,6 +172,13 @@ int main(G4int argc, char** argv) {
 //	#endif
 
 	delete runManager;
+
+
+	   time_t timeAtEnd = time(0);
+//	   dt = ctime(&now);
+	   G4cout << "Time at the end of the simulation: " << timeAtEnd << G4endl;
+	   G4cout << "Time at the beginning of the simulation: " << timeAtBegin << G4endl;
+	   G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 
 	return 0;
 }

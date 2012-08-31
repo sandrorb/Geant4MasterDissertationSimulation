@@ -1,0 +1,47 @@
+
+http://www.tutorialspoint.com/cplusplus/cpp_date_time.htm
+
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int main( )
+{
+   // current date/time based on current system
+   time_t now = time(0);
+   
+   // convert now to string form
+   char* dt = ctime(&now);
+
+   cout << "The local date and time is: " << dt << endl;
+
+   // convert now to tm struct for UTC
+   tm *gmtm = gmtime(&now);
+   dt = asctime(gmtm);
+   cout << "The UTC date and time is:"<< dt << endl;
+}
+
+
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <time.h>
+
+// Get current date/time, format is YYYY-MM-DD.HH:mm:ss
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://www.cplusplus.com/reference/clibrary/ctime/strftime/
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    return buf;
+}
+
+int main() {
+    std::cout << "currentDateTime()=" << currentDateTime() << std::endl;
+    getchar();  // wait for keyboard input
+}

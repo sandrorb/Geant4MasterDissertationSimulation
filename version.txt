@@ -1,0 +1,4 @@
+August 30, 2012
+	This is the 0.1 version used for a simulation test.
+	The result of this simulation is in the folder "results".
+	This project needs tons of refactoring and documentation.
