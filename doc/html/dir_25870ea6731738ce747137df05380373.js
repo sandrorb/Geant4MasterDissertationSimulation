@@ -1,4 +1,0 @@
-var dir_25870ea6731738ce747137df05380373 =
-[
-    [ "g4work", "dir_e6674daa37607e8e2168f32396ce86c4.html", "dir_e6674daa37607e8e2168f32396ce86c4" ]
-];
