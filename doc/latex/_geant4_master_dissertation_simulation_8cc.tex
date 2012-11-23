@@ -1,18 +1,21 @@
-\hypertarget{_geant4_master_dissertation_simulation_8cc}{\section{/\-Users/sandro/g4work/\-Geant4\-Master\-Dissertation\-Simulation/\-Geant4\-Master\-Dissertation\-Simulation.cc File Reference}
-\label{_geant4_master_dissertation_simulation_8cc}\index{/\-Users/sandro/g4work/\-Geant4\-Master\-Dissertation\-Simulation/\-Geant4\-Master\-Dissertation\-Simulation.\-cc@{/\-Users/sandro/g4work/\-Geant4\-Master\-Dissertation\-Simulation/\-Geant4\-Master\-Dissertation\-Simulation.\-cc}}
+\hypertarget{_geant4_master_dissertation_simulation_8cc}{\section{Geant4\-Master\-Dissertation\-Simulation.\-cc File Reference}
+\label{_geant4_master_dissertation_simulation_8cc}\index{Geant4\-Master\-Dissertation\-Simulation.\-cc@{Geant4\-Master\-Dissertation\-Simulation.\-cc}}
 }
+{\ttfamily \#include $<$ctime$>$}\\*
 {\ttfamily \#include \char`\"{}G4\-Run\-Manager.\-hh\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}G4\-U\-Imanager.\-hh\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Detector\-Construction.\-hh\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Ex\-N02\-Physics\-List.\-hh\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Physics\-List.\-hh\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Primary\-Generator\-Action.\-hh\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Run\-Action.\-hh\char`\"{}}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{_geant4_master_dissertation_simulation_8cc_aa5d649a39a416ee455a5d7c3fcb02f57}{setup\-U\-I\-Programatically} (G4\-U\-Imanager $\ast$U\-I)
-\item 
+\begin{DoxyCompactList}\small\item\em List of classes that must be implemented by the user. \end{DoxyCompactList}\item 
 int \hyperlink{_geant4_master_dissertation_simulation_8cc_ab04d39284cce0256e5edcedee1519ece}{main} (G4int argc, char $\ast$$\ast$argv)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Entry point function for the whole simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -24,9 +27,17 @@ int \hyperlink{_geant4_master_dissertation_simulation_8cc_ab04d39284cce0256e5edc
 \item[{char $\ast$$\ast$}]{argv}
 \end{DoxyParamCaption}
 )}}\label{_geant4_master_dissertation_simulation_8cc_ab04d39284cce0256e5edcedee1519ece}
+
+
 Entry point function for the whole simulation. 
 
-Definition at line 38 of file Geant4\-Master\-Dissertation\-Simulation.\-cc.
+This gets the actual time for simulation duration computation.
+
+Adding user action
+
+This tanslates the physical volume
+
+Definition at line 39 of file Geant4\-Master\-Dissertation\-Simulation.\-cc.
 
 \hypertarget{_geant4_master_dissertation_simulation_8cc_aa5d649a39a416ee455a5d7c3fcb02f57}{\index{Geant4\-Master\-Dissertation\-Simulation.\-cc@{Geant4\-Master\-Dissertation\-Simulation.\-cc}!setup\-U\-I\-Programatically@{setup\-U\-I\-Programatically}}
 \index{setup\-U\-I\-Programatically@{setup\-U\-I\-Programatically}!Geant4MasterDissertationSimulation.cc@{Geant4\-Master\-Dissertation\-Simulation.\-cc}}
@@ -35,15 +46,19 @@ Definition at line 38 of file Geant4\-Master\-Dissertation\-Simulation.\-cc.
 \item[{G4\-U\-Imanager $\ast$}]{U\-I}
 \end{DoxyParamCaption}
 )}}\label{_geant4_master_dissertation_simulation_8cc_aa5d649a39a416ee455a5d7c3fcb02f57}
+
+
+List of classes that must be implemented by the user. 
+
+This function has been implemented only for a sake of organization.
+
 \begin{DoxyAuthor}{Author}
 Sandro Boschetti, August 24, 2012 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-0.\-1
+0.\-2
 \end{DoxyVersion}
-This is the main routine, i.\-e., the entry point for the program simulation. It's based on the example N01 from Geant4.\-9.\-3.\-p02.
+This is the main routine, i.\-e., the entry point for the program simulation. It's based on the example N01 from Geant4.\-9.\-3.\-p02. 
 
-This function has been implemented only for a sake of organization. 
-
-Definition at line 143 of file Geant4\-Master\-Dissertation\-Simulation.\-cc.
+Definition at line 178 of file Geant4\-Master\-Dissertation\-Simulation.\-cc.
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addstepmax',['AddStepMax',['../class_ex_n02_physics_list.html#a3d114f32208eaa31f131230b2d2d6cff',1,'ExN02PhysicsList']]]
+  ['addstepmax',['AddStepMax',['../class_physics_list.html#a07ed38b92ebee0aedbecfb09a4baf50f',1,'PhysicsList']]]
 ];

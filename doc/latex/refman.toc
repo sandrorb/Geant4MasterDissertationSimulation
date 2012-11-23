@@ -1,0 +1,154 @@
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Detector\discretionary {-}{}{}Construction Class Reference}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Constructor \& Destructor Documentation}{7}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}Detector\discretionary {-}{}{}Construction}{7}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}$\sim $\discretionary {-}{}{}Detector\discretionary {-}{}{}Construction}{7}{subsubsection.4.1.2.2}
+\contentsline {subsection}{\numberline {4.1.3}Member Function Documentation}{8}{subsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.3.1}Construct}{8}{subsubsection.4.1.3.1}
+\contentsline {subsubsection}{\numberline {4.1.3.2}get\discretionary {-}{}{}Cube}{8}{subsubsection.4.1.3.2}
+\contentsline {subsubsection}{\numberline {4.1.3.3}get\discretionary {-}{}{}Word\discretionary {-}{}{}Volume}{8}{subsubsection.4.1.3.3}
+\contentsline {section}{\numberline {4.2}My\discretionary {-}{}{}Material Class Reference}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{8}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Constructor \& Destructor Documentation}{8}{subsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.1}My\discretionary {-}{}{}Material}{8}{subsubsection.4.2.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2.2}$\sim $\discretionary {-}{}{}My\discretionary {-}{}{}Material}{8}{subsubsection.4.2.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Member Function Documentation}{9}{subsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3.1}get\discretionary {-}{}{}Air}{9}{subsubsection.4.2.3.1}
+\contentsline {subsubsection}{\numberline {4.2.3.2}get\discretionary {-}{}{}Argon\discretionary {-}{}{}Gas}{9}{subsubsection.4.2.3.2}
+\contentsline {subsubsection}{\numberline {4.2.3.3}get\discretionary {-}{}{}Pb}{9}{subsubsection.4.2.3.3}
+\contentsline {subsubsection}{\numberline {4.2.3.4}get\discretionary {-}{}{}Water}{9}{subsubsection.4.2.3.4}
+\contentsline {section}{\numberline {4.3}My\discretionary {-}{}{}Random Class Reference}{9}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{9}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Constructor \& Destructor Documentation}{9}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}My\discretionary {-}{}{}Random}{9}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}$\sim $\discretionary {-}{}{}My\discretionary {-}{}{}Random}{9}{subsubsection.4.3.2.2}
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{10}{subsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.1}get\discretionary {-}{}{}Random\discretionary {-}{}{}Number}{10}{subsubsection.4.3.3.1}
+\contentsline {section}{\numberline {4.4}Physics\discretionary {-}{}{}List Class Reference}{10}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{10}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Constructor \& Destructor Documentation}{11}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}Physics\discretionary {-}{}{}List}{11}{subsubsection.4.4.2.1}
+\contentsline {subsubsection}{\numberline {4.4.2.2}$\sim $\discretionary {-}{}{}Physics\discretionary {-}{}{}List}{11}{subsubsection.4.4.2.2}
+\contentsline {subsubsection}{\numberline {4.4.2.3}Physics\discretionary {-}{}{}List}{11}{subsubsection.4.4.2.3}
+\contentsline {subsubsection}{\numberline {4.4.2.4}$\sim $\discretionary {-}{}{}Physics\discretionary {-}{}{}List}{11}{subsubsection.4.4.2.4}
+\contentsline {subsection}{\numberline {4.4.3}Member Function Documentation}{11}{subsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.3.1}Add\discretionary {-}{}{}Step\discretionary {-}{}{}Max}{11}{subsubsection.4.4.3.1}
+\contentsline {subsubsection}{\numberline {4.4.3.2}Construct\discretionary {-}{}{}Baryons}{11}{subsubsection.4.4.3.2}
+\contentsline {subsubsection}{\numberline {4.4.3.3}Construct\discretionary {-}{}{}Bosons}{11}{subsubsection.4.4.3.3}
+\contentsline {subsubsection}{\numberline {4.4.3.4}Construct\discretionary {-}{}{}E\discretionary {-}{}{}M}{11}{subsubsection.4.4.3.4}
+\contentsline {subsubsection}{\numberline {4.4.3.5}Construct\discretionary {-}{}{}General}{11}{subsubsection.4.4.3.5}
+\contentsline {subsubsection}{\numberline {4.4.3.6}Construct\discretionary {-}{}{}Leptons}{11}{subsubsection.4.4.3.6}
+\contentsline {subsubsection}{\numberline {4.4.3.7}Construct\discretionary {-}{}{}Mesons}{12}{subsubsection.4.4.3.7}
+\contentsline {subsubsection}{\numberline {4.4.3.8}Construct\discretionary {-}{}{}Particle}{12}{subsubsection.4.4.3.8}
+\contentsline {subsubsection}{\numberline {4.4.3.9}Construct\discretionary {-}{}{}Particle}{12}{subsubsection.4.4.3.9}
+\contentsline {subsubsection}{\numberline {4.4.3.10}Construct\discretionary {-}{}{}Process}{12}{subsubsection.4.4.3.10}
+\contentsline {subsubsection}{\numberline {4.4.3.11}Construct\discretionary {-}{}{}Process}{12}{subsubsection.4.4.3.11}
+\contentsline {subsubsection}{\numberline {4.4.3.12}Set\discretionary {-}{}{}Cuts}{12}{subsubsection.4.4.3.12}
+\contentsline {subsubsection}{\numberline {4.4.3.13}Set\discretionary {-}{}{}Cuts}{12}{subsubsection.4.4.3.13}
+\contentsline {section}{\numberline {4.5}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action Class Reference}{12}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{12}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Constructor \& Destructor Documentation}{13}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action}{13}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}$\sim $\discretionary {-}{}{}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action}{13}{subsubsection.4.5.2.2}
+\contentsline {subsection}{\numberline {4.5.3}Member Function Documentation}{13}{subsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.3.1}Generate\discretionary {-}{}{}Primaries}{13}{subsubsection.4.5.3.1}
+\contentsline {section}{\numberline {4.6}Run Class Reference}{13}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{13}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Constructor \& Destructor Documentation}{13}{subsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.2.1}Run}{13}{subsubsection.4.6.2.1}
+\contentsline {subsubsection}{\numberline {4.6.2.2}$\sim $\discretionary {-}{}{}Run}{14}{subsubsection.4.6.2.2}
+\contentsline {subsection}{\numberline {4.6.3}Member Function Documentation}{14}{subsection.4.6.3}
+\contentsline {subsubsection}{\numberline {4.6.3.1}Get\discretionary {-}{}{}Total\discretionary {-}{}{}Energy\discretionary {-}{}{}Deposited}{14}{subsubsection.4.6.3.1}
+\contentsline {subsubsection}{\numberline {4.6.3.2}Record\discretionary {-}{}{}Event}{14}{subsubsection.4.6.3.2}
+\contentsline {section}{\numberline {4.7}Run\discretionary {-}{}{}Action Class Reference}{14}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{14}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Constructor \& Destructor Documentation}{15}{subsection.4.7.2}
+\contentsline {subsubsection}{\numberline {4.7.2.1}Run\discretionary {-}{}{}Action}{15}{subsubsection.4.7.2.1}
+\contentsline {subsubsection}{\numberline {4.7.2.2}$\sim $\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{15}{subsubsection.4.7.2.2}
+\contentsline {subsection}{\numberline {4.7.3}Member Function Documentation}{15}{subsection.4.7.3}
+\contentsline {subsubsection}{\numberline {4.7.3.1}Begin\discretionary {-}{}{}Of\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{15}{subsubsection.4.7.3.1}
+\contentsline {subsubsection}{\numberline {4.7.3.2}End\discretionary {-}{}{}Of\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{15}{subsubsection.4.7.3.2}
+\contentsline {subsubsection}{\numberline {4.7.3.3}Generate\discretionary {-}{}{}Run}{15}{subsubsection.4.7.3.3}
+\contentsline {section}{\numberline {4.8}Teste Class Reference}{15}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{16}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}Constructor \& Destructor Documentation}{16}{subsection.4.8.2}
+\contentsline {subsubsection}{\numberline {4.8.2.1}Teste}{16}{subsubsection.4.8.2.1}
+\contentsline {subsubsection}{\numberline {4.8.2.2}$\sim $\discretionary {-}{}{}Teste}{16}{subsubsection.4.8.2.2}
+\contentsline {subsection}{\numberline {4.8.3}Member Data Documentation}{16}{subsection.4.8.3}
+\contentsline {subsubsection}{\numberline {4.8.3.1}teste}{16}{subsubsection.4.8.3.1}
+\contentsline {section}{\numberline {4.9}Teste\discretionary {-}{}{}Detector\discretionary {-}{}{}Construction Class Reference}{16}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{16}{subsection.4.9.1}
+\contentsline {subsection}{\numberline {4.9.2}Constructor \& Destructor Documentation}{16}{subsection.4.9.2}
+\contentsline {subsubsection}{\numberline {4.9.2.1}Teste\discretionary {-}{}{}Detector\discretionary {-}{}{}Construction}{16}{subsubsection.4.9.2.1}
+\contentsline {subsubsection}{\numberline {4.9.2.2}$\sim $\discretionary {-}{}{}Teste\discretionary {-}{}{}Detector\discretionary {-}{}{}Construction}{17}{subsubsection.4.9.2.2}
+\contentsline {subsection}{\numberline {4.9.3}Member Function Documentation}{17}{subsection.4.9.3}
+\contentsline {subsubsection}{\numberline {4.9.3.1}Construct}{17}{subsubsection.4.9.3.1}
+\contentsline {section}{\numberline {4.10}Teste\discretionary {-}{}{}Physics\discretionary {-}{}{}List Class Reference}{17}{section.4.10}
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{17}{subsection.4.10.1}
+\contentsline {subsection}{\numberline {4.10.2}Constructor \& Destructor Documentation}{17}{subsection.4.10.2}
+\contentsline {subsubsection}{\numberline {4.10.2.1}Teste\discretionary {-}{}{}Physics\discretionary {-}{}{}List}{17}{subsubsection.4.10.2.1}
+\contentsline {subsubsection}{\numberline {4.10.2.2}$\sim $\discretionary {-}{}{}Teste\discretionary {-}{}{}Physics\discretionary {-}{}{}List}{17}{subsubsection.4.10.2.2}
+\contentsline {subsection}{\numberline {4.10.3}Member Function Documentation}{18}{subsection.4.10.3}
+\contentsline {subsubsection}{\numberline {4.10.3.1}Construct\discretionary {-}{}{}Particle}{18}{subsubsection.4.10.3.1}
+\contentsline {subsubsection}{\numberline {4.10.3.2}Construct\discretionary {-}{}{}Process}{18}{subsubsection.4.10.3.2}
+\contentsline {subsubsection}{\numberline {4.10.3.3}Set\discretionary {-}{}{}Cuts}{18}{subsubsection.4.10.3.3}
+\contentsline {section}{\numberline {4.11}Teste\discretionary {-}{}{}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action Class Reference}{18}{section.4.11}
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{18}{subsection.4.11.1}
+\contentsline {subsection}{\numberline {4.11.2}Constructor \& Destructor Documentation}{18}{subsection.4.11.2}
+\contentsline {subsubsection}{\numberline {4.11.2.1}Teste\discretionary {-}{}{}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action}{18}{subsubsection.4.11.2.1}
+\contentsline {subsubsection}{\numberline {4.11.2.2}$\sim $\discretionary {-}{}{}Teste\discretionary {-}{}{}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action}{18}{subsubsection.4.11.2.2}
+\contentsline {subsection}{\numberline {4.11.3}Member Function Documentation}{19}{subsection.4.11.3}
+\contentsline {subsubsection}{\numberline {4.11.3.1}Generate\discretionary {-}{}{}Primaries}{19}{subsubsection.4.11.3.1}
+\contentsline {section}{\numberline {4.12}Teste\discretionary {-}{}{}User\discretionary {-}{}{}Run\discretionary {-}{}{}Action Class Reference}{19}{section.4.12}
+\contentsline {subsection}{\numberline {4.12.1}Detailed Description}{19}{subsection.4.12.1}
+\contentsline {subsection}{\numberline {4.12.2}Constructor \& Destructor Documentation}{19}{subsection.4.12.2}
+\contentsline {subsubsection}{\numberline {4.12.2.1}Teste\discretionary {-}{}{}User\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{19}{subsubsection.4.12.2.1}
+\contentsline {subsubsection}{\numberline {4.12.2.2}$\sim $\discretionary {-}{}{}Teste\discretionary {-}{}{}User\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{19}{subsubsection.4.12.2.2}
+\contentsline {subsection}{\numberline {4.12.3}Member Function Documentation}{19}{subsection.4.12.3}
+\contentsline {subsubsection}{\numberline {4.12.3.1}Begin\discretionary {-}{}{}Of\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{19}{subsubsection.4.12.3.1}
+\contentsline {subsubsection}{\numberline {4.12.3.2}End\discretionary {-}{}{}Of\discretionary {-}{}{}Run\discretionary {-}{}{}Action}{20}{subsubsection.4.12.3.2}
+\contentsline {subsubsection}{\numberline {4.12.3.3}Generate\discretionary {-}{}{}Run}{20}{subsubsection.4.12.3.3}
+\contentsline {chapter}{\numberline {5}File Documentation}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Detector\discretionary {-}{}{}Construction.\discretionary {-}{}{}cc File Reference}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Detector\discretionary {-}{}{}Construction.\discretionary {-}{}{}hh File Reference}{21}{section.5.2}
+\contentsline {section}{\numberline {5.3}Geant4\discretionary {-}{}{}Master\discretionary {-}{}{}Dissertation\discretionary {-}{}{}Simulation.\discretionary {-}{}{}cc File Reference}{22}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Function Documentation}{22}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}main}{22}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}setup\discretionary {-}{}{}U\discretionary {-}{}{}I\discretionary {-}{}{}Programatically}{22}{subsubsection.5.3.1.2}
+\contentsline {section}{\numberline {5.4}My\discretionary {-}{}{}Material.\discretionary {-}{}{}cc File Reference}{22}{section.5.4}
+\contentsline {section}{\numberline {5.5}My\discretionary {-}{}{}Material.\discretionary {-}{}{}hh File Reference}{23}{section.5.5}
+\contentsline {section}{\numberline {5.6}My\discretionary {-}{}{}Random.\discretionary {-}{}{}cc File Reference}{23}{section.5.6}
+\contentsline {section}{\numberline {5.7}My\discretionary {-}{}{}Random.\discretionary {-}{}{}hh File Reference}{23}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Macro Definition Documentation}{23}{subsection.5.7.1}
+\contentsline {subsubsection}{\numberline {5.7.1.1}G4\discretionary {-}{}{}Rand\discretionary {-}{}{}Gauss}{23}{subsubsection.5.7.1.1}
+\contentsline {subsubsection}{\numberline {5.7.1.2}G4\discretionary {-}{}{}Uniform\discretionary {-}{}{}Rand}{23}{subsubsection.5.7.1.2}
+\contentsline {subsubsection}{\numberline {5.7.1.3}randomize\discretionary {-}{}{}\_\discretionary {-}{}{}h}{23}{subsubsection.5.7.1.3}
+\contentsline {section}{\numberline {5.8}Physics\discretionary {-}{}{}List.\discretionary {-}{}{}cc File Reference}{24}{section.5.8}
+\contentsline {section}{\numberline {5.9}Physics\discretionary {-}{}{}List.\discretionary {-}{}{}cc File Reference}{24}{section.5.9}
+\contentsline {section}{\numberline {5.10}Physics\discretionary {-}{}{}List.\discretionary {-}{}{}hh File Reference}{24}{section.5.10}
+\contentsline {section}{\numberline {5.11}Physics\discretionary {-}{}{}List.\discretionary {-}{}{}hh File Reference}{24}{section.5.11}
+\contentsline {section}{\numberline {5.12}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action.\discretionary {-}{}{}cc File Reference}{25}{section.5.12}
+\contentsline {section}{\numberline {5.13}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action.\discretionary {-}{}{}hh File Reference}{25}{section.5.13}
+\contentsline {section}{\numberline {5.14}Run.\discretionary {-}{}{}cc File Reference}{25}{section.5.14}
+\contentsline {section}{\numberline {5.15}Run.\discretionary {-}{}{}hh File Reference}{25}{section.5.15}
+\contentsline {section}{\numberline {5.16}Run\discretionary {-}{}{}Action.\discretionary {-}{}{}cc File Reference}{26}{section.5.16}
+\contentsline {section}{\numberline {5.17}Run\discretionary {-}{}{}Action.\discretionary {-}{}{}cc File Reference}{26}{section.5.17}
+\contentsline {section}{\numberline {5.18}Run\discretionary {-}{}{}Action.\discretionary {-}{}{}hh File Reference}{26}{section.5.18}
+\contentsline {section}{\numberline {5.19}Teste.\discretionary {-}{}{}cc File Reference}{26}{section.5.19}
+\contentsline {section}{\numberline {5.20}Teste.\discretionary {-}{}{}hh File Reference}{26}{section.5.20}
+\contentsline {section}{\numberline {5.21}Teste\discretionary {-}{}{}Detector\discretionary {-}{}{}Construction.\discretionary {-}{}{}cc File Reference}{27}{section.5.21}
+\contentsline {section}{\numberline {5.22}Teste\discretionary {-}{}{}Detector\discretionary {-}{}{}Construction.\discretionary {-}{}{}hh File Reference}{27}{section.5.22}
+\contentsline {section}{\numberline {5.23}Teste\discretionary {-}{}{}Physics\discretionary {-}{}{}List.\discretionary {-}{}{}cc File Reference}{27}{section.5.23}
+\contentsline {section}{\numberline {5.24}Teste\discretionary {-}{}{}Physics\discretionary {-}{}{}List.\discretionary {-}{}{}hh File Reference}{27}{section.5.24}
+\contentsline {section}{\numberline {5.25}Teste\discretionary {-}{}{}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action.\discretionary {-}{}{}cc File Reference}{27}{section.5.25}
+\contentsline {section}{\numberline {5.26}Teste\discretionary {-}{}{}Primary\discretionary {-}{}{}Generator\discretionary {-}{}{}Action.\discretionary {-}{}{}hh File Reference}{28}{section.5.26}
+\contentsline {section}{\numberline {5.27}Teste\discretionary {-}{}{}User\discretionary {-}{}{}Run\discretionary {-}{}{}Action.\discretionary {-}{}{}cc File Reference}{28}{section.5.27}
+\contentsline {section}{\numberline {5.28}Teste\discretionary {-}{}{}User\discretionary {-}{}{}Run\discretionary {-}{}{}Action.\discretionary {-}{}{}hh File Reference}{28}{section.5.28}
+\contentsline {part}{Index}{28}{section*.31}

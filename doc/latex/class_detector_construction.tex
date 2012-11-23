@@ -19,13 +19,17 @@ Inheritance diagram for Detector\-Construction\-:\begin{figure}[H]
 \hyperlink{class_detector_construction_a73013cab35a2b470338da2e4686edea3}{$\sim$\-Detector\-Construction} ()
 \item 
 G4\-V\-Physical\-Volume $\ast$ \hyperlink{class_detector_construction_a662c618480b345a747f014b845d5ffdf}{Construct} ()
+\item 
+G4\-V\-Physical\-Volume $\ast$ \hyperlink{class_detector_construction_ab3d0fbcccb1be35f505a78e7fd4ffce2}{get\-Word\-Volume} ()
+\item 
+G4\-V\-Physical\-Volume $\ast$ \hyperlink{class_detector_construction_af45ab5e73219e233c7c015573cf4f88f}{get\-Cube} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
-Definition at line 15 of file Detector\-Construction.\-hh.
+Definition at line 16 of file Detector\-Construction.\-hh.
 
 
 
@@ -37,9 +41,12 @@ Definition at line 15 of file Detector\-Construction.\-hh.
 {}
 \end{DoxyParamCaption}
 )}}\label{class_detector_construction_a1533c4308baddd0b2dcdf40f61dea1ef}
+\begin{DoxyAuthor}{Author}
+Sandro Boschetti, August 30, 2012 
+\end{DoxyAuthor}
 
 
-Definition at line 14 of file Detector\-Construction.\-cc.
+Definition at line 27 of file Detector\-Construction.\-cc.
 
 \hypertarget{class_detector_construction_a73013cab35a2b470338da2e4686edea3}{\index{Detector\-Construction@{Detector\-Construction}!$\sim$\-Detector\-Construction@{$\sim$\-Detector\-Construction}}
 \index{$\sim$\-Detector\-Construction@{$\sim$\-Detector\-Construction}!DetectorConstruction@{Detector\-Construction}}
@@ -50,7 +57,7 @@ Definition at line 14 of file Detector\-Construction.\-cc.
 )}}\label{class_detector_construction_a73013cab35a2b470338da2e4686edea3}
 
 
-Definition at line 19 of file Detector\-Construction.\-cc.
+Definition at line 32 of file Detector\-Construction.\-cc.
 
 
 
@@ -62,13 +69,39 @@ Definition at line 19 of file Detector\-Construction.\-cc.
 {}
 \end{DoxyParamCaption}
 )}}\label{class_detector_construction_a662c618480b345a747f014b845d5ffdf}
+A Logical\-Volume is some geometry figure, like a G4\-Box, fulfilled with some material.
+
+A Physical\-Volume is a Logical\-Volume put in place.
+
+Here I set the Sensitive Detector used to accumulate radiation dose. There is a bunch of things that must be U\-N\-D\-E\-R\-S\-T\-O\-O\-D here.
+
+Definition at line 45 of file Detector\-Construction.\-cc.
+
+\hypertarget{class_detector_construction_af45ab5e73219e233c7c015573cf4f88f}{\index{Detector\-Construction@{Detector\-Construction}!get\-Cube@{get\-Cube}}
+\index{get\-Cube@{get\-Cube}!DetectorConstruction@{Detector\-Construction}}
+\subsubsection[{get\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}G4\-V\-Physical\-Volume $\ast$ Detector\-Construction\-::get\-Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_detector_construction_af45ab5e73219e233c7c015573cf4f88f}
 
 
-Definition at line 23 of file Detector\-Construction.\-cc.
+Definition at line 41 of file Detector\-Construction.\-cc.
+
+\hypertarget{class_detector_construction_ab3d0fbcccb1be35f505a78e7fd4ffce2}{\index{Detector\-Construction@{Detector\-Construction}!get\-Word\-Volume@{get\-Word\-Volume}}
+\index{get\-Word\-Volume@{get\-Word\-Volume}!DetectorConstruction@{Detector\-Construction}}
+\subsubsection[{get\-Word\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}G4\-V\-Physical\-Volume $\ast$ Detector\-Construction\-::get\-Word\-Volume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_detector_construction_ab3d0fbcccb1be35f505a78e7fd4ffce2}
+
+
+Definition at line 37 of file Detector\-Construction.\-cc.
 
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-/\-Users/sandro/g4work/\-Geant4\-Master\-Dissertation\-Simulation/include/\hyperlink{_detector_construction_8hh}{Detector\-Construction.\-hh}\item 
-/\-Users/sandro/g4work/\-Geant4\-Master\-Dissertation\-Simulation/src/\hyperlink{_detector_construction_8cc}{Detector\-Construction.\-cc}\end{DoxyCompactItemize}
+\hyperlink{_detector_construction_8hh}{Detector\-Construction.\-hh}\item 
+\hyperlink{_detector_construction_8cc}{Detector\-Construction.\-cc}\end{DoxyCompactItemize}

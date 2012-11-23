@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GEANT4 Simulation: /Users/sandro/g4work/Geant4MasterDissertationSimulation/src/PrimaryGeneratorAction.cc Source File</title>
+<title>GEANT4 Simulation: PrimaryGeneratorAction.cc Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Sandro_thumb.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">GEANT4 Simulation
    &#160;<span id="projectnumber">version 0.1</span>
@@ -91,7 +90,7 @@ $(document).ready(function(){initNavTree('_primary_generator_action_8cc_source.h
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,72 +104,61 @@ $(document).ready(function(){initNavTree('_primary_generator_action_8cc_source.h
 <div class="title">PrimaryGeneratorAction.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_primary_generator_action_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Sandro Boschetti</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_primary_generator_action_8hh.html">PrimaryGeneratorAction.hh</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;G4Event.hh&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;G4ParticleGun.hh&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;G4ParticleTable.hh&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;G4ParticleDefinition.hh&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;globals.hh&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_my_random_8hh.html">MyRandom.hh</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_primary_generator_action.html#a4bbef83d397d84b434541f8720bf747d">   14</a></span>&#160;<a class="code" href="class_primary_generator_action.html#a4bbef83d397d84b434541f8720bf747d">PrimaryGeneratorAction::PrimaryGeneratorAction</a>()</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  G4int n_particle = 1;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  particleGun = <span class="keyword">new</span> G4ParticleGun(n_particle);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  G4String particleName;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="comment">//particleGun-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=&quot;geantino&quot;));</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  particleGun-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=<span class="stringliteral">&quot;gamma&quot;</span>));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  particleGun-&gt;SetParticleEnergy(0.140*MeV);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  particleGun-&gt;SetParticlePosition(G4ThreeVector(-2.0*m, 0.0, 0.0));</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_primary_generator_action.html#ad236fbc210171b9178446778b6bdfb40">   27</a></span>&#160;<a class="code" href="class_primary_generator_action.html#ad236fbc210171b9178446778b6bdfb40">PrimaryGeneratorAction::~PrimaryGeneratorAction</a>()</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">delete</span> particleGun;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_primary_generator_action.html#a67d83efdbb2b6e6f97a001dc921ea003">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_primary_generator_action.html#a67d83efdbb2b6e6f97a001dc921ea003">PrimaryGeneratorAction::GeneratePrimaries</a>(G4Event* anEvent)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//  G4int i = anEvent-&gt;GetEventID() % 3;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//  G4ThreeVector v(1.0,0.0,0.0);</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//  switch(i)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//  {</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//    case 0:</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//      break;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//    case 1:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//      v.setY(0.1);</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//      break;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//    case 2:</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//      v.setZ(0.1);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//      break;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//  }</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//SrBRandom *teste = new SrBRandom();</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//  G4double py = (2 * teste-&gt;getRandomNumber() - 1) * 0.1;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//  G4double pz = (2 * teste-&gt;getRandomNumber() - 1) * 0.1;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//  G4ThreeVector v(1.0, py, pz);</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    G4ThreeVector v(1.0, 0.0, 0.0);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//sleep(1);</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  particleGun-&gt;SetParticleMomentumDirection(v);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  particleGun-&gt;GeneratePrimaryVertex(anEvent);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<a href="_primary_generator_action_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_primary_generator_action_8hh.html">PrimaryGeneratorAction.hh</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;G4Event.hh&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;G4ParticleGun.hh&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;G4ParticleTable.hh&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;G4ParticleDefinition.hh&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;globals.hh&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_my_random_8hh.html">MyRandom.hh</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_primary_generator_action.html#a4bbef83d397d84b434541f8720bf747d">   16</a></span>&#160;<a class="code" href="class_primary_generator_action.html#a4bbef83d397d84b434541f8720bf747d">PrimaryGeneratorAction::PrimaryGeneratorAction</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  G4int n_particle = 1;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  particleGun = <span class="keyword">new</span> G4ParticleGun(n_particle);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  G4String particleName;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  particleGun-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=<span class="stringliteral">&quot;gamma&quot;</span>));</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  particleGun-&gt;SetParticleEnergy(0.140*MeV);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  particleGun-&gt;SetParticlePosition(G4ThreeVector(2.6*m, 0.0, 0.0));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_primary_generator_action.html#ad236fbc210171b9178446778b6bdfb40">   28</a></span>&#160;<a class="code" href="class_primary_generator_action.html#ad236fbc210171b9178446778b6bdfb40">PrimaryGeneratorAction::~PrimaryGeneratorAction</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">delete</span> particleGun;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_primary_generator_action.html#a67d83efdbb2b6e6f97a001dc921ea003">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_primary_generator_action.html#a67d83efdbb2b6e6f97a001dc921ea003">PrimaryGeneratorAction::GeneratePrimaries</a>(G4Event* anEvent)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <a class="code" href="class_my_random.html">MyRandom</a> *myRand = <span class="keyword">new</span> <a class="code" href="class_my_random.html">MyRandom</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; G4double randX = myRand-&gt;<a class="code" href="class_my_random.html#a9a10d5547334be89143a134192b982e0">getRandomNumber</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; G4double randY = myRand-&gt;<a class="code" href="class_my_random.html#a9a10d5547334be89143a134192b982e0">getRandomNumber</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; G4double randZ = myRand-&gt;<a class="code" href="class_my_random.html#a9a10d5547334be89143a134192b982e0">getRandomNumber</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; G4double px = 2 * randX - 1;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; G4double py = 2 * randY - 1;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; G4double pz = 2 * randZ - 1;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; G4ThreeVector v(px, py, pz);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; particleGun-&gt;SetParticleMomentumDirection(v);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; particleGun-&gt;GeneratePrimaryVertex(anEvent);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_25870ea6731738ce747137df05380373.html">sandro</a></li><li class="navelem"><a class="el" href="dir_e6674daa37607e8e2168f32396ce86c4.html">g4work</a></li><li class="navelem"><a class="el" href="dir_ca64f57d92c0794d6fa1e105fb6186ff.html">Geant4MasterDissertationSimulation</a></li><li class="navelem"><a class="el" href="dir_77b6b08c0731b834cf64cd453c4b5fb4.html">src</a></li><li class="navelem"><a class="el" href="_primary_generator_action_8cc.html">PrimaryGeneratorAction.cc</a></li>
-    <li class="footer">Generated on Sat Aug 25 2012 01:19:01 for GEANT4 Simulation by
+    <li class="footer">Generated on Thu Nov 22 2012 23:32:09 for GEANT4 Simulation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

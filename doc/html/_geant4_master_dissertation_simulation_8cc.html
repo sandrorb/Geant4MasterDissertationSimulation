@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GEANT4 Simulation: /Users/sandro/g4work/Geant4MasterDissertationSimulation/Geant4MasterDissertationSimulation.cc File Reference</title>
+<title>GEANT4 Simulation: Geant4MasterDissertationSimulation.cc File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Sandro_thumb.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">GEANT4 Simulation
    &#160;<span id="projectnumber">version 0.1</span>
@@ -91,7 +90,7 @@ $(document).ready(function(){initNavTree('_geant4_master_dissertation_simulation
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,19 +106,24 @@ $(document).ready(function(){initNavTree('_geant4_master_dissertation_simulation
 <div class="title">Geant4MasterDissertationSimulation.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;G4RunManager.hh&quot;</code><br/>
+<div class="textblock"><code>#include &lt;ctime&gt;</code><br/>
+<code>#include &quot;G4RunManager.hh&quot;</code><br/>
 <code>#include &quot;G4UImanager.hh&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_detector_construction_8hh_source.html">DetectorConstruction.hh</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_ex_n02_physics_list_8hh_source.html">ExN02PhysicsList.hh</a>&quot;</code><br/>
+<code>#include &quot;PhysicsList.hh&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_primary_generator_action_8hh_source.html">PrimaryGeneratorAction.hh</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_run_action_8hh_source.html">RunAction.hh</a>&quot;</code><br/>
+<code>#include &lt;pthread.h&gt;</code><br/>
 </div>
 <p><a href="_geant4_master_dissertation_simulation_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa5d649a39a416ee455a5d7c3fcb02f57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57">setupUIProgramatically</a> (G4UImanager *UI)</td></tr>
+<tr class="memdesc:aa5d649a39a416ee455a5d7c3fcb02f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of classes that must be implemented by the user.  <a href="#aa5d649a39a416ee455a5d7c3fcb02f57"></a><br/></td></tr>
 <tr class="separator:aa5d649a39a416ee455a5d7c3fcb02f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab04d39284cce0256e5edcedee1519ece"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_geant4_master_dissertation_simulation_8cc.html#ab04d39284cce0256e5edcedee1519ece">main</a> (G4int argc, char **argv)</td></tr>
+<tr class="memdesc:ab04d39284cce0256e5edcedee1519ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point function for the whole simulation.  <a href="#ab04d39284cce0256e5edcedee1519ece"></a><br/></td></tr>
 <tr class="separator:ab04d39284cce0256e5edcedee1519ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -146,9 +150,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Entry point function for the whole simulation. </p>
 
-<p>Definition at line <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html#l00038">38</a> of file <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html">Geant4MasterDissertationSimulation.cc</a>.</p>
+<p>Entry point function for the whole simulation. </p>
+<p>This gets the actual time for simulation duration computation.</p>
+<p>Adding user action</p>
+<p>This tanslates the physical volume</p>
+
+<p>Definition at line <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html#l00039">39</a> of file <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html">Geant4MasterDissertationSimulation.cc</a>.</p>
 
 </div>
 </div>
@@ -165,12 +173,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section author"><dt>Author</dt><dd>Sandro Boschetti, August 24, 2012 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1</dd></dl>
-<p>This is the main routine, i.e., the entry point for the program simulation. It's based on the example N01 from Geant4.9.3.p02.</p>
-<p>This function has been implemented only for a sake of organization. </p>
 
-<p>Definition at line <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html#l00143">143</a> of file <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html">Geant4MasterDissertationSimulation.cc</a>.</p>
+<p>List of classes that must be implemented by the user. </p>
+<p>This function has been implemented only for a sake of organization.</p>
+<dl class="section author"><dt>Author</dt><dd>Sandro Boschetti, August 24, 2012 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2</dd></dl>
+<p>This is the main routine, i.e., the entry point for the program simulation. It's based on the example N01 from Geant4.9.3.p02. </p>
+
+<p>Definition at line <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html#l00178">178</a> of file <a class="el" href="_geant4_master_dissertation_simulation_8cc_source.html">Geant4MasterDissertationSimulation.cc</a>.</p>
 
 </div>
 </div>
@@ -180,7 +190,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_25870ea6731738ce747137df05380373.html">sandro</a></li><li class="navelem"><a class="el" href="dir_e6674daa37607e8e2168f32396ce86c4.html">g4work</a></li><li class="navelem"><a class="el" href="dir_ca64f57d92c0794d6fa1e105fb6186ff.html">Geant4MasterDissertationSimulation</a></li><li class="navelem"><a class="el" href="_geant4_master_dissertation_simulation_8cc.html">Geant4MasterDissertationSimulation.cc</a></li>
-    <li class="footer">Generated on Sat Aug 25 2012 01:19:01 for GEANT4 Simulation by
+    <li class="footer">Generated on Thu Nov 22 2012 23:32:10 for GEANT4 Simulation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>
