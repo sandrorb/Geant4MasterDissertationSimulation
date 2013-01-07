@@ -34,14 +34,14 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     MyMaterial* myMaterial;
 
     G4LogicalVolume* experimentalHall_log;
-    G4LogicalVolume* detector_log;
-    G4LogicalVolume* cubo_log;
+    G4LogicalVolume* shielding_log;
+    G4LogicalVolume* cube_log;
 
     // Physical volumes
     //
     G4VPhysicalVolume* experimentalHall_phys;
-    G4VPhysicalVolume* detector_phys;
-    G4VPhysicalVolume* cubo_phys;
+    G4VPhysicalVolume* shielding_phys;
+    G4VPhysicalVolume* cube_phys;
 
 };
 
