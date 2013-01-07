@@ -1,9 +1,19 @@
 /**
  * @author Sandro Boschetti, August 24, 2012
  * @version 0.2
+ * About the author: http://about.me/sandrorb
+ * Source Repository: https://github.com/sandrorb/Geant4MasterDissertationSimulation
  *
- * This is the main routine, i.e., the entry point for the program simulation. It's
- * based on the example N01 from Geant4.9.3.p02.
+ * This ONGOING C++ project, which uses GEANT4.9.3.p02 Toolkit from CERN,
+ * has been designed and implemented by Sandro Boschetti. This project
+ * is part of my master's dissertation at PCTN/UFMG - http://nuclear.ufmg.br.
+ *
+ * Master's Dissertation Advisor: Antonella Lombardi Costa.
+ *
+ * Geant4 is a toolkit for the simulation of the passage of particles
+ * through matter - http://geant4.cern.ch.
+ *
+ * CERN: The European Organization for Nuclear Research - http://www.cern.ch.
  *
  */
 
@@ -34,23 +44,23 @@
 void setupUIProgramatically(G4UImanager *UI);
 
 /**
- * Entry point function for the whole simulation.
+ * This is the main routine, i.e., the entry point for the program simulation.It's
+ * based on the example N01 from Geant4.9.3.p02.
+ *
  */
 int main(G4int argc, char** argv) {
 
 	/**
-	 * This gets the actual time for simulation duration computation.
+	 * This gets the actual time. Used to compute the simulation time.
 	 */
 	time_t timeAtBegin = time(0);
 
-	/*
-	 * The first thing that must be done in the main() is create an instance of
-	 * G4RunManager class.
+	/**
+	 * The first thing that must be done in the main() is to create an instance of G4RunManager class.
 	 */
 	G4RunManager* runManager = new G4RunManager;
-	//runManager->SetUserAction(new BeamTestEventAction);
 
-	/*
+	/**
 	 * G4VisManager is a singleton and an abstract class and the user must derive
 	 * and implement its virtual function RegisterGraphicsSystems(). It's intended
 	 * to be used for graphical UI purposes.
@@ -66,7 +76,7 @@ int main(G4int argc, char** argv) {
 	#endif
 
 
-	/*
+	/**
 	 * UserDetectorConstruction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
@@ -74,14 +84,14 @@ int main(G4int argc, char** argv) {
 	DetectorConstruction* detector = new DetectorConstruction;
 	runManager->SetUserInitialization(detector);
 
-	/*
+	/**
 	 * G4VUserPhysicsList is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
 	G4VUserPhysicsList* physics = new PhysicsList;
 	runManager->SetUserInitialization(physics);
 
-	/*
+	/**
 	 * G4VUserPrimaryGeneratorAction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
@@ -100,7 +110,7 @@ int main(G4int argc, char** argv) {
 	runManager->Initialize();
 
 
-	/*
+	/**
 	 *	This class helps automatic instantiation of user session
 	 *	according to your environment variable like G4UI_USE_XXX.
 	 *@code
@@ -115,41 +125,34 @@ int main(G4int argc, char** argv) {
 	 *
 	 *		myapp-> SessionStart();
 	 *		...
-	 *		delete myapp;@endcode
+	 *		delete myapp;
+	 *@endcode
 	 *
 	 */
 	G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
-	/*
-	 * Using G4UImanager object it is possible to set a variety of
-	 * information for the simulation.
-	 */
-
-
-	/*
+	/**
 	 * Singleton class and its constructor must not be called by the user.
 	 * This object controls the command manipulation and the user interface(s).
+	 *
+	 * Using G4UImanager object it is possible to set a variety of
+	 * information for the simulation.
+	 *
 	 */
 	G4UImanager* UI = G4UImanager::GetUIpointer();
 
+	/**
+	 * Local function implmented for a sake of organization.
+	 * This function sets up some UI characteristics.
+	 */
 	setupUIProgramatically(UI);
 
-//	G4int numberOfEvent = 100000000;
-	G4int numberOfEvent = 30;
+	G4int numberOfEvent = 30; // Simulations has been made with 100-million events
 	runManager->BeamOn(numberOfEvent);
-
-	/**
-	 * This tanslates the physical volume
-	 */
-//	detector->getCube()->SetTranslation(G4ThreeVector( 0.0*m, 0.0*m, 0.0*m));
-//	runManager->GeometryHasBeenModified();
-//	runManager->BeamOn(numberOfEvent);
-
 
 //	G4String command = "/control/execute ";
 //	G4String fileName = "myMacro.mac"; //arrgv[1];
 //	UI->ApplyCommand(command+fileName);
-
 
 	/*
 	 * Related to G4UIExecutive class
@@ -163,14 +166,15 @@ int main(G4int argc, char** argv) {
 
 	delete runManager;
 
-
-	   time_t timeAtEnd = time(0);
-//	   dt = ctime(&now);
-	   G4cout << "Inicio: " << timeAtBegin << G4endl << " Fim: " << timeAtEnd << G4endl;
-	   G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
+	time_t timeAtEnd = time(0);
+	G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
+	G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 
 	return 0;
 }
+
+
+
 
 /**
  * This function has been implemented only for a sake of organization.
@@ -196,6 +200,3 @@ void setupUIProgramatically(G4UImanager *UI){
 	//UI->ApplyCommand("/tracking/storeTrajectory 20");
 	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 30");
 }
-
-
-

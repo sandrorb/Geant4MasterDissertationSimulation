@@ -1,1 +1,23 @@
 This file is for annotations purpose.
+
+
+This is used to try to change the geometry between runs. But I think
+it hasn't worked.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	/**
+	 * This tanslates the physical volume
+	 */
+//	detector->getCube()->SetTranslation(G4ThreeVector( 0.0*m, 0.0*m, 0.0*m));
+//	runManager->GeometryHasBeenModified();
+//	runManager->BeamOn(numberOfEvent);
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Used to compute simulation duration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+time_t timeAtBegin = time(0);
+time_t timeAtEnd = time(0);
+//	   dt = ctime(&now);
+G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
+G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
