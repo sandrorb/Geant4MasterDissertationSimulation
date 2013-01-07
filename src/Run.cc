@@ -27,27 +27,28 @@ void Run::RecordEvent(const G4Event* evt) {
   if (!HCE) return;
 
 	// Usando funcao dessa classe herdada da mae G4Run
-//	G4cout << "Numero de eventos a serem processados: " << this->GetNumberOfEventToBeProcessed() - numberOfEvent  << G4endl;
-	// numberOfEvent eh campo G4int de G4Run
-	numberOfEvent++;
+  	// G4cout << "Numero de eventos a serem processados: " << this->GetNumberOfEventToBeProcessed() - numberOfEvent  << G4endl;
+	// numberOfEvent is a G4int member of G4Run
+  numberOfEvent++;
 
-      G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(ID));
-      energySum += *evtMap;
+  G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(ID));
+  // G4THitsMap<G4double> energySum;
+  energySum += *evtMap;
 
-//      G4cout << energySum << G4endl;
+//      G4cout << energySum.GetName() << G4endl;
 }
 
 
 G4double Run::GetTotal(const G4THitsMap<G4double> &map) const {
 
-  G4double tot = 0.;
+  G4double total = 0.;
   std::map<G4int,G4double*>::iterator itr = map.GetMap()->begin();
 
   for(; itr != map.GetMap()->end(); itr++) {
-	  tot += *(itr->second);
+	  total += *(itr->second);
   }
 
-  return tot;
+  return total;
 }
 
 

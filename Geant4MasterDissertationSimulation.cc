@@ -142,10 +142,10 @@ int main(G4int argc, char** argv) {
 	G4UImanager* UI = G4UImanager::GetUIpointer();
 
 	/**
-	 * Local function implmented for a sake of organization.
+	 * Local function implemented for a sake of organization.
 	 * This function sets up some UI characteristics.
 	 */
-	setupUIProgramatically(UI);
+	//setupUIProgramatically(UI);
 
 	G4int numberOfEvent = 30; // Simulations has been made with 100-million events
 	runManager->BeamOn(numberOfEvent);

@@ -24,7 +24,7 @@ RunAction::RunAction() {;}
 RunAction::~RunAction() {;}
 
 /**
- * This is te connection between RunAction and Run classes.
+ * This is the connection between RunAction and Run classes.
  */
 G4Run* RunAction::GenerateRun() {
 	return new Run;
@@ -43,7 +43,7 @@ void RunAction::EndOfRunAction(const G4Run* aRun) {
 //  G4cout << "Numero de Eventos: " << nEvt << G4endl;
 
 //  G4cout << "Energia depositada: " << G4BestUnit(theRun->GetTotalEnergyDeposited(),"Energy") << G4endl;
-  G4cout << "Energia depositada: " << theRun->GetTotalEnergyDeposited()*MeV << G4endl;
-  G4cout << "Numero de Eventos: " << theRun->GetNumberOfEvent() << G4endl;
+  G4cout << "(SrB) Deposited Energy: " << theRun->GetTotalEnergyDeposited() << G4endl;
+  G4cout << "(SrB) Number of Events: " << theRun->GetNumberOfEvent() << G4endl;
 }
 
