@@ -20,9 +20,11 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4String particleName;
-  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
-  particleGun->SetParticleEnergy(0.140*MeV);
-  particleGun->SetParticlePosition(G4ThreeVector(2.6*m, 0.0, 0.0));
+//  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
+//  particleGun->SetParticleEnergy(0.140*MeV);
+  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
+  particleGun->SetParticleEnergy(6.0*MeV);
+  particleGun->SetParticlePosition(G4ThreeVector(0.0, 2.0*m, 0.0));
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -30,6 +32,9 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
   delete particleGun;
 }
 
+/**
+ * Isotropically generated primary events from a point source.
+ */
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
 	MyRandom *myRand = new MyRandom();

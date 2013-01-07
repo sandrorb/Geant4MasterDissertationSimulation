@@ -187,10 +187,10 @@ void setupUIProgramatically(G4UImanager *UI){
 	UI->ApplyCommand("/vis/scene/add/trajectories");
 	UI->ApplyCommand("/vis/scene/add/hits");
 	//UI->ApplyCommand("/vis/viewer/set/hiddenEdge 0");
-	UI->ApplyCommand("/vis/viewer/set/viewpointThetaPhi 50 20");
+	UI->ApplyCommand("/vis/viewer/set/viewpointThetaPhi 45 45");
 	//UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 20");
 	//UI->ApplyCommand("/vis/scene/add/axes 0 0 0 5 m"); // x, y, z, comprimento, unidade
-	UI->ApplyCommand("/vis/viewer/zoom 1.3");
+	UI->ApplyCommand("/vis/viewer/zoom 1.2");
 
 	//UI->ApplyCommand("/vis/drawView");
 	//UI->ApplyCommand("/vis/scene/add/trajectories smooth");
