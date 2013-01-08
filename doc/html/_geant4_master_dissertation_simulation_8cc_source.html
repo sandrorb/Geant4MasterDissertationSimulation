@@ -28,7 +28,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">GEANT4 Simulation
-   &#160;<span id="projectnumber">version 0.1</span>
+   &#160;<span id="projectnumber">version 0.4 (January 8th, 2013)</span>
    </div>
    <div id="projectbrief">Monte Carlo GEANT4 simulation for Sandro&#39;s Master&#39;s Dissertation</div>
   </td>
@@ -105,187 +105,130 @@ $(document).ready(function(){initNavTree('_geant4_master_dissertation_simulation
 </div><!--header-->
 <div class="contents">
 <a href="_geant4_master_dissertation_simulation_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span> <span class="comment">// Used to get time to calculate duration simulation.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;G4RunManager.hh&quot;</span> <span class="comment">// This class must be instatiated by the user. It controls the whole simulation.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;G4UImanager.hh&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_detector_construction_8hh.html">DetectorConstruction.hh</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;PhysicsList.hh&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_primary_generator_action_8hh.html">PrimaryGeneratorAction.hh</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_run_action_8hh.html">RunAction.hh</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifdef G4VIS_USE</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor"> #include &quot;G4VisExecutive.hh&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef G4UI_USE</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span><span class="preprocessor"> #include &quot;G4UIExecutive.hh&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//for sleep(seconds) function</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57" title="List of classes that must be implemented by the user.">setupUIProgramatically</a>(G4UImanager *UI);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="_geant4_master_dissertation_simulation_8cc.html#ab04d39284cce0256e5edcedee1519ece">   39</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#ab04d39284cce0256e5edcedee1519ece" title="Entry point function for the whole simulation.">main</a>(G4int argc, <span class="keywordtype">char</span>** argv) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; time_t timeAtBegin = time(0);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span> <span class="comment">// Used to get time to calculate duration simulation.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;G4RunManager.hh&quot;</span> <span class="comment">// This class must be instatiated by the user. It controls the whole simulation.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;G4UImanager.hh&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * List of classes that must be implemented by the user.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_detector_construction_8hh.html">DetectorConstruction.hh</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;PhysicsList.hh&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_primary_generator_action_8hh.html">PrimaryGeneratorAction.hh</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_run_action_8hh.html">RunAction.hh</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifdef G4VIS_USE</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span><span class="preprocessor"> #include &quot;G4VisExecutive.hh&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#ifdef G4UI_USE</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span><span class="preprocessor"> #include &quot;G4UIExecutive.hh&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//for sleep(seconds) function</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">  * The first thing that must be done in the main() is create an instance of</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">  * G4RunManager class.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; G4RunManager* runManager = <span class="keyword">new</span> G4RunManager;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="comment">//runManager-&gt;SetUserAction(new BeamTestEventAction);</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">  * G4VisManager is a singleton and an abstract class and the user must derive</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  * and implement its virtual function RegisterGraphicsSystems(). It&#39;s intended</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  * to be used for graphical UI purposes.</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  *</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  * G4VisExecutive is a concrete Visualization Manager that implements the</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  * virtual functions RegisterGraphicsSystems and RegisterModelFactories which</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  * are executed when you Initialise() OR Initialize().</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"> #ifdef G4VIS_USE</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Visualization manager construction</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  G4VisManager* visManager = <span class="keyword">new</span> G4VisExecutive;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  visManager-&gt;Initialize();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"> #endif</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  * UserDetectorConstruction is one of the three mandatory classes for</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">  * GEANT4 simulation that the user must implement.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">// G4VUserDetectorConstruction* detector = new DetectorConstruction;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <a class="code" href="class_detector_construction.html">DetectorConstruction</a>* detector = <span class="keyword">new</span> <a class="code" href="class_detector_construction.html">DetectorConstruction</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; runManager-&gt;SetUserInitialization(detector);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57" title="This function has been implemented only for a sake of organization.">setupUIProgramatically</a>(G4UImanager *UI);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="_geant4_master_dissertation_simulation_8cc.html#ab04d39284cce0256e5edcedee1519ece">   53</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#ab04d39284cce0256e5edcedee1519ece" title="This is the main routine, i.e., the entry point for the program simulation.It&#39;s based on the example ...">main</a>(G4int argc, <span class="keywordtype">char</span>** argv) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// This gets the actual time. Used to compute the simulation time.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; time_t timeAtBegin = time(0);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="comment">// The first thing that must be done in the main() is to create an instance of G4RunManager class.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; G4RunManager* runManager = <span class="keyword">new</span> G4RunManager;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"> #ifdef G4VIS_USE</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Visualization manager construction</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  G4VisManager* visManager = <span class="keyword">new</span> G4VisExecutive;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  visManager-&gt;Initialize();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"> #endif</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">  * G4VUserPhysicsList is one of the three mandatory classes for</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">  * GEANT4 simulation that the user must implement.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; G4VUserPhysicsList* physics = <span class="keyword">new</span> <a class="code" href="class_physics_list.html">PhysicsList</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; runManager-&gt;SetUserInitialization(physics);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">  * G4VUserPrimaryGeneratorAction is one of the three mandatory classes for</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">  * GEANT4 simulation that the user must implement.</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; G4VUserPrimaryGeneratorAction* gen_action = <span class="keyword">new</span> <a class="code" href="class_primary_generator_action.html">PrimaryGeneratorAction</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; runManager-&gt;SetUserAction(gen_action);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; G4UserRunAction* run_action = <span class="keyword">new</span> <a class="code" href="class_run_action.html">RunAction</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; runManager-&gt;SetUserAction(run_action);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">  * Initialize G4 kernel</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; runManager-&gt;Initialize();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">  * This class helps automatic instantiation of user session</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">  * according to your environment variable like G4UI_USE_XXX.</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">  *@code</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">  * Usage in main():</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">  *  ...</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">  *  #include &quot;G4UIExecutive.hh&quot;</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">  *  int main(int argc, char** argv) {</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">  *  ...</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">  *  G4UIExecutive* myapp = new G4UIExecutive(argc, argv);</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">  *  if (session-&gt;IsGUI())</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">  *  // Do any extra for a GUI session</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">  *</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">  *  myapp-&gt; SessionStart();</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">  *  ...</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">  *  delete myapp;@endcode</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">  *</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; G4UIExecutive* session = <span class="keyword">new</span> G4UIExecutive(argc, argv);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">  * Using G4UImanager object it is possible to set a variety of</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">  * information for the simulation.</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">  * Singleton class and its constructor must not be called by the user.</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">  * This object controls the command manipulation and the user interface(s).</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; G4UImanager* UI = G4UImanager::GetUIpointer();</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57" title="List of classes that must be implemented by the user.">setupUIProgramatically</a>(UI);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">// G4int numberOfEvent = 100000000;</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; G4int numberOfEvent = 30;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; runManager-&gt;BeamOn(numberOfEvent);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">// detector-&gt;getCube()-&gt;SetTranslation(G4ThreeVector( 0.0*m, 0.0*m, 0.0*m));</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">// runManager-&gt;GeometryHasBeenModified();</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">// runManager-&gt;BeamOn(numberOfEvent);</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">// G4String command = &quot;/control/execute &quot;;</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">// G4String fileName = &quot;myMacro.mac&quot;; //arrgv[1];</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">// UI-&gt;ApplyCommand(command+fileName);</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">  * Related to G4UIExecutive class</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; session-&gt;SessionStart();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; <span class="keyword">delete</span> session;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">// G4VUserDetectorConstruction* detector = new DetectorConstruction;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; <a class="code" href="class_detector_construction.html">DetectorConstruction</a>* detector = <span class="keyword">new</span> <a class="code" href="class_detector_construction.html">DetectorConstruction</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; runManager-&gt;SetUserInitialization(detector);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; G4VUserPhysicsList* physics = <span class="keyword">new</span> <a class="code" href="class_physics_list.html">PhysicsList</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; runManager-&gt;SetUserInitialization(physics);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; G4VUserPrimaryGeneratorAction* gen_action = <span class="keyword">new</span> <a class="code" href="class_primary_generator_action.html">PrimaryGeneratorAction</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; runManager-&gt;SetUserAction(gen_action);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; G4UserRunAction* run_action = <span class="keyword">new</span> <a class="code" href="class_run_action.html">RunAction</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; runManager-&gt;SetUserAction(run_action);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; <span class="comment">/*</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">  * Initialize G4 kernel</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; runManager-&gt;Initialize();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; G4UIExecutive* session = <span class="keyword">new</span> G4UIExecutive(argc, argv);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; G4UImanager* UI = G4UImanager::GetUIpointer();</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor"> #ifdef G4VIS_USE</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor"></span>  <span class="keyword">delete</span> visManager;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor"> #endif</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; <span class="keyword">delete</span> runManager;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    time_t timeAtEnd = time(0);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">//    dt = ctime(&amp;now);</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    G4cout &lt;&lt; <span class="stringliteral">&quot;Inicio: &quot;</span> &lt;&lt; timeAtBegin &lt;&lt; G4endl &lt;&lt; <span class="stringliteral">&quot; Fim: &quot;</span> &lt;&lt; timeAtEnd &lt;&lt; G4endl;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    G4cout &lt;&lt; <span class="stringliteral">&quot;Time interval in minutes: &quot;</span> &lt;&lt; (timeAtEnd - timeAtBegin) / 60.0 &lt;&lt; G4endl;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; <span class="comment">//setupUIProgramatically(UI);</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; G4int numberOfEvent = 30; <span class="comment">// Simulations has been made with 100-million events</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; runManager-&gt;BeamOn(numberOfEvent);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57">  178</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57" title="List of classes that must be implemented by the user.">setupUIProgramatically</a>(G4UImanager *UI){</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/open OGLIX&quot;</span>);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/drawView&quot;);</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/drawVolume&quot;</span>);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/volume&quot;);</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/scene/add/trajectories&quot;</span>);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/scene/add/hits&quot;</span>);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/viewer/set/hiddenEdge 0&quot;);</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/viewer/set/viewpointThetaPhi 50 20&quot;</span>);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/endOfEventAction accumulate 20&quot;);</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/axes 0 0 0 5 m&quot;); // x, y, z, comprimento, unidade</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/viewer/zoom 1.3&quot;</span>);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/drawView&quot;);</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/trajectories smooth&quot;);</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/hits&quot;);</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/tracking/storeTrajectory&quot;);</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/viewer/set/style surface&quot;); //wireframe or surface</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/tracking/storeTrajectory 20&quot;);</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/scene/endOfEventAction accumulate 30&quot;</span>);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">// G4String command = &quot;/control/execute &quot;;</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">// G4String fileName = &quot;myMacro.mac&quot;; //arrgv[1];</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">// UI-&gt;ApplyCommand(command+fileName);</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; <span class="comment">/*</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">  * Related to G4UIExecutive class</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; session-&gt;SessionStart();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; <span class="keyword">delete</span> session;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor"> #ifdef G4VIS_USE</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor"></span>  <span class="keyword">delete</span> visManager;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"> #endif</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; <span class="keyword">delete</span> runManager;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; time_t timeAtEnd = time(0);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; G4cout &lt;&lt; <span class="stringliteral">&quot;Simulation started at: &quot;</span> &lt;&lt; timeAtBegin &lt;&lt; G4endl &lt;&lt; <span class="stringliteral">&quot;Simlulation ended at:: &quot;</span> &lt;&lt; timeAtEnd &lt;&lt; G4endl;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; G4cout &lt;&lt; <span class="stringliteral">&quot;Time interval in minutes: &quot;</span> &lt;&lt; (timeAtEnd - timeAtBegin) / 60.0 &lt;&lt; G4endl;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57">  201</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_geant4_master_dissertation_simulation_8cc.html#aa5d649a39a416ee455a5d7c3fcb02f57" title="This function has been implemented only for a sake of organization.">setupUIProgramatically</a>(G4UImanager *UI){</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/open OGLIX&quot;</span>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/drawView&quot;);</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/drawVolume&quot;</span>);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/volume&quot;);</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/scene/add/trajectories&quot;</span>);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/scene/add/hits&quot;</span>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/viewer/set/hiddenEdge 0&quot;);</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/viewer/set/viewpointThetaPhi 45 45&quot;</span>);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/endOfEventAction accumulate 20&quot;);</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/axes 0 0 0 5 m&quot;); // x, y, z, comprimento, unidade</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/viewer/zoom 1.5&quot;</span>);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/drawView&quot;);</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/trajectories smooth&quot;);</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/scene/add/hits&quot;);</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/tracking/storeTrajectory&quot;);</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/vis/viewer/set/style surface&quot;); //wireframe or surface</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; <span class="comment">//UI-&gt;ApplyCommand(&quot;/tracking/storeTrajectory 20&quot;);</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; UI-&gt;ApplyCommand(<span class="stringliteral">&quot;/vis/scene/endOfEventAction accumulate 30&quot;</span>);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_25870ea6731738ce747137df05380373.html">sandro</a></li><li class="navelem"><a class="el" href="dir_e6674daa37607e8e2168f32396ce86c4.html">g4work</a></li><li class="navelem"><a class="el" href="dir_ca64f57d92c0794d6fa1e105fb6186ff.html">Geant4MasterDissertationSimulation</a></li><li class="navelem"><a class="el" href="_geant4_master_dissertation_simulation_8cc.html">Geant4MasterDissertationSimulation.cc</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 23:32:09 for GEANT4 Simulation by
+    <li class="footer">Generated on Tue Jan 8 2013 21:56:32 for GEANT4 Simulation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

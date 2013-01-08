@@ -28,7 +28,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">GEANT4 Simulation
-   &#160;<span id="projectnumber">version 0.1</span>
+   &#160;<span id="projectnumber">version 0.4 (January 8th, 2013)</span>
    </div>
    <div id="projectbrief">Monte Carlo GEANT4 simulation for Sandro&#39;s Master&#39;s Dissertation</div>
   </td>
@@ -123,14 +123,17 @@ Inheritance diagram for DetectorConstruction:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1533c4308baddd0b2dcdf40f61dea1ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detector_construction.html#a1533c4308baddd0b2dcdf40f61dea1ef">DetectorConstruction</a> ()</td></tr>
+<tr class="memdesc:a1533c4308baddd0b2dcdf40f61dea1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the constructor class member used to construct the "DetectorConstruction" object.  <a href="#a1533c4308baddd0b2dcdf40f61dea1ef"></a><br/></td></tr>
 <tr class="separator:a1533c4308baddd0b2dcdf40f61dea1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73013cab35a2b470338da2e4686edea3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detector_construction.html#a73013cab35a2b470338da2e4686edea3">~DetectorConstruction</a> ()</td></tr>
 <tr class="separator:a73013cab35a2b470338da2e4686edea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a662c618480b345a747f014b845d5ffdf"><td class="memItemLeft" align="right" valign="top">G4VPhysicalVolume *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detector_construction.html#a662c618480b345a747f014b845d5ffdf">Construct</a> ()</td></tr>
 <tr class="separator:a662c618480b345a747f014b845d5ffdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3d0fbcccb1be35f505a78e7fd4ffce2"><td class="memItemLeft" align="right" valign="top">G4VPhysicalVolume *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detector_construction.html#ab3d0fbcccb1be35f505a78e7fd4ffce2">getWordVolume</a> ()</td></tr>
+<tr class="memdesc:ab3d0fbcccb1be35f505a78e7fd4ffce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is related to an attempt made in order to change geometry between runs.  <a href="#ab3d0fbcccb1be35f505a78e7fd4ffce2"></a><br/></td></tr>
 <tr class="separator:ab3d0fbcccb1be35f505a78e7fd4ffce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af45ab5e73219e233c7c015573cf4f88f"><td class="memItemLeft" align="right" valign="top">G4VPhysicalVolume *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detector_construction.html#af45ab5e73219e233c7c015573cf4f88f">getCube</a> ()</td></tr>
+<tr class="memdesc:af45ab5e73219e233c7c015573cf4f88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is related to an attempt made in order to change geometry between runs.  <a href="#af45ab5e73219e233c7c015573cf4f88f"></a><br/></td></tr>
 <tr class="separator:af45ab5e73219e233c7c015573cf4f88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -149,9 +152,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section author"><dt>Author</dt><dd>Sandro Boschetti, August 30, 2012 </dd></dl>
 
-<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00027">27</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>This is the constructor class member used to construct the "DetectorConstruction" object. </p>
+<dl class="section author"><dt>Author</dt><dd>Sandro Boschetti, August 30, 2012 Some <a class="el" href="class_detector_construction.html">DetectorConstruction</a> class variable are initialized. In this case, "{;}", no implementation has been set. </dd></dl>
+
+<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00033">33</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -168,7 +173,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00032">32</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00043">43</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -189,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <p>A PhysicalVolume is a LogicalVolume put in place.</p>
 <p>Here I set the Sensitive Detector used to accumulate radiation dose. There is a bunch of things that must be UNDERSTOOD here.</p>
 
-<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00045">45</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00062">62</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -206,7 +211,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00041">41</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>This method is related to an attempt made in order to change geometry between runs. </p>
+
+<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00058">58</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -223,7 +230,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00037">37</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>This method is related to an attempt made in order to change geometry between runs. </p>
+
+<p>Definition at line <a class="el" href="_detector_construction_8cc_source.html#l00051">51</a> of file <a class="el" href="_detector_construction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -237,7 +246,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_detector_construction.html">DetectorConstruction</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 23:32:10 for GEANT4 Simulation by
+    <li class="footer">Generated on Tue Jan 8 2013 21:56:33 for GEANT4 Simulation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -24,7 +24,7 @@
 #include "G4RunManager.hh" // This class must be instatiated by the user. It controls the whole simulation.
 #include "G4UImanager.hh"
 
-/**
+/*
  * List of classes that must be implemented by the user.
  */
 #include "DetectorConstruction.hh"
@@ -52,14 +52,10 @@ void setupUIProgramatically(G4UImanager *UI);
  */
 int main(G4int argc, char** argv) {
 
-	/**
-	 * This gets the actual time. Used to compute the simulation time.
-	 */
+	 // This gets the actual time. Used to compute the simulation time.
 	time_t timeAtBegin = time(0);
 
-	/**
-	 * The first thing that must be done in the main() is to create an instance of G4RunManager class.
-	 */
+	// The first thing that must be done in the main() is to create an instance of G4RunManager class.
 	G4RunManager* runManager = new G4RunManager;
 
 	/**
@@ -79,6 +75,10 @@ int main(G4int argc, char** argv) {
 
 
 	/**
+	 * @code
+	 * 	DetectorConstruction* detector = new DetectorConstruction;
+	 * 	runManager->SetUserInitialization(detector);
+	 * @endcode
 	 * UserDetectorConstruction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
@@ -87,6 +87,10 @@ int main(G4int argc, char** argv) {
 	runManager->SetUserInitialization(detector);
 
 	/**
+	 * @code
+	 * 	G4VUserPhysicsList* physics = new PhysicsList;
+	 * 	runManager->SetUserInitialization(physics);
+	 * @endcode
 	 * G4VUserPhysicsList is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
@@ -94,6 +98,10 @@ int main(G4int argc, char** argv) {
 	runManager->SetUserInitialization(physics);
 
 	/**
+	 * @code
+	 * 	G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction;
+	 * 	runManager->SetUserAction(gen_action);
+	 * @endcode
 	 * G4VUserPrimaryGeneratorAction is one of the three mandatory classes for
 	 * GEANT4 simulation that the user must implement.
 	 */
@@ -101,6 +109,9 @@ int main(G4int argc, char** argv) {
 	runManager->SetUserAction(gen_action);
 
 	/**
+	 * @code
+	 * G4UserRunAction* run_action = new RunAction;
+	 * @endcode
 	 *  Adding user action
 	 */
 	G4UserRunAction* run_action = new RunAction;
@@ -134,6 +145,9 @@ int main(G4int argc, char** argv) {
 	G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
 	/**
+	 * @code
+	 * G4UImanager* UI = G4UImanager::GetUIpointer();
+	 * @endcode
 	 * Singleton class and its constructor must not be called by the user.
 	 * This object controls the command manipulation and the user interface(s).
 	 *
@@ -144,6 +158,9 @@ int main(G4int argc, char** argv) {
 	G4UImanager* UI = G4UImanager::GetUIpointer();
 
 	/**
+	 * @code
+	 * setupUIProgramatically(UI);
+	 * @endcode
 	 * Local function implemented for a sake of organization.
 	 * This function sets up some UI characteristics.
 	 */
