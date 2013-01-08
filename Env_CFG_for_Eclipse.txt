@@ -1,0 +1,45 @@
+++++++++++++++++++++++++++++++++++++++++++++++
+C/C++ General -> Paths and Symbols
+
+Includes / GNU C++
+   /Volumes/Dados/geant4.9.3.p02-install/include
+   /Applications/CLHEP_2.0.4.7/include
+
+Library Paths
+   /Volumes/Dados/geant4.9.3.p02-install/lib
+   /Applications/CLHEP_2.0.4.7/lib
+++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++
+C/C++ Build
+  Build command: /Users/sandro/g4work/g4EclipseMake
+++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++
+Run/Debug Setting
+  Configure a <<Launch configurations for "Your Projects'name":>>
+  C/C++ Application
+    /Users/sandro/g4work/g4EclipseRun
+++++++++++++++++++++++++++++++++++++++++++++++
+  
+  
+/Users/sandro/g4work/g4EclipseMake
+++++++++++++++++++++++++++++++++++++++++++++++
+#!/bin/sh
+export G4WORKDIR=/Users/sandro/g4work
+export DYLD_LIBRARY_PATH=/Applications/CLHEP_2.0.4.7/lib
+source /Volumes/Dados/geant4.9.3.p02-install/env.sh
+
+make $1
+++++++++++++++++++++++++++++++++++++++++++++++
+
+
+/Users/sandro/g4work/g4EclipseRun
+++++++++++++++++++++++++++++++++++++++++++++++
+#!/bin/sh
+export G4WORKDIR=/Users/sandro/g4work
+export DYLD_LIBRARY_PATH=/Applications/CLHEP_2.0.4.7/lib
+source /Volumes/Dados/geant4.9.3.p02-install/env.sh
+
+/Users/sandro/g4work/bin/D*/Geant4MasterDissertationSimulation
+++++++++++++++++++++++++++++++++++++++++++++++

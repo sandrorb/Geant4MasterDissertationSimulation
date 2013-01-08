@@ -8,7 +8,7 @@
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
 #include "G4ParticleDefinition.hh"
-#include "globals.hh"
+#include "globals.hh" // for sin and cos, etc.
 
 #include "MyRandom.hh"
 #include <pthread.h>
@@ -24,7 +24,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 //  particleGun->SetParticleEnergy(0.140*MeV);
   particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
   particleGun->SetParticleEnergy(6.0*MeV);
-  particleGun->SetParticlePosition(G4ThreeVector(0.0, 2.0*m, 0.0));
+  particleGun->SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -37,6 +37,16 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
  */
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
+
+
+	G4double theta = 3.14159 * G4UniformRand();
+	G4double phi = 2 * 3.14159 * G4UniformRand();
+
+	G4double px = std::sin(theta) * std::cos(phi);
+	G4double py = std::cos(theta);
+	G4double pz = std::sin(theta) * std::sin(phi);
+
+/*
 	MyRandom *myRand = new MyRandom();
 
 	G4double randX = myRand->getRandomNumber();
@@ -46,6 +56,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 	G4double px = 2 * randX - 1;
 	G4double py = 2 * randY - 1;
 	G4double pz = 2 * randZ - 1;
+*/
 
 	G4ThreeVector v(px, py, pz);
 

@@ -17,6 +17,8 @@
  *
  */
 
+
+#include <iostream>
 #include <ctime> // Used to get time to calculate duration simulation.
 
 #include "G4RunManager.hh" // This class must be instatiated by the user. It controls the whole simulation.
@@ -190,7 +192,7 @@ void setupUIProgramatically(G4UImanager *UI){
 	UI->ApplyCommand("/vis/viewer/set/viewpointThetaPhi 45 45");
 	//UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 20");
 	//UI->ApplyCommand("/vis/scene/add/axes 0 0 0 5 m"); // x, y, z, comprimento, unidade
-	UI->ApplyCommand("/vis/viewer/zoom 1.2");
+	UI->ApplyCommand("/vis/viewer/zoom 1.5");
 
 	//UI->ApplyCommand("/vis/drawView");
 	//UI->ApplyCommand("/vis/scene/add/trajectories smooth");

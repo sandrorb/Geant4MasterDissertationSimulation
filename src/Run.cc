@@ -14,7 +14,7 @@
 Run::Run() {
 
   G4SDManager* SDMan = G4SDManager::GetSDMpointer();
-  ID = SDMan->GetCollectionID("mySrBDetector/eDep");
+  ID = SDMan->GetCollectionID("myDetector/eDep");
 
 }
 
