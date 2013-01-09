@@ -1,3 +1,7 @@
+January 9th, 2013 - version 0.5
+	First attempt to get a code for simulation of the first benchmarck article case.
+	A plane source emitting 0,521 MeV electrons towards a beryllium phantom.
+
 January 8th, 2013 - version 0.4
 	Simulation of an isotropic 6 MeV electron source 100 cm far 
 	from the water phantom surface. Phanton is made of several 1 mm tick slices. 

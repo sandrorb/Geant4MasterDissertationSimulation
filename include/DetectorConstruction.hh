@@ -1,8 +1,3 @@
-//
-// $Id: ExN01DetectorConstruction.hh,v 1.6 2006/06/29 17:47:13 gunter Exp $
-// GEANT4 tag $Name: geant4-09-03-patch-02 $
-//
-
 #ifndef DetectorConstruction_H
 #define DetectorConstruction_H 1
 

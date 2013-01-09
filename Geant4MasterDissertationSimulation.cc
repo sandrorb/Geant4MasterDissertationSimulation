@@ -1,6 +1,6 @@
 /**
- * @author Sandro Boschetti, August 24, 2012
- * @version 0.2
+ * @author Sandro Boschetti, Januarry 9th, 2013
+ * @version 0.5
  * About the author: http://about.me/sandrorb
  * Source Repository: https://github.com/sandrorb/Geant4MasterDissertationSimulation
  *
@@ -21,7 +21,7 @@
 #include <iostream>
 #include <ctime> // Used to get time to calculate duration simulation.
 
-#include "G4RunManager.hh" // This class must be instatiated by the user. It controls the whole simulation.
+#include "G4RunManager.hh" // This class must be instantiated by the user. It controls the whole simulation.
 #include "G4UImanager.hh"
 
 /*
@@ -168,7 +168,7 @@ int main(G4int argc, char** argv) {
 	 * Local function implemented for a sake of organization.
 	 * This function sets up some UI characteristics.
 	 */
-	setupUIProgramatically(UI);
+//	setupUIProgramatically(UI);
 
 	G4int numberOfEvent = 30; // Simulations has been made with 100-million events
 	runManager->BeamOn(numberOfEvent);

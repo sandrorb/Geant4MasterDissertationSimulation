@@ -25,7 +25,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 //  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
 //  particleGun->SetParticleEnergy(0.140*MeV);
   particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
-  particleGun->SetParticleEnergy(6.0*MeV);
+  particleGun->SetParticleEnergy(0.521*MeV);
 //  particleGun->SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));
 }
 
@@ -47,11 +47,10 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 //	G4double py = std::cos(theta);
 //	G4double pz = std::sin(theta) * std::sin(phi);
 
-/* Flat unidirectional source */
-
-	G4double posX = 4.0 * cm * G4UniformRand() - 2.0 * cm;
-	G4double posY = 200*cm;
-	G4double posZ = 4.0 * G4UniformRand() - 2.0;
+/* Flat unidirectional source. A 5x5 cm at 100 cm above the phantom surface.  */
+	G4double posX = 5.0 * cm * G4UniformRand() - 2.5 * cm;
+	G4double posY = 100*cm;
+	G4double posZ = 5.0 * G4UniformRand() - 2.5;
 	G4double px = 0;
 	G4double py = -1;
 	G4double pz = 0;
