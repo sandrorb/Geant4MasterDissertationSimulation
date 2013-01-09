@@ -168,7 +168,7 @@ int main(G4int argc, char** argv) {
 	 * Local function implemented for a sake of organization.
 	 * This function sets up some UI characteristics.
 	 */
-	//setupUIProgramatically(UI);
+	setupUIProgramatically(UI);
 
 	G4int numberOfEvent = 30; // Simulations has been made with 100-million events
 	runManager->BeamOn(numberOfEvent);
@@ -213,7 +213,7 @@ void setupUIProgramatically(G4UImanager *UI){
 	UI->ApplyCommand("/vis/viewer/set/viewpointThetaPhi 45 45");
 	//UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 20");
 	//UI->ApplyCommand("/vis/scene/add/axes 0 0 0 5 m"); // x, y, z, comprimento, unidade
-	UI->ApplyCommand("/vis/viewer/zoom 1.5");
+	UI->ApplyCommand("/vis/viewer/zoom 1.2");
 
 	//UI->ApplyCommand("/vis/drawView");
 	//UI->ApplyCommand("/vis/scene/add/trajectories smooth");

@@ -13,6 +13,8 @@
 #include "MyRandom.hh"
 #include <pthread.h>
 
+#include "G4PhysicalConstants.hh"
+
 PrimaryGeneratorAction::PrimaryGeneratorAction()
 {
   G4int n_particle = 1;
@@ -24,7 +26,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 //  particleGun->SetParticleEnergy(0.140*MeV);
   particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
   particleGun->SetParticleEnergy(6.0*MeV);
-  particleGun->SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));
+//  particleGun->SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -38,30 +40,37 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
 
+/* This is a point source */
+//	G4double theta = pi * G4UniformRand();
+//	G4double   phi = pi2 * G4UniformRand();
+//	G4double px = std::sin(theta) * std::cos(phi);
+//	G4double py = std::cos(theta);
+//	G4double pz = std::sin(theta) * std::sin(phi);
 
-	G4double theta = 3.14159 * G4UniformRand();
-	G4double phi = 2 * 3.14159 * G4UniformRand();
+/* Flat unidirectional source */
 
-	G4double px = std::sin(theta) * std::cos(phi);
-	G4double py = std::cos(theta);
-	G4double pz = std::sin(theta) * std::sin(phi);
-
-/*
-	MyRandom *myRand = new MyRandom();
-
-	G4double randX = myRand->getRandomNumber();
-	G4double randY = myRand->getRandomNumber();
-	G4double randZ = myRand->getRandomNumber();
-
-	G4double px = 2 * randX - 1;
-	G4double py = 2 * randY - 1;
-	G4double pz = 2 * randZ - 1;
-*/
+	G4double posX = 4.0 * cm * G4UniformRand() - 2.0 * cm;
+	G4double posY = 200*cm;
+	G4double posZ = 4.0 * G4UniformRand() - 2.0;
+	G4double px = 0;
+	G4double py = -1;
+	G4double pz = 0;
 
 	G4ThreeVector v(px, py, pz);
+
+	particleGun->SetParticlePosition(G4ThreeVector(posX, posY, posZ));
 
 	particleGun->SetParticleMomentumDirection(v);
 	particleGun->GeneratePrimaryVertex(anEvent);
 }
+
+/* This was my first isotropic point source. I think this is wrong. */
+//	MyRandom *myRand = new MyRandom();
+//	G4double randX = myRand->getRandomNumber();
+//	G4double randY = myRand->getRandomNumber();
+//	G4double randZ = myRand->getRandomNumber();
+//	G4double px = 2 * randX - 1;
+//	G4double py = 2 * randY - 1;
+//	G4double pz = 2 * randZ - 1;
 
 
