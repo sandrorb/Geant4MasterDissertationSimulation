@@ -43,6 +43,10 @@
 //for sleep(seconds) function
 #include <pthread.h>
 
+#include "globals.hh"
+#include <string>
+#include <sstream>
+
 void setupUIProgramatically(G4UImanager *UI);
 
 /**

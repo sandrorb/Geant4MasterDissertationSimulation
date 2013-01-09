@@ -1,4 +1,4 @@
-January 8th, 2013 - version 0.3
+January 8th, 2013 - version 0.4
 	Simulation of an isotropic 6 MeV electron source 100 cm far 
 	from the water phantom surface. Phanton is made of several 1 mm tick slices. 
 	1 million event has been simulated for each point.

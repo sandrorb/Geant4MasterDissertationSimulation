@@ -36,14 +36,12 @@ void RunAction::BeginOfRunAction(const G4Run*) {
 
 void RunAction::EndOfRunAction(const G4Run* aRun) {
 
-//  static G4String regName[3] = {"Calor-A","Calor-B","Calor-C"};
-//
   const Run* theRun = (const Run*)aRun;
 //  G4double nEvt = (G4double)(theRun->GetNumberOfEvent());
 //  G4cout << "Numero de Eventos: " << nEvt << G4endl;
 
-//  G4cout << "Energia depositada: " << G4BestUnit(theRun->GetTotalEnergyDeposited(),"Energy") << G4endl;
-  G4cout << "(SrB) Deposited Energy: " << theRun->GetTotalEnergyDeposited()/MeV << " MeV" << G4endl;
-  G4cout << "(SrB) Number of Events: " << theRun->GetNumberOfEvent() << G4endl;
+//  G4cout << "Deposited Energy: " << G4BestUnit(theRun->GetTotalEnergyDeposited(),"Energy") << G4endl;
+  G4cout << "Deposited Energy: " << theRun->GetTotalEnergyDeposited()/MeV << " MeV" << G4endl;
+  G4cout << "Number of Events: " << theRun->GetNumberOfEvent() << G4endl;
 }
 

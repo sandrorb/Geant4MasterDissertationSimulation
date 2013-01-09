@@ -21,3 +21,14 @@ time_t timeAtEnd = time(0);
 G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
 G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+G4int intTeste = 3;
+std::ostringstream o;
+o << intTeste;
+str = o.str();
+
+Ou
+
+detector_box_name[i]  = "detector_box_"  + static_cast<std::ostringstream*>( &(std::ostringstream() << i) )->str();
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
