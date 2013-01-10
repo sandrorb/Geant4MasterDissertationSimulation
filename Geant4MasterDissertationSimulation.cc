@@ -56,9 +56,6 @@ void setupUIProgramatically(G4UImanager *UI);
  */
 int main(G4int argc, char** argv) {
 
-	 // This gets the actual time. Used to compute the simulation time.
-	time_t timeAtBegin = time(0);
-
 	// The first thing that must be done in the main() is to create an instance of G4RunManager class.
 	G4RunManager* runManager = new G4RunManager;
 
@@ -170,8 +167,11 @@ int main(G4int argc, char** argv) {
 	 */
 //	setupUIProgramatically(UI);
 
-	G4int numberOfEvent = 30; // Simulations has been made with 100-million events
+	 // This gets the actual time. Used to compute the simulation time.
+	time_t timeAtBegin = time(0);
+	G4int numberOfEvent = 1000000;
 	runManager->BeamOn(numberOfEvent);
+	time_t timeAtEnd = time(0);
 
 //	G4String command = "/control/execute ";
 //	G4String fileName = "myMacro.mac"; //arrgv[1];
@@ -189,7 +189,6 @@ int main(G4int argc, char** argv) {
 
 	delete runManager;
 
-	time_t timeAtEnd = time(0);
 	G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
 	G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 
