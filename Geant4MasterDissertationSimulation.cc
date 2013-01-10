@@ -143,7 +143,7 @@ int main(G4int argc, char** argv) {
 	 *@endcode
 	 *
 	 */
-	G4UIExecutive* session = new G4UIExecutive(argc, argv);
+	//G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
 	/**
 	 * @code
@@ -169,9 +169,14 @@ int main(G4int argc, char** argv) {
 
 	 // This gets the actual time. Used to compute the simulation time.
 	time_t timeAtBegin = time(0);
+
 	G4int numberOfEvent = 1000000;
 	runManager->BeamOn(numberOfEvent);
+
 	time_t timeAtEnd = time(0);
+	G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
+	G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
+	G4cout << "\7\7\7\7";
 
 //	G4String command = "/control/execute ";
 //	G4String fileName = "myMacro.mac"; //arrgv[1];
@@ -180,17 +185,15 @@ int main(G4int argc, char** argv) {
 	/*
 	 * Related to G4UIExecutive class
 	 */
-	session->SessionStart();
-	delete session;
+	// Starts interactive session
+//	session->SessionStart();
+//	delete session;
 
 	#ifdef G4VIS_USE
 		delete visManager;
 	#endif
 
 	delete runManager;
-
-	G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
-	G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 
 	return 0;
 }

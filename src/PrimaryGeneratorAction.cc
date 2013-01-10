@@ -48,9 +48,11 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 //	G4double pz = std::sin(theta) * std::sin(phi);
 
 /* Flat unidirectional source. A 5x5 cm at 100 cm above the phantom surface.  */
-	G4double posX = 5.0 * cm * G4UniformRand() - 2.5 * cm;
+	G4double widthX = 5.0*cm;
+	G4double widthZ = 5.0*cm;
+	G4double posX = widthX * G4UniformRand() - widthX/2.0;
 	G4double posY = 100*cm;
-	G4double posZ = 5.0 * G4UniformRand() - 2.5;
+	G4double posZ = widthZ * G4UniformRand() - widthZ/2.0;
 	G4double px = 0;
 	G4double py = -1;
 	G4double pz = 0;
