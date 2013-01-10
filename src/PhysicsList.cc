@@ -1,6 +1,7 @@
 /**
+ * @author Sandro Boschetti, August 28, 2012
  *
- * This class is essentially the same class of the Geanst4's Example N02.
+ * This class is essensialy the same class of the Geanst4's Example N02.
  *
  */
 
@@ -10,14 +11,20 @@
 #include "G4ProcessManager.hh"
 #include "G4ParticleTypes.hh"
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 PhysicsList::PhysicsList():  G4VUserPhysicsList()
 {
   defaultCutValue = 1.0*cm;
    SetVerboseLevel(1);
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 PhysicsList::~PhysicsList()
 {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PhysicsList::ConstructParticle()
 {
@@ -32,6 +39,8 @@ void PhysicsList::ConstructParticle()
   ConstructBaryons();
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 void PhysicsList::ConstructBosons()
 {
   // pseudo-particles
@@ -41,6 +50,8 @@ void PhysicsList::ConstructBosons()
   // gamma
   G4Gamma::GammaDefinition();
 }
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PhysicsList::ConstructLeptons()
 {
@@ -59,6 +70,8 @@ void PhysicsList::ConstructLeptons()
   G4AntiNeutrinoMu::AntiNeutrinoMuDefinition();
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 void PhysicsList::ConstructMesons()
 {
   //  mesons
@@ -76,6 +89,8 @@ void PhysicsList::ConstructMesons()
   G4KaonZeroShort::KaonZeroShortDefinition();
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 void PhysicsList::ConstructBaryons()
 {
   //  barions
@@ -86,6 +101,8 @@ void PhysicsList::ConstructBaryons()
   G4AntiNeutron::AntiNeutronDefinition();
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 void PhysicsList::ConstructProcess()
 {
   AddTransportation();
@@ -93,6 +110,8 @@ void PhysicsList::ConstructProcess()
   ConstructGeneral();
   AddStepMax();
 }
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "G4ComptonScattering.hh"
 #include "G4GammaConversion.hh"
@@ -114,6 +133,8 @@ void PhysicsList::ConstructProcess()
 #include "G4hPairProduction.hh"
 
 #include "G4ionIonisation.hh"
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PhysicsList::ConstructEM()
 {
@@ -180,6 +201,8 @@ void PhysicsList::ConstructEM()
   }
 }
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 #include "G4Decay.hh"
 
 void PhysicsList::ConstructGeneral()
@@ -198,6 +221,8 @@ void PhysicsList::ConstructGeneral()
     }
   }
 }
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "G4StepLimiter.hh"
 #include "G4UserSpecialCuts.hh"
