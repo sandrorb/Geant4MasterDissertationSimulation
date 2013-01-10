@@ -159,7 +159,7 @@ int main(G4int argc, char** argv) {
 	 * information for the simulation.
 	 *
 	 */
-	G4UImanager* UI = G4UImanager::GetUIpointer();
+//	G4UImanager* UI = G4UImanager::GetUIpointer();
 
 	/**
 	 * @code

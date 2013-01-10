@@ -1,7 +1,6 @@
 /**
- * @author Sandro Boschetti, August 28, 2012
  *
- * This class is essensialy the same class of the Geanst4's Example N02.
+ * This class is essentially the same class of the Geanst4's Example N02.
  *
  */
 
@@ -11,20 +10,16 @@
 #include "G4ProcessManager.hh"
 #include "G4ParticleTypes.hh"
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PhysicsList::PhysicsList():  G4VUserPhysicsList()
 {
-  defaultCutValue = 1.0*cm;
-   SetVerboseLevel(1);
+/* This has been comented because it was out in the SetCuts method */
+//  defaultCutValue = 1.0*cm;
+//   SetVerboseLevel(1);
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PhysicsList::~PhysicsList()
 {}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PhysicsList::ConstructParticle()
 {
@@ -39,8 +34,6 @@ void PhysicsList::ConstructParticle()
   ConstructBaryons();
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void PhysicsList::ConstructBosons()
 {
   // pseudo-particles
@@ -50,8 +43,6 @@ void PhysicsList::ConstructBosons()
   // gamma
   G4Gamma::GammaDefinition();
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PhysicsList::ConstructLeptons()
 {
@@ -70,8 +61,6 @@ void PhysicsList::ConstructLeptons()
   G4AntiNeutrinoMu::AntiNeutrinoMuDefinition();
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void PhysicsList::ConstructMesons()
 {
   //  mesons
@@ -89,8 +78,6 @@ void PhysicsList::ConstructMesons()
   G4KaonZeroShort::KaonZeroShortDefinition();
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void PhysicsList::ConstructBaryons()
 {
   //  barions
@@ -101,8 +88,6 @@ void PhysicsList::ConstructBaryons()
   G4AntiNeutron::AntiNeutronDefinition();
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void PhysicsList::ConstructProcess()
 {
   AddTransportation();
@@ -110,8 +95,6 @@ void PhysicsList::ConstructProcess()
   ConstructGeneral();
   AddStepMax();
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "G4ComptonScattering.hh"
 #include "G4GammaConversion.hh"
@@ -133,8 +116,6 @@ void PhysicsList::ConstructProcess()
 #include "G4hPairProduction.hh"
 
 #include "G4ionIonisation.hh"
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PhysicsList::ConstructEM()
 {
@@ -201,8 +182,6 @@ void PhysicsList::ConstructEM()
   }
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 #include "G4Decay.hh"
 
 void PhysicsList::ConstructGeneral()
@@ -221,8 +200,6 @@ void PhysicsList::ConstructGeneral()
     }
   }
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "G4StepLimiter.hh"
 #include "G4UserSpecialCuts.hh"
@@ -246,17 +223,47 @@ void PhysicsList::AddStepMax()
   }
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+/*
+ * The benchmark article states:
+ * "The production thresholds are set to 1 keV for gammas and 10 keV for electrons"
+ */
 void PhysicsList::SetCuts()
 {
   //G4VUserPhysicsList::SetCutsWithDefault method sets 
   //the default cut value for all particle types 
   //
-  SetCutsWithDefault();
-     
+
+/* This is what is shown in console when I use defaultCutValue = 0.005*mm;
+
+	Index : 1     used in the geometry : Yes     recalculation needed : No
+	 Material : Beryllium
+	 Range cuts        :  gamma  5 um     e-  5 um     e+  5 um  proton 5 um
+	 Energy thresholds :  gamma  990 eV     e-  10.0777 keV    e+  9.94959 keV proton 500 eV
+	 Region(s) which use this couple :
+	    DefaultRegionForTheWorld
+*/
+	defaultCutValue = 0.005*mm; // +/- 10 keV in beryllium for 0.521 MeV e-
+	SetCutsWithDefault();
+
   if (verboseLevel>0) DumpCutValuesTable();
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+/* Production thresholds for detector regions */
+//  G4Region* region;
+//  G4String regName;
+//  G4ProductionCuts* cuts;
+//  regName = "tracker";
+//  region = G4RegionStore::GetInstance()->GetRegion(regName);
+//  cuts = new G4ProductionCuts;
+//  cuts->SetProductionCut(0.01*mm); // same cuts for gamma, e- and e+
+//  region->SetProductionCuts(cuts);
+//  regName = "detector_log_4";
+//  region = G4RegionStore::GetInstance()->GetRegion(regName);
+//  cuts = new G4ProductionCuts;
+//  cuts->SetProductionCut(1.111*mm,G4ProductionCuts::GetIndex("gamma"));
+//  cuts->SetProductionCut(0.222*mm,G4ProductionCuts::GetIndex("e-"));
+//  cuts->SetProductionCut(0.1*mm,G4ProductionCuts::GetIndex("e+"));
+//  region->SetProductionCuts(cuts);
 
