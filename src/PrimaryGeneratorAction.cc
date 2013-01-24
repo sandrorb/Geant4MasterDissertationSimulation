@@ -22,11 +22,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4String particleName;
-//  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
-//  particleGun->SetParticleEnergy(0.140*MeV);
-  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
-  particleGun->SetParticleEnergy(0.521*MeV);
-//  particleGun->SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));
+  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="gamma"));
+//  particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
+  particleGun->SetParticleEnergy(10.0*MeV);
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -41,24 +39,30 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
 
 /* This is a point source */
-//	G4double theta = pi * G4UniformRand();
-//	G4double   phi = pi2 * G4UniformRand();
-//	G4double px = std::sin(theta) * std::cos(phi);
-//	G4double py = std::cos(theta);
-//	G4double pz = std::sin(theta) * std::sin(phi);
+	G4double theta = pi * G4UniformRand();
+	G4double   phi = pi2 * G4UniformRand();
+	G4double px = std::sin(theta) * std::cos(phi);
+	G4double py = std::cos(theta);
+	G4double pz = std::sin(theta) * std::sin(phi);
+
+/* This is the source location. This can be set at PrimaryGeneratorAction() method */
+	G4double posX = 0.0*cm;
+	G4double posY = 100*cm;
+	G4double posZ = 0.0*cm;
 
 /* Flat unidirectional source. A 5x5 cm at 100 cm above the phantom surface.  */
-	G4double widthX = 5.0*cm;
-	G4double widthZ = 5.0*cm;
-	G4double posX = widthX * G4UniformRand() - widthX/2.0;
-	G4double posY = 100*cm;
-	G4double posZ = widthZ * G4UniformRand() - widthZ/2.0;
-	G4double px = 0;
-	G4double py = -1;
-	G4double pz = 0;
+//	G4double widthX = 5.0*cm;
+//	G4double widthZ = 5.0*cm;
+//	G4double posX = widthX * G4UniformRand() - widthX/2.0;
+//	G4double posY = 100*cm;
+//	G4double posZ = widthZ * G4UniformRand() - widthZ/2.0;
+//	G4double px = 0;
+//	G4double py = -1;
+//	G4double pz = 0;
 
 	G4ThreeVector v(px, py, pz);
 
+	/* This can be set at PrimaryGeneratorAction() method */
 	particleGun->SetParticlePosition(G4ThreeVector(posX, posY, posZ));
 
 	particleGun->SetParticleMomentumDirection(v);
