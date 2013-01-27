@@ -222,6 +222,6 @@ void setupUIProgramatically(G4UImanager *UI){
 	//UI->ApplyCommand("/vis/scene/add/hits");
 	//UI->ApplyCommand("/tracking/storeTrajectory");
 	//UI->ApplyCommand("/vis/viewer/set/style surface"); //wireframe or surface
-	//UI->ApplyCommand("/tracking/storeTrajectory 20");
-	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 30");
+	UI->ApplyCommand("/tracking/storeTrajectory 300");
+	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 300");
 }

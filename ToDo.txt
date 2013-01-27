@@ -3,6 +3,7 @@ August 23, 2012: This file is for remind me about things that must be done in th
 
 List of things that must be done:
 
+	* ATTENTION: the point source code must be checked!!!!
 	* It is necessary to understand better about Sensitive Detector and how to accumulate
 	  information like radiation dose.
 	* Simple simulation of a water tank irradiated by electons.

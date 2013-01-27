@@ -38,12 +38,32 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
 
-/* This is a point source */
+//	http://geant4.web.cern.ch/geant4/UserDocumentation/UsersGuides/ForApplicationDeveloper/html/ch08s04.html
+//	/vis/viewer/set/viewpointThetaPhi [theta] [phi] [deg|rad]
+//  Arguments "theta" and "phi" are polar and azimuthal camera angles, respectively. The default unit is "degree".
+
+/* This is a point source (???) */
+//	G4double theta = pi * G4UniformRand();
+//	G4double   phi = pi2 * G4UniformRand();
+//	G4double px = std::sin(theta) * std::cos(phi);
+//	G4double py = std::cos(theta);
+//	G4double pz = std::sin(theta) * std::sin(phi);
+
+/* This is a "half" point source. It seems working. */
 	G4double theta = pi * G4UniformRand();
-	G4double   phi = pi2 * G4UniformRand();
+	G4double   phi = 2.0 * pi * G4UniformRand();
 	G4double px = std::sin(theta) * std::cos(phi);
-	G4double py = std::cos(theta);
+	G4double py = - std::abs(std::cos(theta));
 	G4double pz = std::sin(theta) * std::sin(phi);
+
+/* I haven't be able to make this work */
+//	G4double px = (0.5 * G4UniformRand()) / 0.5;
+//	G4double py = (0.5 * G4UniformRand()) / 0.5;
+//	G4double pz = (0.5 * G4UniformRand()) / 0.5;
+//	G4double norm = std::sqrt(px*px + py*py + pz*pz);
+//	px = px / norm;
+//	py = py / norm;
+//	px = pz / norm;
 
 /* This is the source location. This can be set at PrimaryGeneratorAction() method */
 	G4double posX = 0.0*cm;
