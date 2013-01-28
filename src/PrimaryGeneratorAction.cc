@@ -42,7 +42,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 //  Arguments "theta" and "phi" are polar and azimuthal camera angles, respectively. The default unit is "degree".
 
 /* This is a "half" isotropically point source. It seems working. */
-	G4double theta = pi * G4UniformRand();
+	G4double theta = pi + (pi/10.0) * G4UniformRand();
 	G4double   phi = twopi * G4UniformRand();
 	G4double px = std::sin(theta) * std::cos(phi);
 	G4double py = - std::abs(std::cos(theta));
