@@ -6,8 +6,8 @@
  */
 
 #include "MyMaterial.hh"
+
 #include "G4Material.hh"
-#include "G4NistManager.hh" // Useful for getting registered materials
 
 MyMaterial::MyMaterial() {
 
@@ -38,34 +38,6 @@ MyMaterial::MyMaterial() {
 	water = new G4Material("Water", density, 2);
 	water->AddElement(elH, 2);
 	water->AddElement(elO, 1);
-
-	// build Beryllium
-	beryllium = new G4Material("Beryllium", 4.0, 9.012182*g/mole, 1.8480*g/cm3);
-	G4cout << "Berilio construido: " << beryllium->GetName() << G4endl;
-
-	G4NistManager* man = G4NistManager::Instance();
-	man->SetVerbose(1);
-	vacuum = man->FindOrBuildMaterial("G4_Galactic");
-
-	// Define materials not in NIST
-
-	G4Element* C  = man->FindOrBuildElement("C");
-	G4Element* Si = man->FindOrBuildElement("Si");
-	G4Element* Cr = man->FindOrBuildElement("Cr");
-	G4Element* Mn = man->FindOrBuildElement("Mn");
-	G4Element* Fe = man->FindOrBuildElement("Fe");
-	G4Element* Ni = man->FindOrBuildElement("Ni");
-
-	G4double densityStainlessSteel;
-	G4int ncomponents;
-	G4double fractionmass;
-	G4Material* stainlessSteel = new G4Material("StainlessSteel", densityStainlessSteel= 8.06*g/cm3, ncomponents=6);
-	stainlessSteel->AddElement(C, fractionmass=0.001);
-	stainlessSteel->AddElement(Si, fractionmass=0.007);
-	stainlessSteel->AddElement(Cr, fractionmass=0.18);
-	stainlessSteel->AddElement(Mn, fractionmass=0.01);
-	stainlessSteel->AddElement(Fe, fractionmass=0.712);
-	stainlessSteel->AddElement(Ni, fractionmass=0.09);
 }
 
 MyMaterial::~MyMaterial() {
@@ -86,18 +58,6 @@ G4Material* MyMaterial::getPb() {
 
 G4Material* MyMaterial::getWater() {
 	return this->water;
-}
-
-G4Material* MyMaterial::getBeryllium() {
-	return this->beryllium;
-}
-
-G4Material* MyMaterial::getVacuum() {
-	return this->vacuum;
-}
-
-G4Material* MyMaterial::getStainlessSteel() {
-	return this->stainlessSteel;
 }
 
 

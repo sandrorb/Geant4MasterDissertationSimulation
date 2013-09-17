@@ -18,18 +18,12 @@ class MyMaterial {
 		G4Material* getArgonGas();
 		G4Material* getPb();
 		G4Material* getWater();
-		G4Material* getBeryllium();
-		G4Material* getVacuum();
-		G4Material* getStainlessSteel();
 
 	private:
 		G4Material* air;
 		G4Material* argonGas;
 		G4Material* pb;
 		G4Material* water;
-		G4Material* beryllium;
-		G4Material* vacuum;
-		G4Material* stainlessSteel;
 
 };
 

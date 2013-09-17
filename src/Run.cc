@@ -14,7 +14,16 @@
 Run::Run() {
 
   G4SDManager* SDMan = G4SDManager::GetSDMpointer();
-  ID = SDMan->GetCollectionID("myDetector/eDep");
+//  ID = SDMan->GetCollectionID("myDetector/eDep");
+
+  std::string detectorName;
+  for (size_t i = 0; i<50; i++){
+	  detectorName = "myDetector" + static_cast<std::ostringstream*>( &(std::ostringstream() << i) )->str();
+	  myID[i] = SDMan->GetCollectionID(detectorName + "/eDep");
+	  //std::cout << detectorName + "/eDep" << std::endl;
+	  //std::cout << "myID[" << i << "] = " << myID[i] << std::endl;
+  }
+
 
 }
 
@@ -31,9 +40,30 @@ void Run::RecordEvent(const G4Event* evt) {
 	// numberOfEvent is a G4int member of G4Run
   numberOfEvent++;
 
-  G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(ID));
-  // G4THitsMap<G4double> energySum;
-  energySum += *evtMap;
+ // G4THitsMap<G4double>* evtMap;
+
+  for (size_t i = 0; i<50; i++) {
+	  //std::cout << "AAAAAAAAAAAAAAAAntes do Iterator" << std::endl;
+	  G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(  HCE->GetHC(myID[i])  );
+	  mapSum[i] += (*evtMap);
+  }
+
+
+//  for (G4int i = 0; i<50; i++) {
+//	  G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(myID[i]));
+//
+//	  std::cout << "AAAAAAAAAAAAAAAAntes do Iterator" << std::endl;
+//	  std::map<G4int, G4double*>::iterator itr = evtMap->GetMap()->begin();
+//	  std::cout << "DDDDDDDDDDDDDDDDDEPOIS do Iterator" << std::endl;
+
+//	  for(; itr != evtMap->GetMap()->end(); itr++) {
+//		  myEnergy[i] = myEnergy[i] + *(itr->second);
+//		  //std::cout << myEnergy[i] << std::endl;
+//	  }
+//  }
+
+
+  //energySum += *evtMap;
 
 //      G4cout << energySum.GetName() << G4endl;
 }

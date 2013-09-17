@@ -143,7 +143,7 @@ int main(G4int argc, char** argv) {
 	 *@endcode
 	 *
 	 */
-	G4UIExecutive* session = new G4UIExecutive(argc, argv);
+	//G4UIExecutive* session = new G4UIExecutive(argc, argv);
 
 	/**
 	 * @code
@@ -156,7 +156,7 @@ int main(G4int argc, char** argv) {
 	 * information for the simulation.
 	 *
 	 */
-	G4UImanager* UI = G4UImanager::GetUIpointer();
+//	G4UImanager* UI = G4UImanager::GetUIpointer();
 
 	/**
 	 * @code
@@ -165,12 +165,12 @@ int main(G4int argc, char** argv) {
 	 * Local function implemented for a sake of organization.
 	 * This function sets up some UI characteristics.
 	 */
-	setupUIProgramatically(UI);
+//	setupUIProgramatically(UI);
 
 	 // This gets the actual time. Used to compute the simulation time.
 	time_t timeAtBegin = time(0);
 
-	G4int numberOfEvent = 100;
+	G4int numberOfEvent = 1000000;
 	runManager->BeamOn(numberOfEvent);
 
 	time_t timeAtEnd = time(0);
@@ -186,8 +186,8 @@ int main(G4int argc, char** argv) {
 	 * Related to G4UIExecutive class
 	 */
 	// Starts interactive session
-	session->SessionStart();
-	delete session;
+//	session->SessionStart();
+//	delete session;
 
 	#ifdef G4VIS_USE
 		delete visManager;
@@ -222,6 +222,6 @@ void setupUIProgramatically(G4UImanager *UI){
 	//UI->ApplyCommand("/vis/scene/add/hits");
 	//UI->ApplyCommand("/tracking/storeTrajectory");
 	//UI->ApplyCommand("/vis/viewer/set/style surface"); //wireframe or surface
-	UI->ApplyCommand("/tracking/storeTrajectory 300");
-	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 300");
+	//UI->ApplyCommand("/tracking/storeTrajectory 20");
+	UI->ApplyCommand("/vis/scene/endOfEventAction accumulate 30");
 }
