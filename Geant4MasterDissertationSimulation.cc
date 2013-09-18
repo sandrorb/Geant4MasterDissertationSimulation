@@ -1,5 +1,5 @@
 /**
- * @author Sandro Boschetti, January 9th, 2013
+ * @author Sandro Boschetti, September 18th, 2013
  * @version 1.0
  *
  * About the author: http://about.me/sandrorb
@@ -58,9 +58,7 @@
 void setupUIProgramatically(G4UImanager *UI);
 
 /**
- * This is the main routine, i.e., the entry point for the program simulation.It's
- * based on the example N01 from Geant4.9.3.p02.
- *
+ * This is the main routine, i.e., the entry point for the program simulation.
  */
 int main(G4int argc, char** argv) {
 
