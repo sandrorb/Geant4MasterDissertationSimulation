@@ -1,5 +1,5 @@
 /**
- * @author Sandro Boschetti, Januarry 9th, 2013
+ * @author Sandro Boschetti, January 9th, 2013
  * @version 0.5
  * About the author: http://about.me/sandrorb
  * Source Repository: https://github.com/sandrorb/Geant4MasterDissertationSimulation
@@ -170,7 +170,7 @@ int main(G4int argc, char** argv) {
 	 // This gets the actual time. Used to compute the simulation time.
 	time_t timeAtBegin = time(0);
 
-	G4int numberOfEvent = 1000000;
+	G4int numberOfEvent = 1000;
 	runManager->BeamOn(numberOfEvent);
 
 	time_t timeAtEnd = time(0);

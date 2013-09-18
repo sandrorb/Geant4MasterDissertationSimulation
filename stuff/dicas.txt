@@ -33,7 +33,7 @@ env | grep G4
 source  /usr/local/share/Geant4-9.6.0/geant4make/geant4make.sh ou source /usr/local/bin/geant4.sh
 env | grep G4
 
-cmake -DGeant4_DIR=/usr/local/share/Geant4.9.6 /home/geant4/Desktop/Geant4MasterDissertationSimulation
+cmake -DGeant4_DIR=/usr/local/share/Geant4.9.6 ../Geant4MasterDissertationSimulation
 source /usr/local/bin/geant4.sh
 
 cmake -DGeant4_DIR=/usr/local/share/Geant4.9.6 /home/geant4/Desktop/B3
