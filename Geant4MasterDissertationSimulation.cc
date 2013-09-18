@@ -1,12 +1,16 @@
 /**
  * @author Sandro Boschetti, January 9th, 2013
- * @version 0.5
+ * @version 1.0
+ *
  * About the author: http://about.me/sandrorb
+ *
  * Source Repository: https://github.com/sandrorb/Geant4MasterDissertationSimulation
  *
  * This ONGOING C++ project, which uses GEANT4.9.3.p02 Toolkit from CERN,
  * has been designed and implemented by Sandro Boschetti. This project
  * is part of my master's dissertation at PCTN/UFMG - http://nuclear.ufmg.br.
+ * After the first simulation of the first part of the first case, the
+ * GEANT4 version is 9.6.
  *
  * Master's Dissertation Advisor: Antonella Lombardi Costa.
  *
@@ -14,6 +18,10 @@
  * through matter - http://geant4.cern.ch.
  *
  * CERN: The European Organization for Nuclear Research - http://www.cern.ch.
+ *
+ */
+
+/*! \mainpage Geant4 Master's Dissertation Simulation
  *
  */
 
