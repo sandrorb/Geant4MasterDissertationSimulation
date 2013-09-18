@@ -24,6 +24,7 @@ Run::Run() {
 	  //std::cout << "myID[" << i << "] = " << myID[i] << std::endl;
   }
 
+  timeAtBeginOfEvent = time(0);
 
 }
 
@@ -40,12 +41,20 @@ void Run::RecordEvent(const G4Event* evt) {
 	// numberOfEvent is a G4int member of G4Run
   numberOfEvent++;
 
+  timeAtEndOfEvent = time(0);
+  if ( (numberOfEvent % 1000) == 0) {
+	  numEventsToGo = this->numberOfEventToBeProcessed - numberOfEvent;
+	  timeToGo = ( (timeAtEndOfEvent - timeAtBeginOfEvent)/ ((double)numberOfEvent) ) * numEventsToGo;
+	  timeToGoMinutos = (int)(timeToGo/60);
+	  timeToGoSegundos = timeToGo - (timeToGoMinutos * 60);
+	  G4cout << "Tempo previsto para termino: " << timeToGoMinutos << " minutos e " << timeToGoSegundos << " segundos" << G4endl;
+  }
+
  // G4THitsMap<G4double>* evtMap;
 
   for (size_t i = 0; i<50; i++) {
-	  //std::cout << "AAAAAAAAAAAAAAAAntes do Iterator" << std::endl;
 	  G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(  HCE->GetHC(myID[i])  );
-	  mapSum[i] += (*evtMap);
+	  energySum[i] += (*evtMap);
   }
 
 

@@ -29,6 +29,8 @@
 #include <string>
 #include <sstream>
 
+#include "Teste.hh"
+
 /**
  * This is the constructor class member used to construct the "DetectorConstruction" object.
  * Some DetectorConstruction class variable are initialized.
@@ -58,11 +60,12 @@ G4VPhysicalVolume * DetectorConstruction::getCube() {
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
 
-//	MyMaterial* myMaterial = new MyMaterial;
+	MyMaterial* myMaterial = new MyMaterial;
 //	G4Material* air = myMaterial->getAir();
 //	G4Material* lead = myMaterial->getPb();
 //	G4Material* water = myMaterial->getWater();
-	G4Material* beryllium = new G4Material("Beryllium", 4.0, 9.012182*g/mole, 1.8480*g/cm3);
+	G4Material* beryllium  = myMaterial->getBeryllium();
+//	G4Material* molybdenum = myMaterial->getMolybdenum();
 
 	G4NistManager* man = G4NistManager::Instance();
 	man->SetVerbose(1);

@@ -60,7 +60,8 @@ void setupUIProgramatically(G4UImanager *UI);
 /**
  * This is the main routine, i.e., the entry point for the program simulation.
  */
-int main(G4int argc, char** argv) {
+//int main(G4int argc, char** argv) {
+int main() {
 
 	// The first thing that must be done in the main() is to create an instance of G4RunManager class.
 	G4RunManager* runManager = new G4RunManager;
@@ -176,7 +177,7 @@ int main(G4int argc, char** argv) {
 	 // This gets the actual time. Used to compute the simulation time.
 	time_t timeAtBegin = time(0);
 
-	G4int numberOfEvent = 1000;
+	G4int numberOfEvent = 1000000;
 	runManager->BeamOn(numberOfEvent);
 
 	time_t timeAtEnd = time(0);

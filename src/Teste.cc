@@ -9,10 +9,15 @@
 
 Teste::Teste() {
 	teste++;
+	myInt = 83;
 }
 
 Teste::~Teste() {
 
+}
+
+int Teste::getTestInt() {
+	return this->myInt;
 }
 
 int Teste::teste = 0;

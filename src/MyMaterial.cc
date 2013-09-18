@@ -38,6 +38,15 @@ MyMaterial::MyMaterial() {
 	water = new G4Material("Water", density, 2);
 	water->AddElement(elH, 2);
 	water->AddElement(elO, 1);
+
+	beryllium  = new G4Material("Beryllium", 4.0, 9.012182*g/mole, 1.8480*g/cm3);
+
+	//a = 95.94*g/mole;
+	//G4Element* elMo = new G4Element(name="Molybdenum", symbol="Mo", z=42., a);
+	//G4Element* elMo = new G4Element("Molybdenum", "Mo", 42., a);
+	//Element: Molybdenum (Mo)   Z = 42.0   N =  96.0   A =  95.96 g/mole
+
+	molybdenum  = new G4Material("Molybdenum", z= 42.0, a= 95.96*g/mole, density= 10.28*g/cm3);
 }
 
 MyMaterial::~MyMaterial() {
@@ -58,6 +67,14 @@ G4Material* MyMaterial::getPb() {
 
 G4Material* MyMaterial::getWater() {
 	return this->water;
+}
+
+G4Material* MyMaterial::getBeryllium() {
+	return this->beryllium;
+}
+
+G4Material* MyMaterial::getMolybdenum() {
+	return this->molybdenum;
 }
 
 
