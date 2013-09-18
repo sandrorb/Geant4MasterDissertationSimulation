@@ -56,7 +56,9 @@ git checkout master << go back to head>>
 
 git status
 git add * <<adiciona tudo>>
-fit add -u <<forma de efetivar a delecao de um arquivo>>
+fit add -u 
+<<forma de efetivar a delecao de um arquivo ou de atualizar um arquivo ja posto para
+o procimo commit>>
 
 <<Isso parece reverter um push no remoto>>
 git push -f origin HEAD^:master
