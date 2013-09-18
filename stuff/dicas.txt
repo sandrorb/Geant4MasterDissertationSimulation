@@ -1,0 +1,104 @@
+Configurar o usuário geant4 como um suoders
+su
+cd /etc
+chmod u+w sudoers
+gedit sudoers
+chmod u-w sudoers
+exit
+
+Verificar informacões sobre o openGL
+glxinfo
+yum list | grep -E "opengl|mesa-dri"
+
+yum search keyword
+yum info package-name
+
+
+../cmake*/bin/cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_INSTALL_EXAMPLES=ON -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON  /home/geant4/Desktop/geant4.9.5.p02
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_INSTALL_EXAMPLES=ON -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON  /home/geant4/Desktop/geant4.9.6
+
+
+sudo yum install expat*
+sudo yum install mesa*
+
+make -jN VERBOSE=1
+make install
+make uninstall
+
+
+Running an application:
+
+env | grep G4
+source  /usr/local/share/Geant4-9.6.0/geant4make/geant4make.sh ou source /usr/local/bin/geant4.sh
+env | grep G4
+
+cmake -DGeant4_DIR=/usr/local/share/Geant4.9.6 /home/geant4/Desktop/Geant4MasterDissertationSimulation
+source /usr/local/bin/geant4.sh
+
+cmake -DGeant4_DIR=/usr/local/share/Geant4.9.6 /home/geant4/Desktop/B3
+
+Minimum CMakeLists.txt
+cmake_minimum_required (VERSION 2.6)
+project (mySimlulationProject)
+add_executable(mySimExecutableProgram myMainProgram.cc)
+
+
+
+How to clone the whole repository:
+git clone --verbose --progress https://github.com/sandrorb/Geant4MasterDissertationSimulation.git
+
+How to go to a specific commit:
+git log
+<<veja o hash code e então>>
+git checkout "hashcode"
+git checkout master << go back to head>>
+
+git status
+git add * <<adiciona tudo>>
+fit add -u <<forma de efetivar a delecao de um arquivo>>
+
+<<Isso parece reverter um push no remoto>>
+git push -f origin HEAD^:master
+
+clonando o repositorio (branch master:
+git clone https://github.com/sandrorb/Geant4MasterDissertationSimulation.git
+Mudancas vindas do codigo de teste.
+git add */** <<não sei se isso funcionou>>
+git add CMa*.txt <<para adicionar o arquivo>>
+git commit -m "menssagem"
+git push origin master:master
+
+
+<<Necessário para poder fazer coisas com o git como push para o repositório remoto>>
+$>ssh-keygen -t rsa -C "sandrorb@gmail.com"
+<<Acho que o argumento da opcão -C pode ser qualquer. Aceitar arquivo padrão id_rsa e digitar senha>>
+$ssh-add <<digitar senha>>
+<<copiar o conteudo de ~/.ssh/id_rsa.pub para o github.com
+
+$>ssh -T git@github.com
+<<para testar. Se der algo como Permission denied (publickey), então não deu certo>>
+<<Algo "como Hi sandrorb! You've successful
+ly authenticated, but GitHub does not provide shell access." siginifica que esta ok>>
+
+$>git clone git clone https://github.com/sandrorb/Geant4MasterDissertationSimulation.git
+$>cd ./Geant4*Dissertation
+$>git remote -v lista os remotos cadastrados
+$>git remote add origin https://github.com/sandrorb/Geant4MasterDissertationSimulation.git
+<<Adiciona um remoto. O associa com o local>>
+$>git push origin master
+<<Push o master local para o remoto chamado origin>>
+ou
+$>git push origin branchLocal:branchRemote
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+sudo yum install doxygen
+doxygen -g file.txt <<para gerar arquivo de configuracao>>
+doxygen file.txt <<para executar o programa usando o arquivo de conf.>>
+<<No projeto ha um arquivo de cfg baixado da net e adaptado. Como os caminhos
+para os documentos destino e de origem sao relativos, o comando deve ser executado
+de dentro do projeto.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
