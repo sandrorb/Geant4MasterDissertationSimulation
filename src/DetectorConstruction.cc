@@ -29,8 +29,6 @@
 #include <string>
 #include <sstream>
 
-#include "Teste.hh"
-
 /**
  * This is the constructor class member used to construct the "DetectorConstruction" object.
  * Some DetectorConstruction class variable are initialized.
