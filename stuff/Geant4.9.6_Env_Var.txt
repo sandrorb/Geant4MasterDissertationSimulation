@@ -1,0 +1,8 @@
+G4LEVELGAMMADATA=/usr/local/share/Geant4-9.6.0/data/PhotonEvaporation2.3
+G4NEUTRONXSDATA=/usr/local/share/Geant4-9.6.0/data/G4NEUTRONXS1.2
+G4LEDATA=/usr/local/share/Geant4-9.6.0/data/G4EMLOW6.32
+G4NEUTRONHPDATA=/usr/local/share/Geant4-9.6.0/data/G4NDL4.2
+G4RADIOACTIVEDATA=/usr/local/share/Geant4-9.6.0/data/RadioactiveDecay3.6
+G4PIIDATA=/usr/local/share/Geant4-9.6.0/data/G4PII1.3
+G4SAIDXSDATA=/usr/local/share/Geant4-9.6.0/data/G4SAIDDATA1.1
+G4REALSURFACEDATA=/usr/local/share/Geant4-9.6.0/data/RealSurface1.0
