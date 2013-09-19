@@ -39,15 +39,17 @@ void Run::RecordEvent(const G4Event* evt) {
   numberOfEvent++;
 
   timeAtEndOfEvent = time(0);
-  if ( (numberOfEvent % 5000) == 0) {
+  if ( (numberOfEvent % 1000) == 0) {
 	  numEventsToGo = this->numberOfEventToBeProcessed - numberOfEvent;
 	  timeToGo = ( (timeAtEndOfEvent - timeAtBeginOfEvent)/ ((double)numberOfEvent) ) * numEventsToGo;
 	  timeToGoMinutos = (int)(timeToGo/60);
 	  timeToGoSegundos = timeToGo - (timeToGoMinutos * 60);
-	  G4cout << "Termino em:" << std::setw(4) << timeToGoMinutos << " min e"
-			 << std::setw(3) << timeToGoSegundos << " seg. "
-			 << "Eventos restantes:" << std::setw(8) << numEventsToGo
-			 << G4endl;
+
+	  G4cout << "Termino em: " << timeToGoMinutos << " min e "
+			 <<  timeToGoSegundos << " seg. "
+			 << "Eventos restantes: " << numEventsToGo << "     "
+			 << std::flush; // G4cout.flush() this prints a hex number at the end (???).
+	  G4cout << '\r';
   }
 
 

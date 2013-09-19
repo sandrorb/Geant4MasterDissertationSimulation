@@ -31,7 +31,8 @@ G4Run* RunAction::GenerateRun() {
 }
 
 void RunAction::BeginOfRunAction(const G4Run*) {
-
+	G4cout << "\n\n\n\n\n\n\n\n"; // some screen cleaning for simulation user info.
+	G4cout << "Simulation Started!!!\n";
 }
 
 void RunAction::EndOfRunAction(const G4Run* aRun) {
