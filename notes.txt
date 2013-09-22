@@ -1,5 +1,11 @@
 This file is for annotations purpose.
 
+Example Be 1.033 MeV
+Ro = 0,554 g/cm2
+densidade = 1,848 g/cm3
+Ro = (0,554 g/cm2) / (1,848 g/cm3) = (0,554/1,848) cm = 0,29978355 cm
+deltaZ = 0,02 * 0,29978355 = 0.005995671 cm
+
 
 This is used to try to change the geometry between runs. But I think
 it hasn't worked.

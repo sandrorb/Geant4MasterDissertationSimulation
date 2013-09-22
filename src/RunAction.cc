@@ -44,9 +44,17 @@ void RunAction::EndOfRunAction(const G4Run* aRun) {
 //  G4cout << "Deposited Energy: " << G4BestUnit(theRun->GetTotalEnergyDeposited(),"Energy") << G4endl;
 //  G4cout << "Deposited Energy: " << theRun->GetTotalEnergyDeposited()/MeV << " MeV" << G4endl;
 
+//  G4double densidadeBe = 1.848*g/cm3;
+//  G4double ro_for_Be_1033keV = 0.554*g/cm2;
+//  G4double ro_for_Be_1033keV_em_cm = ro_for_Be_1033keV / densidadeBe;
+//  G4double deltaZ = 0.02 * ro_for_Be_1033keV_em_cm / ro_for_Be_1033keV_em_cm;
+  G4double deltaZ = 0.02;
+
+  G4cout << "Energy in MeV" << G4endl;
   for (G4int i = 0; i<50; i++) {
-	  G4cout <<  i << "   " << theRun->GetMyTotalEnergyDeposited(i)/MeV << " MeV" << G4endl;
+	  G4cout << i * deltaZ + (deltaZ / 2) << "    " << theRun->GetMyTotalEnergyDeposited(i)/MeV << G4endl;
   }
+
 
 //  G4cout << "myEnergy        : " << theRun->GetMyTotalEnergyDeposited(49)/MeV << " MeV" << G4endl;
   G4cout << "Number of Events: " << theRun->GetNumberOfEvent() << G4endl;

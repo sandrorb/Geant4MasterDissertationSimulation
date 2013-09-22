@@ -103,7 +103,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
   G4LogicalVolume* detector_log[numOfSlabs];
   G4VPhysicalVolume* detector_phys[numOfSlabs];
 
-  G4double slabThickness = 0.024242424*mm;
+  G4double slabThickness = 0.05995671*mm; // 0,05995671mm para 1.033 MeV e 0.024242424mm para 0.521 MeV
 
 /* This creates several slices of beryllium and put each one in the top of the other */
   for (int i = 0; i < numOfSlabs; ++i) {
