@@ -62,8 +62,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 //	G4Material* air = myMaterial->getAir();
 //	G4Material* lead = myMaterial->getPb();
 //	G4Material* water = myMaterial->getWater();
-	G4Material* beryllium  = myMaterial->getBeryllium();
-//	G4Material* molybdenum = myMaterial->getMolybdenum();
+//	G4Material* beryllium  = myMaterial->getBeryllium();
+	G4Material* molybdenum = myMaterial->getMolybdenum();
 
 	G4NistManager* man = G4NistManager::Instance();
 	man->SetVerbose(1);
@@ -103,7 +103,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
   G4LogicalVolume* detector_log[numOfSlabs];
   G4VPhysicalVolume* detector_phys[numOfSlabs];
 
-  G4double slabThickness = 0.05995671*mm; // 0,05995671mm para 1.033 MeV e 0.024242424mm para 0.521 MeV
+  // For Beryllium
+  //G4double slabThickness = 0.05995671*mm; // 0,05995671mm para 1.033 MeV e 0.024242424mm para 0.521 MeV
+
+  // For Molybdenum
+  G4double slabThickness = 0.000546693*cm;  // e- of 0.5 MeV on Mo
+  //G4double slabThickness = 0.001309339*cm;  // e- of 1.0 MeV on Mo
 
 /* This creates several slices of beryllium and put each one in the top of the other */
   for (int i = 0; i < numOfSlabs; ++i) {
@@ -111,7 +116,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 	  detector_log_name[i]  = "detector_log_"  + static_cast<std::ostringstream*>( &(std::ostringstream() << i) )->str();
 	  detector_phys_name[i] = "detector_phys_" + static_cast<std::ostringstream*>( &(std::ostringstream() << i) )->str();
 	  detector_box[i] = new G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
-	  detector_log[i] = new G4LogicalVolume(detector_box[i], beryllium, detector_log_name[i], 0, 0, 0);
+	  detector_log[i] = new G4LogicalVolume(detector_box[i], molybdenum, detector_log_name[i], 0, 0, 0);
 	  detector_position[i] = - slabThickness/2.0 - i * slabThickness;
 	  detector_phys[i] = new G4PVPlacement(0,
 			  	  	  	  	  G4ThreeVector(0.0*cm, detector_position[i], 0.0*cm),

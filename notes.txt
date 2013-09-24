@@ -7,6 +7,15 @@ Ro = (0,554 g/cm2) / (1,848 g/cm3) = (0,554/1,848) cm = 0,29978355 cm
 deltaZ = 0,02 * 0,29978355 = 0.005995671 cm
 
 
+Molybdenum density = 10.28 g/cm3 
+Mo irratiated by electron 0.5 MeV, Ro = 0.281 g/cm2
+Ro (cm) = Ro/density = (0.281 g/cm2) / (10.28 g/cm3) = 0.02733463 cm
+deltaZ = 0.02 * 0.02733463 cm = 0.000546693 cm
+
+Mo irratiated by electron 0.5 MeV, Ro = 0.673 g/cm2
+Ro (cm) = Ro/density = (0.673 g/cm2) / (10.28 g/cm3) = 0.065467 cm
+deltaZ = 0.02 * 0.065467 cm = 0.001309339 cm
+
 This is used to try to change the geometry between runs. But I think
 it hasn't worked.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

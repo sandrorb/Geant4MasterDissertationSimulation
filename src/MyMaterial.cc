@@ -46,7 +46,8 @@ MyMaterial::MyMaterial() {
 	//G4Element* elMo = new G4Element("Molybdenum", "Mo", 42., a);
 	//Element: Molybdenum (Mo)   Z = 42.0   N =  96.0   A =  95.96 g/mole
 
-	molybdenum  = new G4Material("Molybdenum", z= 42.0, a= 95.96*g/mole, density= 10.28*g/cm3);
+	//molybdenum  = new G4Material("Molybdenum", z= 42.0, a= 95.96*g/mole, density= 10.28*g/cm3);
+	molybdenum  = new G4Material("Molybdenum", 42.0, 95.96*g/mole, 10.28*g/cm3);
 }
 
 MyMaterial::~MyMaterial() {
