@@ -10,6 +10,8 @@ MyUtils::MyUtils() {
 	berylliumDensity = beryllium->GetDensity();   // 1.848*g/cm3;
 	molybdenumDensity = molybdenum->GetDensity(); //10.28*g/cm3;
 
+	energy = 0.5*MeV;
+
 	RoBerylliumElecton0521MeV = 0.224*g/cm2;
 	RoBerylliumElecton1033MeV = 0.554*g/cm2;
 
@@ -49,6 +51,10 @@ G4double MyUtils::getDeltaZ(){
 
 G4double MyUtils::getCSDA(){
 	return this->csda;
+}
+
+G4double MyUtils::getEnergy(){
+	return this->energy;
 }
 
 MyUtils::~MyUtils() {

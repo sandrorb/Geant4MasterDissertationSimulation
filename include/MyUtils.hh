@@ -19,6 +19,8 @@ class MyUtils {
 		G4double getCSDA();
 		G4double getDeltaZ();
 
+		G4double getEnergy();
+
 	private:
 		G4Material* getPhantomMaterial(MyMaterial* myMaterial);
 
@@ -27,6 +29,8 @@ class MyUtils {
 
 		G4double berylliumDensity;
 		G4double molybdenumDensity;
+
+		G4double energy;
 
 		G4double RoBerylliumElecton0521MeV;
 		G4double RoBerylliumElecton1033MeV;
