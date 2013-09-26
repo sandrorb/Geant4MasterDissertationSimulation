@@ -11,18 +11,31 @@
 class MyUtils {
 
 	public:
-		MyUtils();
 		virtual ~MyUtils();
 		G4double calculateCSDA(G4double Ro, G4double density);
-		G4Material* getPhantomMaterial();
 		G4UserLimits* getMyMaxStepLimit();
+		G4Material* getPhantomMaterial();
 		G4double getCSDA();
 		G4double getDeltaZ();
-
 		G4double getEnergy();
+		G4double getMaxStep();
+		void printInfo();
+
+/* ++++++++   Singleton	begin ++++++++ */
+		static MyUtils* getInstance();
+/* ++++++++   Singleton	end ++++++++ */
 
 	private:
-		G4Material* getPhantomMaterial(MyMaterial* myMaterial);
+
+/* ++++++++   Singleton	begin ++++++++ */
+		MyUtils();							 // Private constructor to be singleton
+		// Don't write bodies
+		MyUtils(const MyUtils&);             // Prevent copy-construction
+		MyUtils& operator=(const MyUtils&);  // Prevent assignment
+
+		static MyUtils* instance;
+/* ++++++++   Singleton	end ++++++++ */
+
 
 		G4Material* beryllium;
 		G4Material* molybdenum;

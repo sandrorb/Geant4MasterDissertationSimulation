@@ -39,6 +39,7 @@
 #include "PhysicsList.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
+#include "MyUtils.hh"
 
 #ifdef G4VIS_USE
 	#include "G4VisExecutive.hh"
@@ -193,6 +194,8 @@ int main(G4int argc, char** argv) {
 	time_t timeAtEnd = time(0);
 	G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
 	G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
+
+	MyUtils::getInstance()->printInfo();
 
 //	G4String command = "/control/execute ";
 //	G4String fileName = "myMacro.mac"; //arrgv[1];

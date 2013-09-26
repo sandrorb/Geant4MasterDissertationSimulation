@@ -39,7 +39,7 @@
  * In this case, "{;}", no implementation has been set.
  */
 DetectorConstruction::DetectorConstruction()
- :  myMaterial(0), myUtils(0), experimentalHall_log(0), shielding_log(0), cube_log(0),
+ :  myMaterial(0), experimentalHall_log(0), shielding_log(0), cube_log(0),
     experimentalHall_phys(0), shielding_phys(0), cube_phys(0)
 {  }
 
@@ -62,7 +62,7 @@ G4VPhysicalVolume * DetectorConstruction::getCube() {
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
 
-	myUtils = new MyUtils;
+	MyUtils * myUtils = MyUtils::getInstance();
 	G4Material* phantomMaterial = myUtils->getPhantomMaterial();
 
 	G4NistManager* man = G4NistManager::Instance();

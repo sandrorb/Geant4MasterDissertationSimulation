@@ -28,7 +28,6 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     //
 
     MyMaterial* myMaterial;
-    MyUtils* myUtils;
 
     G4LogicalVolume* experimentalHall_log;
     G4LogicalVolume* shielding_log;
