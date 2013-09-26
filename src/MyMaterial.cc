@@ -5,9 +5,9 @@
  *      Author: sandro
  */
 
+#include "G4Material.hh"
 #include "MyMaterial.hh"
 
-#include "G4Material.hh"
 
 MyMaterial::MyMaterial() {
 

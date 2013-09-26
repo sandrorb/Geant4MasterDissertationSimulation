@@ -243,7 +243,7 @@ void PhysicsList::SetCuts()
 	 Region(s) which use this couple :
 	    DefaultRegionForTheWorld
 */
-	defaultCutValue = 0.005*mm; // +/- 10 keV in beryllium for 0.521 MeV e-
+	defaultCutValue = 10*keV; //0.005*mm; // +/- 10 keV in beryllium for 0.521 MeV e-
 	SetCutsWithDefault();
 
   if (verboseLevel>0) DumpCutValuesTable();

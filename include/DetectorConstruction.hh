@@ -4,6 +4,7 @@
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class MyMaterial;
+class MyUtils;
 
 #include "G4VUserDetectorConstruction.hh"
 
@@ -22,11 +23,12 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     G4VPhysicalVolume* getCube();
 
   private:
-    
+
     // Logical volumes
     //
 
     MyMaterial* myMaterial;
+    MyUtils* myUtils;
 
     G4LogicalVolume* experimentalHall_log;
     G4LogicalVolume* shielding_log;

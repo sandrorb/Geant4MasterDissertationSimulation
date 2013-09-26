@@ -3,8 +3,6 @@
  *
  */
 
-#include "DetectorConstruction.hh"
-#include "MyMaterial.hh"
 
 #include "G4Material.hh"
 #include "G4Box.hh"
@@ -29,15 +27,21 @@
 #include <string>
 #include <sstream>
 
+#include "G4UserLimits.hh"
+
+#include "DetectorConstruction.hh"
+#include "MyMaterial.hh"
+#include "MyUtils.hh"
+
 /**
  * This is the constructor class member used to construct the "DetectorConstruction" object.
  * Some DetectorConstruction class variable are initialized.
  * In this case, "{;}", no implementation has been set.
  */
 DetectorConstruction::DetectorConstruction()
- :  myMaterial(0), experimentalHall_log(0), shielding_log(0), cube_log(0),
+ :  myMaterial(0), myUtils(0), experimentalHall_log(0), shielding_log(0), cube_log(0),
     experimentalHall_phys(0), shielding_phys(0), cube_phys(0)
-{ }
+{  }
 
 DetectorConstruction::~DetectorConstruction()
 { }
@@ -58,12 +62,8 @@ G4VPhysicalVolume * DetectorConstruction::getCube() {
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
 
-	MyMaterial* myMaterial = new MyMaterial;
-//	G4Material* air = myMaterial->getAir();
-//	G4Material* lead = myMaterial->getPb();
-//	G4Material* water = myMaterial->getWater();
-//	G4Material* beryllium  = myMaterial->getBeryllium();
-	G4Material* molybdenum = myMaterial->getMolybdenum();
+	myUtils = new MyUtils;
+	G4Material* phantomMaterial = myUtils->getPhantomMaterial();
 
 	G4NistManager* man = G4NistManager::Instance();
 	man->SetVerbose(1);
@@ -94,7 +94,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
                                       0);					  // Its copy number
 
 // Maybe, these variables must be out in the header file
-  const G4int numOfSlabs = 100;
+  const G4int numOfSlabs = 1000;
   G4String detector_box_name[numOfSlabs];
   G4String detector_log_name[numOfSlabs];
   G4String detector_phys_name[numOfSlabs];
@@ -108,7 +108,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 
   // For Molybdenum
   //G4double slabThickness = 0.000546693*cm;  // e- of 0.5 MeV on Mo
-  G4double slabThickness = 0.001309339*cm;  // e- of 1.0 MeV on Mo
+  //G4double slabThickness = 0.001309339*cm;  // e- of 1.0 MeV on Mo
+  G4double slabThickness = myUtils->getCSDA() * myUtils->getDeltaZ();
 
 /* This creates several slices of beryllium and put each one in the top of the other */
   for (int i = 0; i < numOfSlabs; ++i) {
@@ -116,7 +117,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 	  detector_log_name[i]  = "detector_log_"  + static_cast<std::ostringstream*>( &(std::ostringstream() << i) )->str();
 	  detector_phys_name[i] = "detector_phys_" + static_cast<std::ostringstream*>( &(std::ostringstream() << i) )->str();
 	  detector_box[i] = new G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
-	  detector_log[i] = new G4LogicalVolume(detector_box[i], molybdenum, detector_log_name[i], 0, 0, 0);
+	  detector_log[i] = new G4LogicalVolume(detector_box[i], phantomMaterial, detector_log_name[i], 0, 0, 0);
+
+	  detector_log[i]->SetUserLimits(myUtils->getMyMaxStepLimit());
+
 	  detector_position[i] = - slabThickness/2.0 - i * slabThickness;
 	  detector_phys[i] = new G4PVPlacement(0,
 			  	  	  	  	  G4ThreeVector(0.0*cm, detector_position[i], 0.0*cm),
@@ -127,6 +131,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 			  	  	  	  	  0);
   }
 
+
+//  G4double maxStep = 0.1*TrackerLength;
+//  logicTracker->SetUserLimits(new G4UserLimits(maxStep));
 
   /* End of Volumes construction */
 
