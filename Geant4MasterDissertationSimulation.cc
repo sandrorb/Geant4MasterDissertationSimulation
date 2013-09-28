@@ -41,6 +41,8 @@
 #include "RunAction.hh"
 #include "MyUtils.hh"
 
+//#include "SimulationCase.hh"
+
 #ifdef G4VIS_USE
 	#include "G4VisExecutive.hh"
 #endif
@@ -63,15 +65,25 @@ void setupUIProgramatically(G4UImanager *UI);
  */
 int main(G4int argc, char** argv) {
 
-	if (argc > 2){
-		G4cout << "Usage:" << G4endl;
-		G4cout << "Program Name followed by the number of events to simulate." << G4endl;
-		G4cout << "If the number of events to simulate is omitted, then 1 million is used." << G4endl;
-	}
+//	if (argc > 2){
+//		G4cout << "Usage:" << G4endl;
+//		G4cout << "Program Name followed by the number of events to simulate." << G4endl;
+//		G4cout << "If the number of events to simulate is omitted, then 1 million is used." << G4endl;
+//	}
 
 	G4int numberOfEvent = 1000000;
-	if (argc == 2) {
+	if (argc > 1) {
 		numberOfEvent =  atoi(argv[1]);
+	}
+
+	G4int caseNumber = 0;
+	MyUtils* myUtils = MyUtils::getInstance();
+	if (argc > 2) {
+		caseNumber =  atoi(argv[2]);
+		G4cout << "\n\n\n\nCase Number: " << caseNumber << "\n\n\n\n";
+		myUtils->setCaseNumber(caseNumber);
+	} else {
+		myUtils->setCaseNumber(0);
 	}
 
 	// The first thing that must be done in the main() is to create an instance of G4RunManager class.
@@ -196,6 +208,10 @@ int main(G4int argc, char** argv) {
 	G4cout << "Time interval in minutes: " << (timeAtEnd - timeAtBegin) / 60.0 << G4endl;
 
 	MyUtils::getInstance()->printInfo();
+
+//	std::vector<SimulationCase*> cases = SimulationCase::mySimCases;
+//	SimulationCase::setup();
+//	G4cout << "TESTE:  " << cases[0]->getMaterial()->GetName() << "\n\n\n\n\n\n";
 
 //	G4String command = "/control/execute ";
 //	G4String fileName = "myMacro.mac"; //arrgv[1];

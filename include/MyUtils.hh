@@ -1,29 +1,32 @@
 #ifndef MYUTILS_HH_
 #define MYUTILS_HH_
 
+#include "globals.hh"
 #include "G4UserLimits.hh"
 #include "G4Material.hh"
-#include "MyMaterial.hh"
-
-//class G4Material;
-//class G4UserLimits;
+//#include "MyMaterial.hh"
+#include "SimulationCase.hh"
 
 class MyUtils {
 
 	public:
-		virtual ~MyUtils();
-		G4double calculateCSDA(G4double Ro, G4double density);
-		G4UserLimits* getMyMaxStepLimit();
-		G4Material* getPhantomMaterial();
-		G4double getCSDA();
-		G4double getDeltaZ();
-		G4double getEnergy();
-		G4double getMaxStep();
-		void printInfo();
+
+		inline ~MyUtils(){}
 
 /* ++++++++   Singleton	begin ++++++++ */
 		static MyUtils* getInstance();
 /* ++++++++   Singleton	end ++++++++ */
+
+		G4double getEnergy();
+		G4double getDeltaZ();
+		G4double getMaxStep();
+		G4double calculateCSDA(G4double Ro, G4double density);
+		G4UserLimits* getMyMaxStepLimit();
+		G4Material*   getPhantomMaterial();
+		G4double      getCSDA();
+		void          printInfo();
+		G4int		getCaseNumber();
+		void	setCaseNumber(G4int);
 
 	private:
 
@@ -36,21 +39,21 @@ class MyUtils {
 		static MyUtils* instance;
 /* ++++++++   Singleton	end ++++++++ */
 
+		void setup();
 
-		G4Material* beryllium;
-		G4Material* molybdenum;
-
-		G4double berylliumDensity;
-		G4double molybdenumDensity;
+//		G4Material* beryllium;
+//		G4Material* molybdenum;
+//
+//		G4double berylliumDensity;
+//		G4double molybdenumDensity;
+//
+//		G4double RoBerylliumElecton0521MeV;
+//		G4double RoBerylliumElecton1033MeV;
+//
+//		G4double RoMolybdenumElecton05MeV;
+//		G4double RoMolybdenumElecton10MeV;
 
 		G4double energy;
-
-		G4double RoBerylliumElecton0521MeV;
-		G4double RoBerylliumElecton1033MeV;
-
-		G4double RoMolybdenumElecton05MeV;
-		G4double RoMolybdenumElecton10MeV;
-
 		G4double deltaZ;
 		G4double maxStep;
 
@@ -59,6 +62,10 @@ class MyUtils {
 		G4UserLimits* myMaxStepLimit;
 
 		G4double csda;
+
+		SimulationCase * cases;
+		std::vector<SimulationCase*> mySimCases;
+		G4int caseNumber;
 
 };
 
