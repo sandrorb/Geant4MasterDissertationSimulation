@@ -42,221 +42,187 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 <h1>/home/geant4/Desktop/Geant4MasterDissertationSimulation/src/DetectorConstruction.cc</h1><a href="DetectorConstruction_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="DetectorConstruction_8hh.html">DetectorConstruction.hh</a>&quot;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="MyMaterial_8hh.html">MyMaterial.hh</a>&quot;</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;G4Material.hh&quot;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;G4Box.hh&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;G4LogicalVolume.hh&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;G4ThreeVector.hh&quot;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;G4PVPlacement.hh&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;G4NistManager.hh&quot;</span> <span class="comment">// Useful for getting registered materials</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;G4VisAttributes.hh&quot;</span>
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;G4MultiFunctionalDetector.hh&quot;</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;G4SDManager.hh&quot;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;G4VPrimitiveScorer.hh&quot;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;G4VSDFilter.hh&quot;</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;G4PSFlatSurfaceFlux.hh&quot;</span>
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;G4SDParticleFilter.hh&quot;</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">//#include &quot;G4VPrimitiveSensitivity.hh&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;G4PSDoseDeposit.hh&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;G4PSEnergyDeposit.hh&quot;</span>
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="comment">// Used to handle string in order to make up labels for the Boxes, Log Vol and Phy Vol</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;G4Material.hh&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;G4Box.hh&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;G4LogicalVolume.hh&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;G4ThreeVector.hh&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;G4PVPlacement.hh&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;G4NistManager.hh&quot;</span> <span class="comment">// Useful for getting registered materials</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;G4VisAttributes.hh&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;G4MultiFunctionalDetector.hh&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;G4SDManager.hh&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;G4VPrimitiveScorer.hh&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;G4VSDFilter.hh&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;G4PSFlatSurfaceFlux.hh&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;G4SDParticleFilter.hh&quot;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="comment">//#include &quot;G4VPrimitiveSensitivity.hh&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;G4PSDoseDeposit.hh&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;G4PSEnergyDeposit.hh&quot;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="comment">// Used to handle string in order to make up labels for the Boxes, Log Vol and Phy Vol</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;G4UserLimits.hh&quot;</span>
 <a name="l00031"></a>00031 
-<a name="l00037"></a><a class="code" href="classDetectorConstruction.html#a1533c4308baddd0b2dcdf40f61dea1ef">00037</a> <a class="code" href="classDetectorConstruction.html#a1533c4308baddd0b2dcdf40f61dea1ef" title="This is the constructor class member used to construct the &amp;quot;DetectorConstruction&amp;quot;...">DetectorConstruction::DetectorConstruction</a>()
-<a name="l00038"></a>00038  :  myMaterial(0), experimentalHall_log(0), shielding_log(0), cube_log(0),
-<a name="l00039"></a>00039     experimentalHall_phys(0), shielding_phys(0), cube_phys(0)
-<a name="l00040"></a>00040 { }
-<a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="classDetectorConstruction.html#a73013cab35a2b470338da2e4686edea3">00042</a> <a class="code" href="classDetectorConstruction.html#a73013cab35a2b470338da2e4686edea3">DetectorConstruction::~DetectorConstruction</a>()
-<a name="l00043"></a>00043 { }
-<a name="l00044"></a>00044 
-<a name="l00048"></a><a class="code" href="classDetectorConstruction.html#ab3d0fbcccb1be35f505a78e7fd4ffce2">00048</a> G4VPhysicalVolume * <a class="code" href="classDetectorConstruction.html#ab3d0fbcccb1be35f505a78e7fd4ffce2" title="This method is related to an attempt made in order to change geometry between runs...">DetectorConstruction::getWordVolume</a>() {
-<a name="l00049"></a>00049         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
-<a name="l00050"></a>00050 }
-<a name="l00051"></a>00051 
-<a name="l00055"></a><a class="code" href="classDetectorConstruction.html#af45ab5e73219e233c7c015573cf4f88f">00055</a> G4VPhysicalVolume * <a class="code" href="classDetectorConstruction.html#af45ab5e73219e233c7c015573cf4f88f" title="This method is related to an attempt made in order to change geometry between runs...">DetectorConstruction::getCube</a>() {
-<a name="l00056"></a>00056         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#ac1d6335b137c81e82ee5b95076b06c48">cube_phys</a>;
-<a name="l00057"></a>00057 }
-<a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="classDetectorConstruction.html#a662c618480b345a747f014b845d5ffdf">00059</a> G4VPhysicalVolume* <a class="code" href="classDetectorConstruction.html#a662c618480b345a747f014b845d5ffdf">DetectorConstruction::Construct</a>() {
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="comment">//      MyMaterial* myMaterial = new MyMaterial;</span>
-<a name="l00062"></a>00062 <span class="comment">//      G4Material* air = myMaterial-&gt;getAir();</span>
-<a name="l00063"></a>00063 <span class="comment">//      G4Material* lead = myMaterial-&gt;getPb();</span>
-<a name="l00064"></a>00064 <span class="comment">//      G4Material* water = myMaterial-&gt;getWater();</span>
-<a name="l00065"></a>00065         G4Material* beryllium = <span class="keyword">new</span> G4Material(<span class="stringliteral">&quot;Beryllium&quot;</span>, 4.0, 9.012182*g/mole, 1.8480*g/cm3);
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067         G4NistManager* man = G4NistManager::Instance();
-<a name="l00068"></a>00068         man-&gt;SetVerbose(1);
-<a name="l00069"></a>00069         G4Material* vaccum    = man-&gt;FindOrBuildMaterial(<span class="stringliteral">&quot;G4_Galactic&quot;</span>);
-<a name="l00070"></a>00070 
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="DetectorConstruction_8hh.html">DetectorConstruction.hh</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="MyMaterial_8hh.html">MyMaterial.hh</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="MyUtils_8hh.html">MyUtils.hh</a>&quot;</span>
+<a name="l00035"></a>00035 
+<a name="l00041"></a><a class="code" href="classDetectorConstruction.html#a1533c4308baddd0b2dcdf40f61dea1ef">00041</a> <a class="code" href="classDetectorConstruction.html#a1533c4308baddd0b2dcdf40f61dea1ef" title="This is the constructor class member used to construct the &amp;quot;DetectorConstruction&amp;quot;...">DetectorConstruction::DetectorConstruction</a>()
+<a name="l00042"></a>00042  :  myMaterial(0), experimentalHall_log(0), shielding_log(0), cube_log(0),
+<a name="l00043"></a>00043     experimentalHall_phys(0), shielding_phys(0), cube_phys(0)
+<a name="l00044"></a>00044 {  }
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="classDetectorConstruction.html#a73013cab35a2b470338da2e4686edea3">00046</a> <a class="code" href="classDetectorConstruction.html#a73013cab35a2b470338da2e4686edea3">DetectorConstruction::~DetectorConstruction</a>()
+<a name="l00047"></a>00047 { }
+<a name="l00048"></a>00048 
+<a name="l00052"></a><a class="code" href="classDetectorConstruction.html#ab3d0fbcccb1be35f505a78e7fd4ffce2">00052</a> G4VPhysicalVolume * <a class="code" href="classDetectorConstruction.html#ab3d0fbcccb1be35f505a78e7fd4ffce2" title="This method is related to an attempt made in order to change geometry between runs...">DetectorConstruction::getWordVolume</a>() {
+<a name="l00053"></a>00053         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00059"></a><a class="code" href="classDetectorConstruction.html#af45ab5e73219e233c7c015573cf4f88f">00059</a> G4VPhysicalVolume * <a class="code" href="classDetectorConstruction.html#af45ab5e73219e233c7c015573cf4f88f" title="This method is related to an attempt made in order to change geometry between runs...">DetectorConstruction::getCube</a>() {
+<a name="l00060"></a>00060         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#ac1d6335b137c81e82ee5b95076b06c48">cube_phys</a>;
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="classDetectorConstruction.html#a662c618480b345a747f014b845d5ffdf">00063</a> G4VPhysicalVolume* <a class="code" href="classDetectorConstruction.html#a662c618480b345a747f014b845d5ffdf">DetectorConstruction::Construct</a>() {
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065         <a class="code" href="classMyUtils.html">MyUtils</a> * myUtils = <a class="code" href="classMyUtils.html#aaf77c49615c03e9d6e9c78f707152569">MyUtils::getInstance</a>();
+<a name="l00066"></a>00066         G4Material* phantomMaterial = myUtils-&gt;<a class="code" href="classMyUtils.html#aa02733668c7c790284978baf7a36e82b">getPhantomMaterial</a>();
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068         G4NistManager* man = G4NistManager::Instance();
+<a name="l00069"></a>00069         man-&gt;SetVerbose(1);
+<a name="l00070"></a>00070         G4Material* vaccum    = man-&gt;FindOrBuildMaterial(<span class="stringliteral">&quot;G4_Galactic&quot;</span>);
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072   <span class="comment">/************ Begin of Volumes construction ************/</span>
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074   <span class="comment">// Experimental hall (world volume)</span>
-<a name="l00075"></a>00075   <span class="comment">// Beam line along Y axis</span>
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077   G4double expHall_x = 2.0*m; <span class="comment">// from left to right ???</span>
-<a name="l00078"></a>00078   G4double expHall_y = 3.0*m; <span class="comment">// vertical</span>
-<a name="l00079"></a>00079   G4double expHall_z = 2.0*m; <span class="comment">// from back to front ???</span>
-<a name="l00080"></a>00080   G4Box* experimentalHall_box = <span class="keyword">new</span> G4Box(<span class="stringliteral">&quot;expHall_box&quot;</span>,expHall_x,expHall_y,expHall_z);
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="comment">/* A LogicalVolume is some geometry figure, like a G4Box, fulfilled with some material.  */</span>
-<a name="l00083"></a>00083   <span class="comment">//experimentalHall_log = new G4LogicalVolume(experimentalHall_box, air, &quot;expHall_log&quot;,0,0,0);</span>
-<a name="l00084"></a>00084   <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a> = <span class="keyword">new</span> G4LogicalVolume(experimentalHall_box, vaccum, <span class="stringliteral">&quot;expHall_log&quot;</span>,0,0,0);
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086 <span class="comment">/* A PhysicalVolume is a LogicalVolume put in place. */</span>
-<a name="l00087"></a>00087   <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a> = <span class="keyword">new</span> G4PVPlacement(0,                <span class="comment">// Rota��o</span>
-<a name="l00088"></a>00088                                                                           G4ThreeVector(),                <span class="comment">// Origem</span>
-<a name="l00089"></a>00089                                       <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,   <span class="comment">// Seu volume l�gico</span>
-<a name="l00090"></a>00090                                       <span class="stringliteral">&quot;expHall&quot;</span>,                          <span class="comment">// Seu nome</span>
-<a name="l00091"></a>00091                                       0,                                          <span class="comment">// Seu volume m�e. Neste caso o ponteiro � nulo por tratar-se do World Volume</span>
-<a name="l00092"></a>00092                                       <span class="keyword">false</span>,                              <span class="comment">// Nenhuma opera��o booleana</span>
-<a name="l00093"></a>00093                                       0);                                         <span class="comment">// Its copy number</span>
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 <span class="comment">// Maybe, these variables must be out in the header file</span>
-<a name="l00096"></a>00096   <span class="keyword">const</span> G4int numOfSlabs = 100;
-<a name="l00097"></a>00097   G4String detector_box_name[numOfSlabs];
-<a name="l00098"></a>00098   G4String detector_log_name[numOfSlabs];
-<a name="l00099"></a>00099   G4String detector_phys_name[numOfSlabs];
-<a name="l00100"></a>00100   G4double detector_position[numOfSlabs];
-<a name="l00101"></a>00101   G4Box* detector_box[numOfSlabs];
-<a name="l00102"></a>00102   G4LogicalVolume* detector_log[numOfSlabs];
-<a name="l00103"></a>00103   G4VPhysicalVolume* detector_phys[numOfSlabs];
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105   G4double slabThickness = 0.024242424*mm;
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="comment">/* This creates several slices of beryllium and put each one in the top of the other */</span>
-<a name="l00108"></a>00108   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numOfSlabs; ++i) {
-<a name="l00109"></a>00109           detector_box_name[i]  = <span class="stringliteral">&quot;detector_box_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00110"></a>00110           detector_log_name[i]  = <span class="stringliteral">&quot;detector_log_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00111"></a>00111           detector_phys_name[i] = <span class="stringliteral">&quot;detector_phys_&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00112"></a>00112           detector_box[i] = <span class="keyword">new</span> G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
-<a name="l00113"></a>00113           detector_log[i] = <span class="keyword">new</span> G4LogicalVolume(detector_box[i], beryllium, detector_log_name[i], 0, 0, 0);
-<a name="l00114"></a>00114           detector_position[i] = - slabThickness/2.0 - i * slabThickness;
-<a name="l00115"></a>00115           detector_phys[i] = <span class="keyword">new</span> G4PVPlacement(0,
-<a name="l00116"></a>00116                                                           G4ThreeVector(0.0*cm, detector_position[i], 0.0*cm),
-<a name="l00117"></a>00117                                                           detector_log[i],
-<a name="l00118"></a>00118                                                           detector_phys_name[i],
-<a name="l00119"></a>00119                                                           <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,
-<a name="l00120"></a>00120                                                           <span class="keyword">false</span>,
-<a name="l00121"></a>00121                                                           0);
-<a name="l00122"></a>00122   }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073   <span class="comment">/************ Begin of Volumes construction ************/</span>
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   <span class="comment">// Experimental hall (world volume)</span>
+<a name="l00076"></a>00076   <span class="comment">// Beam line along Y axis</span>
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078   G4double expHall_x = 2.0*m; <span class="comment">// from left to right ???</span>
+<a name="l00079"></a>00079   G4double expHall_y = 3.0*m; <span class="comment">// vertical</span>
+<a name="l00080"></a>00080   G4double expHall_z = 2.0*m; <span class="comment">// from back to front ???</span>
+<a name="l00081"></a>00081   G4Box* experimentalHall_box = <span class="keyword">new</span> G4Box(<span class="stringliteral">&quot;expHall_box&quot;</span>,expHall_x,expHall_y,expHall_z);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="comment">/* A LogicalVolume is some geometry figure, like a G4Box, fulfilled with some material.  */</span>
+<a name="l00084"></a>00084   <span class="comment">//experimentalHall_log = new G4LogicalVolume(experimentalHall_box, air, &quot;expHall_log&quot;,0,0,0);</span>
+<a name="l00085"></a>00085   <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a> = <span class="keyword">new</span> G4LogicalVolume(experimentalHall_box, vaccum, <span class="stringliteral">&quot;expHall_log&quot;</span>,0,0,0);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="comment">/* A PhysicalVolume is a LogicalVolume put in place. */</span>
+<a name="l00088"></a>00088   <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a> = <span class="keyword">new</span> G4PVPlacement(0,                <span class="comment">// Rotaï¿½ï¿½o</span>
+<a name="l00089"></a>00089                                                                           G4ThreeVector(),                <span class="comment">// Origem</span>
+<a name="l00090"></a>00090                                       <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,   <span class="comment">// Seu volume lï¿½gico</span>
+<a name="l00091"></a>00091                                       <span class="stringliteral">&quot;expHall&quot;</span>,                          <span class="comment">// Seu nome</span>
+<a name="l00092"></a>00092                                       0,                                          <span class="comment">// Seu volume mï¿½e. Neste caso o ponteiro ï¿½ nulo por tratar-se do World Volume</span>
+<a name="l00093"></a>00093                                       <span class="keyword">false</span>,                              <span class="comment">// Nenhuma operaï¿½ï¿½o booleana</span>
+<a name="l00094"></a>00094                                       0);                                         <span class="comment">// Its copy number</span>
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="comment">// Maybe, these variables must be out in the header file</span>
+<a name="l00097"></a>00097   <span class="keyword">const</span> G4int numOfSlabs = 1000;
+<a name="l00098"></a>00098   G4String detector_box_name[numOfSlabs];
+<a name="l00099"></a>00099   G4String detector_log_name[numOfSlabs];
+<a name="l00100"></a>00100   G4String detector_phys_name[numOfSlabs];
+<a name="l00101"></a>00101   G4double detector_position[numOfSlabs];
+<a name="l00102"></a>00102   G4Box* detector_box[numOfSlabs];
+<a name="l00103"></a>00103   G4LogicalVolume* detector_log[numOfSlabs];
+<a name="l00104"></a>00104   G4VPhysicalVolume* detector_phys[numOfSlabs];
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106   <span class="comment">// For Beryllium</span>
+<a name="l00107"></a>00107   <span class="comment">//G4double slabThickness = 0.05995671*mm; // 0,05995671mm para 1.033 MeV e 0.024242424mm para 0.521 MeV</span>
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109   <span class="comment">// For Molybdenum</span>
+<a name="l00110"></a>00110   <span class="comment">//G4double slabThickness = 0.000546693*cm;  // e- of 0.5 MeV on Mo</span>
+<a name="l00111"></a>00111   <span class="comment">//G4double slabThickness = 0.001309339*cm;  // e- of 1.0 MeV on Mo</span>
+<a name="l00112"></a>00112   G4double slabThickness = myUtils-&gt;<a class="code" href="classMyUtils.html#a87c341c0a32d16ce8fb65b2302a0d3e3">getCSDA</a>() * myUtils-&gt;<a class="code" href="classMyUtils.html#ae5d99da53d5334ebc9b98d1babd02938">getDeltaZ</a>();
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="comment">/* This creates several slices of beryllium and put each one in the top of the other */</span>
+<a name="l00115"></a>00115   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numOfSlabs; ++i) {
+<a name="l00116"></a>00116           detector_box_name[i]  = <span class="stringliteral">&quot;detector_box_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00117"></a>00117           detector_log_name[i]  = <span class="stringliteral">&quot;detector_log_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00118"></a>00118           detector_phys_name[i] = <span class="stringliteral">&quot;detector_phys_&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00119"></a>00119           detector_box[i] = <span class="keyword">new</span> G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
+<a name="l00120"></a>00120           detector_log[i] = <span class="keyword">new</span> G4LogicalVolume(detector_box[i], phantomMaterial, detector_log_name[i], 0, 0, 0);
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122           <span class="comment">//detector_log[i]-&gt;SetUserLimits(myUtils-&gt;getMyMaxStepLimit());</span>
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125   <span class="comment">/* End of Volumes construction */</span>
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128 <span class="comment">/*</span>
-<a name="l00129"></a>00129 <span class="comment"> * Here I set the Sensitive Detector used to accumulate the energy deposited in one specific slice.</span>
-<a name="l00130"></a>00130 <span class="comment"> * There is a bunch of things that must be UNDERSTOOD here.</span>
-<a name="l00131"></a>00131 <span class="comment"> */</span>
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133   <span class="comment">// G4SDParticleFilter* gammaFilter = new G4SDParticleFilter(&quot;gammaFilter&quot;, &quot;gamma&quot;);</span>
-<a name="l00134"></a>00134 <span class="comment">//  G4VPrimitiveScorer* primitive = new G4PSEnergyDeposit(&quot;eDep&quot;);</span>
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137     G4String myDetector[50];
-<a name="l00138"></a>00138     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; 50; ++i) {
-<a name="l00139"></a>00139           myDetector[i] = <span class="stringliteral">&quot;myDetector&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00140"></a>00140           G4MultiFunctionalDetector* det = <span class="keyword">new</span> G4MultiFunctionalDetector(myDetector[i]);
-<a name="l00141"></a>00141                   G4VPrimitiveScorer* primitive = <span class="keyword">new</span> G4PSEnergyDeposit(<span class="stringliteral">&quot;eDep&quot;</span>);
-<a name="l00142"></a>00142           det-&gt;RegisterPrimitive(primitive);
-<a name="l00143"></a>00143           G4SDManager::GetSDMpointer()-&gt;AddNewDetector(det);
-<a name="l00144"></a>00144           detector_log[i]-&gt;SetSensitiveDetector(det);
-<a name="l00145"></a>00145     }
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147 <span class="comment">//  G4MultiFunctionalDetector* myScorer = new G4MultiFunctionalDetector(&quot;myDetector&quot;);</span>
-<a name="l00148"></a>00148 <span class="comment">//  myScorer-&gt;RegisterPrimitive(primitive);</span>
-<a name="l00149"></a>00149 <span class="comment">//</span>
-<a name="l00150"></a>00150 <span class="comment">//  G4SDManager::GetSDMpointer()-&gt;AddNewDetector(myScorer);</span>
-<a name="l00151"></a>00151 <span class="comment">//  detector_log[49]-&gt;SetSensitiveDetector(myScorer);</span>
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153 
-<a name="l00154"></a>00154 <span class="comment">//  cube_log-&gt;SetSensitiveDetector(myScorer);</span>
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156   <span class="comment">// G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(1);</span>
-<a name="l00157"></a>00157   G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(0);
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159   <span class="keywordflow">return</span> <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
-<a name="l00160"></a>00160 }
-<a name="l00161"></a>00161 
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 
-<a name="l00164"></a>00164 <span class="comment">/* Here it comes some code related to my first attempt to set the SensitiveDetector</span>
-<a name="l00165"></a>00165 <span class="comment"> * for dose accumulation. I keep it here as a reminder.</span>
-<a name="l00166"></a>00166 <span class="comment"> */</span>
-<a name="l00167"></a>00167 
-<a name="l00168"></a>00168 <span class="comment">//  pSensitivePart = new MyDetector(&quot;/mydet&quot;);</span>
-<a name="l00169"></a>00169 <span class="comment">//  G4SDManager* SDMan = G4SDManager::GetSDMpointer();</span>
-<a name="l00170"></a>00170 <span class="comment">//  SDMan-&gt;AddNewDetector(pSensitivePart);</span>
-<a name="l00171"></a>00171 <span class="comment">//  cubo_log-&gt;SetSensitiveDetector(pSensetivePart);</span>
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173   <span class="comment">//G4MultiFunctionalDetector* myScorer = new G4MultiFunctionalDetector(&quot;myCellScorer&quot;);</span>
+<a name="l00124"></a>00124           detector_position[i] = - slabThickness/2.0 - i * slabThickness;
+<a name="l00125"></a>00125           detector_phys[i] = <span class="keyword">new</span> G4PVPlacement(0,
+<a name="l00126"></a>00126                                                           G4ThreeVector(0.0*cm, detector_position[i], 0.0*cm),
+<a name="l00127"></a>00127                                                           detector_log[i],
+<a name="l00128"></a>00128                                                           detector_phys_name[i],
+<a name="l00129"></a>00129                                                           <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,
+<a name="l00130"></a>00130                                                           <span class="keyword">false</span>,
+<a name="l00131"></a>00131                                                           0);
+<a name="l00132"></a>00132   }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 <span class="comment">//  G4double maxStep = 0.1*TrackerLength;</span>
+<a name="l00136"></a>00136 <span class="comment">//  logicTracker-&gt;SetUserLimits(new G4UserLimits(maxStep));</span>
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138   <span class="comment">/* End of Volumes construction */</span>
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="comment">/*</span>
+<a name="l00142"></a>00142 <span class="comment"> * Here I set the Sensitive Detector used to accumulate the energy deposited in one specific slice.</span>
+<a name="l00143"></a>00143 <span class="comment"> * There is a bunch of things that must be UNDERSTOOD here.</span>
+<a name="l00144"></a>00144 <span class="comment"> */</span>
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146   <span class="comment">// G4SDParticleFilter* gammaFilter = new G4SDParticleFilter(&quot;gammaFilter&quot;, &quot;gamma&quot;);</span>
+<a name="l00147"></a>00147 <span class="comment">//  G4VPrimitiveScorer* primitive = new G4PSEnergyDeposit(&quot;eDep&quot;);</span>
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150     G4String myDetector[50];
+<a name="l00151"></a>00151     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; 50; ++i) {
+<a name="l00152"></a>00152           myDetector[i] = <span class="stringliteral">&quot;myDetector&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00153"></a>00153           G4MultiFunctionalDetector* det = <span class="keyword">new</span> G4MultiFunctionalDetector(myDetector[i]);
+<a name="l00154"></a>00154                   G4VPrimitiveScorer* primitive = <span class="keyword">new</span> G4PSEnergyDeposit(<span class="stringliteral">&quot;eDep&quot;</span>);
+<a name="l00155"></a>00155           det-&gt;RegisterPrimitive(primitive);
+<a name="l00156"></a>00156           G4SDManager::GetSDMpointer()-&gt;AddNewDetector(det);
+<a name="l00157"></a>00157           detector_log[i]-&gt;SetSensitiveDetector(det);
+<a name="l00158"></a>00158     }
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 <span class="comment">//  G4MultiFunctionalDetector* myScorer = new G4MultiFunctionalDetector(&quot;myDetector&quot;);</span>
+<a name="l00161"></a>00161 <span class="comment">//  myScorer-&gt;RegisterPrimitive(primitive);</span>
+<a name="l00162"></a>00162 <span class="comment">//</span>
+<a name="l00163"></a>00163 <span class="comment">//  G4SDManager::GetSDMpointer()-&gt;AddNewDetector(myScorer);</span>
+<a name="l00164"></a>00164 <span class="comment">//  detector_log[49]-&gt;SetSensitiveDetector(myScorer);</span>
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 <span class="comment">//  cube_log-&gt;SetSensitiveDetector(myScorer);</span>
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169   <span class="comment">// G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(1);</span>
+<a name="l00170"></a>00170   G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(0);
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172   <span class="keywordflow">return</span> <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
+<a name="l00173"></a>00173 }
 <a name="l00174"></a>00174 
-<a name="l00175"></a>00175 <span class="comment">//  G4VPrimitiveSensitivity* totalDose = new G4PSDoseDeposit(�TotalDose�);</span>
-<a name="l00176"></a>00176 <span class="comment">//  myScorer-&gt;Register(totalDose);</span>
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178 <span class="comment">//  cubo_log-&gt;SetSensitiveDetector(myScorer);</span>
-<a name="l00179"></a>00179 
-<a name="l00180"></a>00180 <span class="comment">//  MyDetector* myDetector = new MyDetector(&quot;myDetector&quot;);</span>
-<a name="l00181"></a>00181 <span class="comment">//  G4SDManager::GetSDMpointer()-&gt;AddNewDetector(myDetector);</span>
-<a name="l00182"></a>00182 <span class="comment">//  cubo_log-&gt;SetSensitiveDetector(myDetector);</span>
-<a name="l00183"></a>00183 
-<a name="l00184"></a>00184 
-<a name="l00185"></a>00185 <span class="comment">//  G4SDParticleWithEnergyFilter* pkinEFilter = new G4SDParticleWithEnergyFilter(&quot;gammaE filter&quot;,50.0*keV,55.0*keV); </span>
-<a name="l00186"></a>00186 <span class="comment">//  pkinEFilter-&gt;add(&quot;gamma&quot;);</span>
-<a name="l00187"></a>00187 <span class="comment">//  pkinEFilter-&gt;show();</span>
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189 
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177 <span class="comment">/* Here it comes some code related to my first attempt to set the SensitiveDetector</span>
+<a name="l00178"></a>00178 <span class="comment"> * for dose accumulation. I keep it here as a reminder.</span>
+<a name="l00179"></a>00179 <span class="comment"> */</span>
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181 <span class="comment">//  pSensitivePart = new MyDetector(&quot;/mydet&quot;);</span>
+<a name="l00182"></a>00182 <span class="comment">//  G4SDManager* SDMan = G4SDManager::GetSDMpointer();</span>
+<a name="l00183"></a>00183 <span class="comment">//  SDMan-&gt;AddNewDetector(pSensitivePart);</span>
+<a name="l00184"></a>00184 <span class="comment">//  cubo_log-&gt;SetSensitiveDetector(pSensetivePart);</span>
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186   <span class="comment">//G4MultiFunctionalDetector* myScorer = new G4MultiFunctionalDetector(&quot;myCellScorer&quot;);</span>
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 <span class="comment">//  G4VPrimitiveSensitivity* totalDose = new G4PSDoseDeposit(ï¿½TotalDoseï¿½);</span>
+<a name="l00189"></a>00189 <span class="comment">//  myScorer-&gt;Register(totalDose);</span>
 <a name="l00190"></a>00190 
-<a name="l00191"></a>00191 
-<a name="l00192"></a>00192 <span class="comment">/* Thin Pb layer used for a previous experiment */</span>
-<a name="l00193"></a>00193 <span class="comment">/*</span>
-<a name="l00194"></a>00194 <span class="comment">  G4double block_x = 0.1*mm;</span>
-<a name="l00195"></a>00195 <span class="comment">  G4double block_y = 50.0*cm;</span>
-<a name="l00196"></a>00196 <span class="comment">  G4double block_z = 50.0*cm;</span>
-<a name="l00197"></a>00197 <span class="comment">  // Isso � o que se chama de s�lido. Cada s�lido pode necessitar de um</span>
-<a name="l00198"></a>00198 <span class="comment">  // conjunto espec�fico de dados para a sua cria��o</span>
-<a name="l00199"></a>00199 <span class="comment">  G4Box* detectorBlock_box = new G4Box(&quot;detectorBlock_box&quot;, block_x, block_y, block_z);</span>
-<a name="l00200"></a>00200 <span class="comment"></span>
-<a name="l00201"></a>00201 <span class="comment">  // Volume l�gico</span>
-<a name="l00202"></a>00202 <span class="comment">  // Ainda tenho que entender os �ltimos tr�s argumentos</span>
-<a name="l00203"></a>00203 <span class="comment">  detector_log = new G4LogicalVolume(detectorBlock_box, lead, &quot;detector_log&quot;, 0, 0, 0);</span>
-<a name="l00204"></a>00204 <span class="comment"></span>
-<a name="l00205"></a>00205 <span class="comment">  //detector_log-&gt;SetVisAttributes(G4VisAttributes::Invisible);</span>
-<a name="l00206"></a>00206 <span class="comment">  detector_log-&gt;SetVisAttributes(G4Colour(1.0, 0.0, 0.0));</span>
-<a name="l00207"></a>00207 <span class="comment"></span>
-<a name="l00208"></a>00208 <span class="comment">  G4double blockPos_x = 1.0*m;</span>
-<a name="l00209"></a>00209 <span class="comment">  G4double blockPos_y = 0.0*m;</span>
-<a name="l00210"></a>00210 <span class="comment">  G4double blockPos_z = 0.0*m;</span>
-<a name="l00211"></a>00211 <span class="comment">  detector_phys = new G4PVPlacement(0,</span>
-<a name="l00212"></a>00212 <span class="comment">                                G4ThreeVector(blockPos_x,blockPos_y,blockPos_z),</span>
-<a name="l00213"></a>00213 <span class="comment">                                detector_log,</span>
-<a name="l00214"></a>00214 <span class="comment">                                &quot;detectorBlock&quot;,</span>
-<a name="l00215"></a>00215 <span class="comment">                                experimentalHall_log,  // Volume m�e.</span>
-<a name="l00216"></a>00216 <span class="comment">                                false,</span>
-<a name="l00217"></a>00217 <span class="comment">                                0);</span>
-<a name="l00218"></a>00218 <span class="comment">*/</span>
-<a name="l00219"></a>00219 
-<a name="l00220"></a>00220 <span class="comment">/* Small cube of lead used as a detector for my inverse-square law */</span>
-<a name="l00221"></a>00221 <span class="comment">//  G4Box* cube_box = new G4Box(&quot;cube_box&quot;, 20.0*cm, 20.0*cm, 20.0*cm);</span>
-<a name="l00222"></a>00222 <span class="comment">//  cube_log = new G4LogicalVolume(cube_box, water, &quot;cube_log&quot;, 0, 0, 0);</span>
-<a name="l00223"></a>00223 <span class="comment">//  cube_log-&gt;SetVisAttributes(G4Colour(1.0, 0.0, 0.0));</span>
-<a name="l00224"></a>00224 <span class="comment">//  cube_phys = new G4PVPlacement(0,</span>
-<a name="l00225"></a>00225 <span class="comment">//                              G4ThreeVector( 0.0*m, 0.0*m, 0.0*m),</span>
-<a name="l00226"></a>00226 <span class="comment">//                              cube_log,</span>
-<a name="l00227"></a>00227 <span class="comment">//                              &quot;cube&quot;,</span>
-<a name="l00228"></a>00228 <span class="comment">//                              experimentalHall_log,  // Volume m�e.</span>
-<a name="l00229"></a>00229 <span class="comment">//                              false,</span>
-<a name="l00230"></a>00230 <span class="comment">//                              0);</span>
-<a name="l00231"></a>00231 
+<a name="l00191"></a>00191 <span class="comment">//  cubo_log-&gt;SetSensitiveDetector(myScorer);</span>
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 <span class="comment">//  MyDetector* myDetector = new MyDetector(&quot;myDetector&quot;);</span>
+<a name="l00194"></a>00194 <span class="comment">//  G4SDManager::GetSDMpointer()-&gt;AddNewDetector(myDetector);</span>
+<a name="l00195"></a>00195 <span class="comment">//  cubo_log-&gt;SetSensitiveDetector(myDetector);</span>
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198 <span class="comment">//  G4SDParticleWithEnergyFilter* pkinEFilter = new G4SDParticleWithEnergyFilter(&quot;gammaE filter&quot;,50.0*keV,55.0*keV);</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -272,7 +238,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Sep 2013 for Geant4 Mater's Simulation by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2013 for Geant4 Mater's Simulation by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -47,6 +47,7 @@ void MyUtils::setup(){
 
 	//	energy = mySimCases[caseNumber]->getEnergy();
 		deltaZ = 0.02;				// = divide the CSDA in 50 slices
+
 		maxStep = 0.2 * deltaZ;		// = 20% of the slice thickness
 
 	//	phantomMaterial = myMat->getMolybdenum();

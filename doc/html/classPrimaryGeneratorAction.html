@@ -77,20 +77,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memdoc">
 <dl class="author"><dt><b>Author:</b></dt><dd>Sandro Boschetti, August 30, 2012 </dd></dl>
 
-<p>Definition at line <a class="el" href="PrimaryGeneratorAction_8cc_source.html#l00018">18</a> of file <a class="el" href="PrimaryGeneratorAction_8cc_source.html">PrimaryGeneratorAction.cc</a>.</p>
+<p>Definition at line <a class="el" href="PrimaryGeneratorAction_8cc_source.html#l00020">20</a> of file <a class="el" href="PrimaryGeneratorAction_8cc_source.html">PrimaryGeneratorAction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019 {
-<a name="l00020"></a>00020   G4int n_particle = 1;
-<a name="l00021"></a>00021   <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a> = <span class="keyword">new</span> G4ParticleGun(n_particle);
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
-<a name="l00024"></a>00024   G4String particleName;
-<a name="l00025"></a>00025 <span class="comment">//  particleGun-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=&quot;gamma&quot;));</span>
-<a name="l00026"></a>00026 <span class="comment">//  particleGun-&gt;SetParticleEnergy(0.140*MeV);</span>
-<a name="l00027"></a>00027   <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=<span class="stringliteral">&quot;e-&quot;</span>));
-<a name="l00028"></a>00028   <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticleEnergy(0.521*MeV);
-<a name="l00029"></a>00029 <span class="comment">//  particleGun-&gt;SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));</span>
-<a name="l00030"></a>00030 }
+<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021 {
+<a name="l00022"></a>00022   G4int n_particle = 1;
+<a name="l00023"></a>00023   <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a> = <span class="keyword">new</span> G4ParticleGun(n_particle);
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+<a name="l00026"></a>00026   G4String particleName;
+<a name="l00027"></a>00027 <span class="comment">//  particleGun-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=&quot;gamma&quot;));</span>
+<a name="l00028"></a>00028 <span class="comment">//  particleGun-&gt;SetParticleEnergy(0.140*MeV);</span>
+<a name="l00029"></a>00029   <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticleDefinition(particleTable-&gt;FindParticle(particleName=<span class="stringliteral">&quot;e-&quot;</span>));
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031   <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticleEnergy(<a class="code" href="classMyUtils.html#aaf77c49615c03e9d6e9c78f707152569">MyUtils::getInstance</a>()-&gt;getEnergy());  <span class="comment">// 0.521*MeV ou 1.033 MeV</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">//  particleGun-&gt;SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));</span>
+<a name="l00034"></a>00034 }
 </pre></div></p>
 
 </div>
@@ -110,11 +112,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PrimaryGeneratorAction_8cc_source.html#l00032">32</a> of file <a class="el" href="PrimaryGeneratorAction_8cc_source.html">PrimaryGeneratorAction.cc</a>.</p>
+<p>Definition at line <a class="el" href="PrimaryGeneratorAction_8cc_source.html#l00036">36</a> of file <a class="el" href="PrimaryGeneratorAction_8cc_source.html">PrimaryGeneratorAction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033 {
-<a name="l00034"></a>00034   <span class="keyword">delete</span> <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>;
-<a name="l00035"></a>00035 }
+<p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037 {
+<a name="l00038"></a>00038   <span class="keyword">delete</span> <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>;
+<a name="l00039"></a>00039 }
 </pre></div></p>
 
 </div>
@@ -138,34 +140,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Isotropically generated primary events from a point source. </p>
 
-<p>Definition at line <a class="el" href="PrimaryGeneratorAction_8cc_source.html#l00040">40</a> of file <a class="el" href="PrimaryGeneratorAction_8cc_source.html">PrimaryGeneratorAction.cc</a>.</p>
+<p>Definition at line <a class="el" href="PrimaryGeneratorAction_8cc_source.html#l00044">44</a> of file <a class="el" href="PrimaryGeneratorAction_8cc_source.html">PrimaryGeneratorAction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00041"></a>00041 {
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="comment">/* This is a point source */</span>
-<a name="l00044"></a>00044 <span class="comment">//      G4double theta = pi * G4UniformRand();</span>
-<a name="l00045"></a>00045 <span class="comment">//      G4double   phi = pi2 * G4UniformRand();</span>
-<a name="l00046"></a>00046 <span class="comment">//      G4double px = std::sin(theta) * std::cos(phi);</span>
-<a name="l00047"></a>00047 <span class="comment">//      G4double py = std::cos(theta);</span>
-<a name="l00048"></a>00048 <span class="comment">//      G4double pz = std::sin(theta) * std::sin(phi);</span>
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="comment">/* Flat unidirectional source. A 5x5 cm at 100 cm above the phantom surface.  */</span>
-<a name="l00051"></a>00051         G4double widthX = 5.0*cm;
-<a name="l00052"></a>00052         G4double widthZ = 5.0*cm;
-<a name="l00053"></a>00053         G4double posX = widthX * <a class="code" href="MyRandom_8hh.html#a292914b2bf82aa2222afdd57c39609d1">G4UniformRand</a>() - widthX/2.0;
-<a name="l00054"></a>00054         G4double posY = 100*cm;
-<a name="l00055"></a>00055         G4double posZ = widthZ * <a class="code" href="MyRandom_8hh.html#a292914b2bf82aa2222afdd57c39609d1">G4UniformRand</a>() - widthZ/2.0;
-<a name="l00056"></a>00056         G4double px = 0;
-<a name="l00057"></a>00057         G4double py = -1;
-<a name="l00058"></a>00058         G4double pz = 0;
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060         G4ThreeVector v(px, py, pz);
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062         <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticlePosition(G4ThreeVector(posX, posY, posZ));
+<p><div class="fragment"><pre class="fragment"><a name="l00045"></a>00045 {
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="comment">/* This is a point source */</span>
+<a name="l00048"></a>00048 <span class="comment">//      G4double theta = pi * G4UniformRand();</span>
+<a name="l00049"></a>00049 <span class="comment">//      G4double   phi = pi2 * G4UniformRand();</span>
+<a name="l00050"></a>00050 <span class="comment">//      G4double px = std::sin(theta) * std::cos(phi);</span>
+<a name="l00051"></a>00051 <span class="comment">//      G4double py = std::cos(theta);</span>
+<a name="l00052"></a>00052 <span class="comment">//      G4double pz = std::sin(theta) * std::sin(phi);</span>
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="comment">/* Flat unidirectional source. A 5x5 cm at 100 cm above the phantom surface.  */</span>
+<a name="l00055"></a>00055         G4double widthX = 5.0*cm;
+<a name="l00056"></a>00056         G4double widthZ = 5.0*cm;
+<a name="l00057"></a>00057         G4double posX = widthX * <a class="code" href="MyRandom_8hh.html#a292914b2bf82aa2222afdd57c39609d1">G4UniformRand</a>() - widthX/2.0;
+<a name="l00058"></a>00058         G4double posY = 100*cm;
+<a name="l00059"></a>00059         G4double posZ = widthZ * <a class="code" href="MyRandom_8hh.html#a292914b2bf82aa2222afdd57c39609d1">G4UniformRand</a>() - widthZ/2.0;
+<a name="l00060"></a>00060         G4double px = 0;
+<a name="l00061"></a>00061         G4double py = -1;
+<a name="l00062"></a>00062         G4double pz = 0;
 <a name="l00063"></a>00063 
-<a name="l00064"></a>00064         <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticleMomentumDirection(v);
-<a name="l00065"></a>00065         <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;GeneratePrimaryVertex(anEvent);
-<a name="l00066"></a>00066 }
+<a name="l00064"></a>00064         G4ThreeVector v(px, py, pz);
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066         <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticlePosition(G4ThreeVector(posX, posY, posZ));
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068         <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;SetParticleMomentumDirection(v);
+<a name="l00069"></a>00069         <a class="code" href="classPrimaryGeneratorAction.html#abec2b26f815edc1d9a6ac0ffcbd03647">particleGun</a>-&gt;GeneratePrimaryVertex(anEvent);
+<a name="l00070"></a>00070 }
 </pre></div></p>
 
 </div>
@@ -205,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Sep 2013 for Geant4 Mater's Simulation by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2013 for Geant4 Mater's Simulation by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

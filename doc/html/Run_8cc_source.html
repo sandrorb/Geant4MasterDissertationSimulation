@@ -60,66 +60,78 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00024"></a>00024           <span class="comment">//std::cout &lt;&lt; &quot;myID[&quot; &lt;&lt; i &lt;&lt; &quot;] = &quot; &lt;&lt; myID[i] &lt;&lt; std::endl;</span>
 <a name="l00025"></a>00025   }
 <a name="l00026"></a>00026 
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 }
-<a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="classRun.html#a7fa0ac1770a5067113aaa1928be3d742">00030</a> <a class="code" href="classRun.html#a7fa0ac1770a5067113aaa1928be3d742">Run::~Run</a>()
-<a name="l00031"></a>00031 {;}
-<a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="classRun.html#a8476edf182546b547d1be728b477e379">00033</a> <span class="keywordtype">void</span> <a class="code" href="classRun.html#a8476edf182546b547d1be728b477e379">Run::RecordEvent</a>(<span class="keyword">const</span> G4Event* evt) {
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035   G4HCofThisEvent* HCE = evt-&gt;GetHCofThisEvent();
-<a name="l00036"></a>00036   <span class="keywordflow">if</span> (!HCE) <span class="keywordflow">return</span>;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         <span class="comment">// Usando funcao dessa classe herdada da mae G4Run</span>
-<a name="l00039"></a>00039         <span class="comment">// G4cout &lt;&lt; &quot;Numero de eventos a serem processados: &quot; &lt;&lt; this-&gt;GetNumberOfEventToBeProcessed() - numberOfEvent  &lt;&lt; G4endl;</span>
-<a name="l00040"></a>00040         <span class="comment">// numberOfEvent is a G4int member of G4Run</span>
-<a name="l00041"></a>00041   numberOfEvent++;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043  <span class="comment">// G4THitsMap&lt;G4double&gt;* evtMap;</span>
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i&lt;50; i++) {
-<a name="l00046"></a>00046           <span class="comment">//std::cout &lt;&lt; &quot;AAAAAAAAAAAAAAAAntes do Iterator&quot; &lt;&lt; std::endl;</span>
-<a name="l00047"></a>00047           G4THitsMap&lt;G4double&gt;* evtMap = (G4THitsMap&lt;G4double&gt;*)(  HCE-&gt;GetHC(<a class="code" href="classRun.html#ae23e7cc1a6ecda0991b2d8fbb5a30e85">myID</a>[i])  );
-<a name="l00048"></a>00048           <a class="code" href="classRun.html#acd260105835c94c5f17f4f44cd3e4265">mapSum</a>[i] += (*evtMap);
-<a name="l00049"></a>00049   }
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="comment">//  for (G4int i = 0; i&lt;50; i++) {</span>
-<a name="l00053"></a>00053 <span class="comment">//        G4THitsMap&lt;G4double&gt;* evtMap = (G4THitsMap&lt;G4double&gt;*)(HCE-&gt;GetHC(myID[i]));</span>
-<a name="l00054"></a>00054 <span class="comment">//</span>
-<a name="l00055"></a>00055 <span class="comment">//        std::cout &lt;&lt; &quot;AAAAAAAAAAAAAAAAntes do Iterator&quot; &lt;&lt; std::endl;</span>
-<a name="l00056"></a>00056 <span class="comment">//        std::map&lt;G4int, G4double*&gt;::iterator itr = evtMap-&gt;GetMap()-&gt;begin();</span>
-<a name="l00057"></a>00057 <span class="comment">//        std::cout &lt;&lt; &quot;DDDDDDDDDDDDDDDDDEPOIS do Iterator&quot; &lt;&lt; std::endl;</span>
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="comment">//        for(; itr != evtMap-&gt;GetMap()-&gt;end(); itr++) {</span>
-<a name="l00060"></a>00060 <span class="comment">//                myEnergy[i] = myEnergy[i] + *(itr-&gt;second);</span>
-<a name="l00061"></a>00061 <span class="comment">//                //std::cout &lt;&lt; myEnergy[i] &lt;&lt; std::endl;</span>
-<a name="l00062"></a>00062 <span class="comment">//        }</span>
-<a name="l00063"></a>00063 <span class="comment">//  }</span>
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066   <span class="comment">//energySum += *evtMap;</span>
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="comment">//      G4cout &lt;&lt; energySum.GetName() &lt;&lt; G4endl;</span>
-<a name="l00069"></a>00069 }
+<a name="l00027"></a>00027   <a class="code" href="classRun.html#a8c4baf9e8d6f110185f5e8937d36835d">timeAtBeginOfEvent</a> = time(0);
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 }
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="classRun.html#a7fa0ac1770a5067113aaa1928be3d742">00031</a> <a class="code" href="classRun.html#a7fa0ac1770a5067113aaa1928be3d742">Run::~Run</a>()
+<a name="l00032"></a>00032 {;}
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="classRun.html#a8476edf182546b547d1be728b477e379">00034</a> <span class="keywordtype">void</span> <a class="code" href="classRun.html#a8476edf182546b547d1be728b477e379">Run::RecordEvent</a>(<span class="keyword">const</span> G4Event* evt) {
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036   G4HCofThisEvent* HCE = evt-&gt;GetHCofThisEvent();
+<a name="l00037"></a>00037   <span class="keywordflow">if</span> (!HCE) <span class="keywordflow">return</span>;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039   numberOfEvent++;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041   <a class="code" href="classRun.html#a9f40c9220b8f0127be34f3ea7fb497a8">timeAtEndOfEvent</a> = time(0);
+<a name="l00042"></a>00042   <span class="keywordflow">if</span> ( (numberOfEvent % 1000) == 0) {
+<a name="l00043"></a>00043           <a class="code" href="classRun.html#aefb5b9d9b48c6b5ce38a366fb4414cae">numEventsToGo</a> = this-&gt;numberOfEventToBeProcessed - numberOfEvent;
+<a name="l00044"></a>00044           <a class="code" href="classRun.html#af4f2445abebfd878e9db78ea5f05ab64">timeToGo</a> = ( (<a class="code" href="classRun.html#a9f40c9220b8f0127be34f3ea7fb497a8">timeAtEndOfEvent</a> - <a class="code" href="classRun.html#a8c4baf9e8d6f110185f5e8937d36835d">timeAtBeginOfEvent</a>)/ ((<span class="keywordtype">double</span>)numberOfEvent) ) * <a class="code" href="classRun.html#aefb5b9d9b48c6b5ce38a366fb4414cae">numEventsToGo</a>;
+<a name="l00045"></a>00045           <a class="code" href="classRun.html#aae4f6ceaf9ef79bb25e3327cd9f0e7bc">timeToGoMinutos</a> = (int)(<a class="code" href="classRun.html#af4f2445abebfd878e9db78ea5f05ab64">timeToGo</a>/60);
+<a name="l00046"></a>00046           <a class="code" href="classRun.html#a0b45866b1b5e8f63ad704aa27c516832">timeToGoSegundos</a> = <a class="code" href="classRun.html#af4f2445abebfd878e9db78ea5f05ab64">timeToGo</a> - (<a class="code" href="classRun.html#aae4f6ceaf9ef79bb25e3327cd9f0e7bc">timeToGoMinutos</a> * 60);
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048           G4cout &lt;&lt; <span class="stringliteral">&quot;Termino em: &quot;</span> &lt;&lt; <a class="code" href="classRun.html#aae4f6ceaf9ef79bb25e3327cd9f0e7bc">timeToGoMinutos</a> &lt;&lt; <span class="stringliteral">&quot; min e &quot;</span>
+<a name="l00049"></a>00049                          &lt;&lt;  <a class="code" href="classRun.html#a0b45866b1b5e8f63ad704aa27c516832">timeToGoSegundos</a> &lt;&lt; <span class="stringliteral">&quot; seg. &quot;</span>
+<a name="l00050"></a>00050                          &lt;&lt; <span class="stringliteral">&quot;Eventos restantes: &quot;</span> &lt;&lt; <a class="code" href="classRun.html#aefb5b9d9b48c6b5ce38a366fb4414cae">numEventsToGo</a> &lt;&lt; <span class="stringliteral">&quot;     &quot;</span>
+<a name="l00051"></a>00051                          &lt;&lt; std::flush; <span class="comment">// G4cout.flush() this prints a hex number at the end (???).</span>
+<a name="l00052"></a>00052           G4cout &lt;&lt; <span class="charliteral">&apos;\r&apos;</span>;
+<a name="l00053"></a>00053   }
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056  <span class="comment">// G4THitsMap&lt;G4double&gt;* evtMap;</span>
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058   <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i&lt;50; i++) {
+<a name="l00059"></a>00059           G4THitsMap&lt;G4double&gt;* evtMap = (G4THitsMap&lt;G4double&gt;*)(  HCE-&gt;GetHC(<a class="code" href="classRun.html#ae23e7cc1a6ecda0991b2d8fbb5a30e85">myID</a>[i])  );
+<a name="l00060"></a>00060           <a class="code" href="classRun.html#a6ada514cdfb1a2f1848cf3e8592ada09">energySum</a>[i] += (*evtMap);
+<a name="l00061"></a>00061   }
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="comment">//  for (G4int i = 0; i&lt;50; i++) {</span>
+<a name="l00065"></a>00065 <span class="comment">//        G4THitsMap&lt;G4double&gt;* evtMap = (G4THitsMap&lt;G4double&gt;*)(HCE-&gt;GetHC(myID[i]));</span>
+<a name="l00066"></a>00066 <span class="comment">//</span>
+<a name="l00067"></a>00067 <span class="comment">//        std::cout &lt;&lt; &quot;AAAAAAAAAAAAAAAAntes do Iterator&quot; &lt;&lt; std::endl;</span>
+<a name="l00068"></a>00068 <span class="comment">//        std::map&lt;G4int, G4double*&gt;::iterator itr = evtMap-&gt;GetMap()-&gt;begin();</span>
+<a name="l00069"></a>00069 <span class="comment">//        std::cout &lt;&lt; &quot;DDDDDDDDDDDDDDDDDEPOIS do Iterator&quot; &lt;&lt; std::endl;</span>
 <a name="l00070"></a>00070 
-<a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">00072</a> G4double <a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">Run::GetTotal</a>(<span class="keyword">const</span> G4THitsMap&lt;G4double&gt; &amp;map)<span class="keyword"> const </span>{
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074   G4double total = 0.;
-<a name="l00075"></a>00075   std::map&lt;G4int,G4double*&gt;::iterator itr = map.GetMap()-&gt;begin();
+<a name="l00071"></a>00071 <span class="comment">//        for(; itr != evtMap-&gt;GetMap()-&gt;end(); itr++) {</span>
+<a name="l00072"></a>00072 <span class="comment">//                myEnergy[i] = myEnergy[i] + *(itr-&gt;second);</span>
+<a name="l00073"></a>00073 <span class="comment">//                //std::cout &lt;&lt; myEnergy[i] &lt;&lt; std::endl;</span>
+<a name="l00074"></a>00074 <span class="comment">//        }</span>
+<a name="l00075"></a>00075 <span class="comment">//  }</span>
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077   <span class="keywordflow">for</span>(; itr != map.GetMap()-&gt;end(); itr++) {
-<a name="l00078"></a>00078           total += *(itr-&gt;second);
-<a name="l00079"></a>00079   }
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081   <span class="keywordflow">return</span> total;
-<a name="l00082"></a>00082 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078   <span class="comment">//energySum += *evtMap;</span>
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="comment">//      G4cout &lt;&lt; energySum.GetName() &lt;&lt; G4endl;</span>
+<a name="l00081"></a>00081 }
+<a name="l00082"></a>00082 
 <a name="l00083"></a>00083 
-<a name="l00084"></a>00084 
+<a name="l00084"></a><a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">00084</a> G4double <a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">Run::GetTotal</a>(<span class="keyword">const</span> G4THitsMap&lt;G4double&gt; &amp;map)<span class="keyword"> const </span>{
 <a name="l00085"></a>00085 
-<a name="l00086"></a>00086   
+<a name="l00086"></a>00086   G4double total = 0.;
+<a name="l00087"></a>00087   std::map&lt;G4int,G4double*&gt;::iterator itr = map.GetMap()-&gt;begin();
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089   <span class="keywordflow">for</span>(; itr != map.GetMap()-&gt;end(); itr++) {
+<a name="l00090"></a>00090           total += *(itr-&gt;second);
+<a name="l00091"></a>00091   }
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093   <span class="keywordflow">return</span> total;
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098   
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -135,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Sep 2013 for Geant4 Mater's Simulation by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2013 for Geant4 Mater's Simulation by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

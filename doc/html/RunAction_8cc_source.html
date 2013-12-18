@@ -63,26 +63,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00031"></a>00031 }
 <a name="l00032"></a>00032 
 <a name="l00033"></a><a class="code" href="classRunAction.html#a14b3433a6875194c4adfe1c222884f0d">00033</a> <span class="keywordtype">void</span> <a class="code" href="classRunAction.html#a14b3433a6875194c4adfe1c222884f0d">RunAction::BeginOfRunAction</a>(<span class="keyword">const</span> G4Run*) {
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 }
-<a name="l00036"></a>00036 
-<a name="l00037"></a><a class="code" href="classRunAction.html#a49e3c5db63358317c3babca100163bd9">00037</a> <span class="keywordtype">void</span> <a class="code" href="classRunAction.html#a49e3c5db63358317c3babca100163bd9">RunAction::EndOfRunAction</a>(<span class="keyword">const</span> G4Run* aRun) {
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="keyword">const</span> <a class="code" href="classRun.html">Run</a>* theRun = (<span class="keyword">const</span> <a class="code" href="classRun.html">Run</a>*)aRun;
-<a name="l00040"></a>00040 <span class="comment">//  G4double nEvt = (G4double)(theRun-&gt;GetNumberOfEvent());</span>
-<a name="l00041"></a>00041 <span class="comment">//  G4cout &lt;&lt; &quot;Numero de Eventos: &quot; &lt;&lt; nEvt &lt;&lt; G4endl;</span>
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="comment">//  G4cout &lt;&lt; &quot;Deposited Energy: &quot; &lt;&lt; G4BestUnit(theRun-&gt;GetTotalEnergyDeposited(),&quot;Energy&quot;) &lt;&lt; G4endl;</span>
-<a name="l00044"></a>00044 <span class="comment">//  G4cout &lt;&lt; &quot;Deposited Energy: &quot; &lt;&lt; theRun-&gt;GetTotalEnergyDeposited()/MeV &lt;&lt; &quot; MeV&quot; &lt;&lt; G4endl;</span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046   <span class="keywordflow">for</span> (G4int i = 0; i&lt;50; i++) {
-<a name="l00047"></a>00047           G4cout &lt;&lt;  i &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt; theRun-&gt;<a class="code" href="classRun.html#ac9666586168d674f661454125f41d61f">GetMyTotalEnergyDeposited</a>(i)/MeV &lt;&lt; <span class="stringliteral">&quot; MeV&quot;</span> &lt;&lt; G4endl;
-<a name="l00048"></a>00048   }
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="comment">//  G4cout &lt;&lt; &quot;myEnergy        : &quot; &lt;&lt; theRun-&gt;GetMyTotalEnergyDeposited(49)/MeV &lt;&lt; &quot; MeV&quot; &lt;&lt; G4endl;</span>
-<a name="l00051"></a>00051   G4cout &lt;&lt; <span class="stringliteral">&quot;Number of Events: &quot;</span> &lt;&lt; theRun-&gt;GetNumberOfEvent() &lt;&lt; G4endl;
-<a name="l00052"></a>00052 }
-<a name="l00053"></a>00053 
+<a name="l00034"></a>00034         G4cout &lt;&lt; <span class="stringliteral">&quot;\n\n\n\n\n\n\n\n&quot;</span>; <span class="comment">// some screen cleaning for simulation user info.</span>
+<a name="l00035"></a>00035         G4cout &lt;&lt; <span class="stringliteral">&quot;Simulation Started!!!\n&quot;</span>;
+<a name="l00036"></a>00036 }
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="classRunAction.html#a49e3c5db63358317c3babca100163bd9">00038</a> <span class="keywordtype">void</span> <a class="code" href="classRunAction.html#a49e3c5db63358317c3babca100163bd9">RunAction::EndOfRunAction</a>(<span class="keyword">const</span> G4Run* aRun) {
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040   <span class="keyword">const</span> <a class="code" href="classRun.html">Run</a>* theRun = (<span class="keyword">const</span> <a class="code" href="classRun.html">Run</a>*)aRun;
+<a name="l00041"></a>00041 <span class="comment">//  G4double nEvt = (G4double)(theRun-&gt;GetNumberOfEvent());</span>
+<a name="l00042"></a>00042 <span class="comment">//  G4cout &lt;&lt; &quot;Numero de Eventos: &quot; &lt;&lt; nEvt &lt;&lt; G4endl;</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="comment">//  G4cout &lt;&lt; &quot;Deposited Energy: &quot; &lt;&lt; G4BestUnit(theRun-&gt;GetTotalEnergyDeposited(),&quot;Energy&quot;) &lt;&lt; G4endl;</span>
+<a name="l00045"></a>00045 <span class="comment">//  G4cout &lt;&lt; &quot;Deposited Energy: &quot; &lt;&lt; theRun-&gt;GetTotalEnergyDeposited()/MeV &lt;&lt; &quot; MeV&quot; &lt;&lt; G4endl;</span>
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="comment">//  G4double densidadeBe = 1.848*g/cm3;</span>
+<a name="l00048"></a>00048 <span class="comment">//  G4double ro_for_Be_1033keV = 0.554*g/cm2;</span>
+<a name="l00049"></a>00049 <span class="comment">//  G4double ro_for_Be_1033keV_em_cm = ro_for_Be_1033keV / densidadeBe;</span>
+<a name="l00050"></a>00050 <span class="comment">//  G4double deltaZ = 0.02 * ro_for_Be_1033keV_em_cm / ro_for_Be_1033keV_em_cm;</span>
+<a name="l00051"></a>00051   G4double deltaZ = 0.02;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053   G4cout &lt;&lt; <span class="stringliteral">&quot;Energy in MeV&quot;</span> &lt;&lt; G4endl;
+<a name="l00054"></a>00054   <span class="keywordflow">for</span> (G4int i = 0; i&lt;50; i++) {
+<a name="l00055"></a>00055           G4cout &lt;&lt; i * deltaZ + (deltaZ / 2) &lt;&lt; <span class="stringliteral">&quot;    &quot;</span> &lt;&lt; theRun-&gt;<a class="code" href="classRun.html#ac9666586168d674f661454125f41d61f">GetMyTotalEnergyDeposited</a>(i)/MeV &lt;&lt; G4endl;
+<a name="l00056"></a>00056   }
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="comment">//  G4cout &lt;&lt; &quot;myEnergy        : &quot; &lt;&lt; theRun-&gt;GetMyTotalEnergyDeposited(49)/MeV &lt;&lt; &quot; MeV&quot; &lt;&lt; G4endl;</span>
+<a name="l00060"></a>00060   G4cout &lt;&lt; <span class="stringliteral">&quot;Number of Events: &quot;</span> &lt;&lt; theRun-&gt;GetNumberOfEvent() &lt;&lt; G4endl;
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -98,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Sep 2013 for Geant4 Mater's Simulation by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2013 for Geant4 Mater's Simulation by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

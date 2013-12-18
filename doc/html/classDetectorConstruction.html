@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00011">11</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00012">12</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1533c4308baddd0b2dcdf40f61dea1ef"></a><!-- doxytag: member="DetectorConstruction::DetectorConstruction" ref="a1533c4308baddd0b2dcdf40f61dea1ef" args="()" -->
 <div class="memitem">
@@ -89,11 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This is the constructor class member used to construct the "DetectorConstruction" object. </p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Sandro Boschetti, August 30, 2012 Some <a class="el" href="classDetectorConstruction.html">DetectorConstruction</a> class variable are initialized. In this case, "{;}", no implementation has been set. </dd></dl>
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00037">37</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00041">41</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038  :  <a class="code" href="classDetectorConstruction.html#af681a8a4b07c5748213325076216e717">myMaterial</a>(0), <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>(0), <a class="code" href="classDetectorConstruction.html#a3a2934cdbd909f31ecdce5e23aa90452">shielding_log</a>(0), <a class="code" href="classDetectorConstruction.html#ae0436a00b5d318930bc36403b13ec34c">cube_log</a>(0),
-<a name="l00039"></a>00039     <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>(0), <a class="code" href="classDetectorConstruction.html#ab7261ceda04f8e45e442da1510a34b5f">shielding_phys</a>(0), <a class="code" href="classDetectorConstruction.html#ac1d6335b137c81e82ee5b95076b06c48">cube_phys</a>(0)
-<a name="l00040"></a>00040 { }
+<p><div class="fragment"><pre class="fragment"><a name="l00042"></a>00042  :  <a class="code" href="classDetectorConstruction.html#af681a8a4b07c5748213325076216e717">myMaterial</a>(0), <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>(0), <a class="code" href="classDetectorConstruction.html#a3a2934cdbd909f31ecdce5e23aa90452">shielding_log</a>(0), <a class="code" href="classDetectorConstruction.html#ae0436a00b5d318930bc36403b13ec34c">cube_log</a>(0),
+<a name="l00043"></a>00043     <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>(0), <a class="code" href="classDetectorConstruction.html#ab7261ceda04f8e45e442da1510a34b5f">shielding_phys</a>(0), <a class="code" href="classDetectorConstruction.html#ac1d6335b137c81e82ee5b95076b06c48">cube_phys</a>(0)
+<a name="l00044"></a>00044 {  }
 </pre></div></p>
 
 </div>
@@ -113,9 +113,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00042">42</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00046">46</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043 { }
+<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047 { }
 </pre></div></p>
 
 </div>
@@ -136,110 +136,119 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00059">59</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00063">63</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059                                                    {
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="comment">//      MyMaterial* myMaterial = new MyMaterial;</span>
-<a name="l00062"></a>00062 <span class="comment">//      G4Material* air = myMaterial-&gt;getAir();</span>
-<a name="l00063"></a>00063 <span class="comment">//      G4Material* lead = myMaterial-&gt;getPb();</span>
-<a name="l00064"></a>00064 <span class="comment">//      G4Material* water = myMaterial-&gt;getWater();</span>
-<a name="l00065"></a>00065         G4Material* beryllium = <span class="keyword">new</span> G4Material(<span class="stringliteral">&quot;Beryllium&quot;</span>, 4.0, 9.012182*g/mole, 1.8480*g/cm3);
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067         G4NistManager* man = G4NistManager::Instance();
-<a name="l00068"></a>00068         man-&gt;SetVerbose(1);
-<a name="l00069"></a>00069         G4Material* vaccum    = man-&gt;FindOrBuildMaterial(<span class="stringliteral">&quot;G4_Galactic&quot;</span>);
-<a name="l00070"></a>00070 
+<p><div class="fragment"><pre class="fragment"><a name="l00063"></a>00063                                                    {
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065         <a class="code" href="classMyUtils.html">MyUtils</a> * myUtils = <a class="code" href="classMyUtils.html#aaf77c49615c03e9d6e9c78f707152569">MyUtils::getInstance</a>();
+<a name="l00066"></a>00066         G4Material* phantomMaterial = myUtils-&gt;<a class="code" href="classMyUtils.html#aa02733668c7c790284978baf7a36e82b">getPhantomMaterial</a>();
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068         G4NistManager* man = G4NistManager::Instance();
+<a name="l00069"></a>00069         man-&gt;SetVerbose(1);
+<a name="l00070"></a>00070         G4Material* vaccum    = man-&gt;FindOrBuildMaterial(<span class="stringliteral">&quot;G4_Galactic&quot;</span>);
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072   <span class="comment">/************ Begin of Volumes construction ************/</span>
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074   <span class="comment">// Experimental hall (world volume)</span>
-<a name="l00075"></a>00075   <span class="comment">// Beam line along Y axis</span>
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077   G4double expHall_x = 2.0*m; <span class="comment">// from left to right ???</span>
-<a name="l00078"></a>00078   G4double expHall_y = 3.0*m; <span class="comment">// vertical</span>
-<a name="l00079"></a>00079   G4double expHall_z = 2.0*m; <span class="comment">// from back to front ???</span>
-<a name="l00080"></a>00080   G4Box* experimentalHall_box = <span class="keyword">new</span> G4Box(<span class="stringliteral">&quot;expHall_box&quot;</span>,expHall_x,expHall_y,expHall_z);
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="comment">/* A LogicalVolume is some geometry figure, like a G4Box, fulfilled with some material.  */</span>
-<a name="l00083"></a>00083   <span class="comment">//experimentalHall_log = new G4LogicalVolume(experimentalHall_box, air, &quot;expHall_log&quot;,0,0,0);</span>
-<a name="l00084"></a>00084   <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a> = <span class="keyword">new</span> G4LogicalVolume(experimentalHall_box, vaccum, <span class="stringliteral">&quot;expHall_log&quot;</span>,0,0,0);
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086 <span class="comment">/* A PhysicalVolume is a LogicalVolume put in place. */</span>
-<a name="l00087"></a>00087   <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a> = <span class="keyword">new</span> G4PVPlacement(0,                <span class="comment">// Rota��o</span>
-<a name="l00088"></a>00088                                                                           G4ThreeVector(),                <span class="comment">// Origem</span>
-<a name="l00089"></a>00089                                       <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,   <span class="comment">// Seu volume l�gico</span>
-<a name="l00090"></a>00090                                       <span class="stringliteral">&quot;expHall&quot;</span>,                          <span class="comment">// Seu nome</span>
-<a name="l00091"></a>00091                                       0,                                          <span class="comment">// Seu volume m�e. Neste caso o ponteiro � nulo por tratar-se do World Volume</span>
-<a name="l00092"></a>00092                                       <span class="keyword">false</span>,                              <span class="comment">// Nenhuma opera��o booleana</span>
-<a name="l00093"></a>00093                                       0);                                         <span class="comment">// Its copy number</span>
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 <span class="comment">// Maybe, these variables must be out in the header file</span>
-<a name="l00096"></a>00096   <span class="keyword">const</span> G4int numOfSlabs = 100;
-<a name="l00097"></a>00097   G4String detector_box_name[numOfSlabs];
-<a name="l00098"></a>00098   G4String detector_log_name[numOfSlabs];
-<a name="l00099"></a>00099   G4String detector_phys_name[numOfSlabs];
-<a name="l00100"></a>00100   G4double detector_position[numOfSlabs];
-<a name="l00101"></a>00101   G4Box* detector_box[numOfSlabs];
-<a name="l00102"></a>00102   G4LogicalVolume* detector_log[numOfSlabs];
-<a name="l00103"></a>00103   G4VPhysicalVolume* detector_phys[numOfSlabs];
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105   G4double slabThickness = 0.024242424*mm;
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="comment">/* This creates several slices of beryllium and put each one in the top of the other */</span>
-<a name="l00108"></a>00108   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numOfSlabs; ++i) {
-<a name="l00109"></a>00109           detector_box_name[i]  = <span class="stringliteral">&quot;detector_box_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00110"></a>00110           detector_log_name[i]  = <span class="stringliteral">&quot;detector_log_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00111"></a>00111           detector_phys_name[i] = <span class="stringliteral">&quot;detector_phys_&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00112"></a>00112           detector_box[i] = <span class="keyword">new</span> G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
-<a name="l00113"></a>00113           detector_log[i] = <span class="keyword">new</span> G4LogicalVolume(detector_box[i], beryllium, detector_log_name[i], 0, 0, 0);
-<a name="l00114"></a>00114           detector_position[i] = - slabThickness/2.0 - i * slabThickness;
-<a name="l00115"></a>00115           detector_phys[i] = <span class="keyword">new</span> G4PVPlacement(0,
-<a name="l00116"></a>00116                                                           G4ThreeVector(0.0*cm, detector_position[i], 0.0*cm),
-<a name="l00117"></a>00117                                                           detector_log[i],
-<a name="l00118"></a>00118                                                           detector_phys_name[i],
-<a name="l00119"></a>00119                                                           <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,
-<a name="l00120"></a>00120                                                           <span class="keyword">false</span>,
-<a name="l00121"></a>00121                                                           0);
-<a name="l00122"></a>00122   }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073   <span class="comment">/************ Begin of Volumes construction ************/</span>
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   <span class="comment">// Experimental hall (world volume)</span>
+<a name="l00076"></a>00076   <span class="comment">// Beam line along Y axis</span>
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078   G4double expHall_x = 2.0*m; <span class="comment">// from left to right ???</span>
+<a name="l00079"></a>00079   G4double expHall_y = 3.0*m; <span class="comment">// vertical</span>
+<a name="l00080"></a>00080   G4double expHall_z = 2.0*m; <span class="comment">// from back to front ???</span>
+<a name="l00081"></a>00081   G4Box* experimentalHall_box = <span class="keyword">new</span> G4Box(<span class="stringliteral">&quot;expHall_box&quot;</span>,expHall_x,expHall_y,expHall_z);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="comment">/* A LogicalVolume is some geometry figure, like a G4Box, fulfilled with some material.  */</span>
+<a name="l00084"></a>00084   <span class="comment">//experimentalHall_log = new G4LogicalVolume(experimentalHall_box, air, &quot;expHall_log&quot;,0,0,0);</span>
+<a name="l00085"></a>00085   <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a> = <span class="keyword">new</span> G4LogicalVolume(experimentalHall_box, vaccum, <span class="stringliteral">&quot;expHall_log&quot;</span>,0,0,0);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="comment">/* A PhysicalVolume is a LogicalVolume put in place. */</span>
+<a name="l00088"></a>00088   <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a> = <span class="keyword">new</span> G4PVPlacement(0,                <span class="comment">// Rotaï¿½ï¿½o</span>
+<a name="l00089"></a>00089                                                                           G4ThreeVector(),                <span class="comment">// Origem</span>
+<a name="l00090"></a>00090                                       <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,   <span class="comment">// Seu volume lï¿½gico</span>
+<a name="l00091"></a>00091                                       <span class="stringliteral">&quot;expHall&quot;</span>,                          <span class="comment">// Seu nome</span>
+<a name="l00092"></a>00092                                       0,                                          <span class="comment">// Seu volume mï¿½e. Neste caso o ponteiro ï¿½ nulo por tratar-se do World Volume</span>
+<a name="l00093"></a>00093                                       <span class="keyword">false</span>,                              <span class="comment">// Nenhuma operaï¿½ï¿½o booleana</span>
+<a name="l00094"></a>00094                                       0);                                         <span class="comment">// Its copy number</span>
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="comment">// Maybe, these variables must be out in the header file</span>
+<a name="l00097"></a>00097   <span class="keyword">const</span> G4int numOfSlabs = 1000;
+<a name="l00098"></a>00098   G4String detector_box_name[numOfSlabs];
+<a name="l00099"></a>00099   G4String detector_log_name[numOfSlabs];
+<a name="l00100"></a>00100   G4String detector_phys_name[numOfSlabs];
+<a name="l00101"></a>00101   G4double detector_position[numOfSlabs];
+<a name="l00102"></a>00102   G4Box* detector_box[numOfSlabs];
+<a name="l00103"></a>00103   G4LogicalVolume* detector_log[numOfSlabs];
+<a name="l00104"></a>00104   G4VPhysicalVolume* detector_phys[numOfSlabs];
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106   <span class="comment">// For Beryllium</span>
+<a name="l00107"></a>00107   <span class="comment">//G4double slabThickness = 0.05995671*mm; // 0,05995671mm para 1.033 MeV e 0.024242424mm para 0.521 MeV</span>
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109   <span class="comment">// For Molybdenum</span>
+<a name="l00110"></a>00110   <span class="comment">//G4double slabThickness = 0.000546693*cm;  // e- of 0.5 MeV on Mo</span>
+<a name="l00111"></a>00111   <span class="comment">//G4double slabThickness = 0.001309339*cm;  // e- of 1.0 MeV on Mo</span>
+<a name="l00112"></a>00112   G4double slabThickness = myUtils-&gt;<a class="code" href="classMyUtils.html#a87c341c0a32d16ce8fb65b2302a0d3e3">getCSDA</a>() * myUtils-&gt;<a class="code" href="classMyUtils.html#ae5d99da53d5334ebc9b98d1babd02938">getDeltaZ</a>();
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="comment">/* This creates several slices of beryllium and put each one in the top of the other */</span>
+<a name="l00115"></a>00115   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numOfSlabs; ++i) {
+<a name="l00116"></a>00116           detector_box_name[i]  = <span class="stringliteral">&quot;detector_box_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00117"></a>00117           detector_log_name[i]  = <span class="stringliteral">&quot;detector_log_&quot;</span>  + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00118"></a>00118           detector_phys_name[i] = <span class="stringliteral">&quot;detector_phys_&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00119"></a>00119           detector_box[i] = <span class="keyword">new</span> G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
+<a name="l00120"></a>00120           detector_log[i] = <span class="keyword">new</span> G4LogicalVolume(detector_box[i], phantomMaterial, detector_log_name[i], 0, 0, 0);
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122           <span class="comment">//detector_log[i]-&gt;SetUserLimits(myUtils-&gt;getMyMaxStepLimit());</span>
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125   <span class="comment">/* End of Volumes construction */</span>
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128 <span class="comment">/*</span>
-<a name="l00129"></a>00129 <span class="comment"> * Here I set the Sensitive Detector used to accumulate the energy deposited in one specific slice.</span>
-<a name="l00130"></a>00130 <span class="comment"> * There is a bunch of things that must be UNDERSTOOD here.</span>
-<a name="l00131"></a>00131 <span class="comment"> */</span>
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133   <span class="comment">// G4SDParticleFilter* gammaFilter = new G4SDParticleFilter(&quot;gammaFilter&quot;, &quot;gamma&quot;);</span>
-<a name="l00134"></a>00134 <span class="comment">//  G4VPrimitiveScorer* primitive = new G4PSEnergyDeposit(&quot;eDep&quot;);</span>
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137     G4String myDetector[50];
-<a name="l00138"></a>00138     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; 50; ++i) {
-<a name="l00139"></a>00139           myDetector[i] = <span class="stringliteral">&quot;myDetector&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
-<a name="l00140"></a>00140           G4MultiFunctionalDetector* det = <span class="keyword">new</span> G4MultiFunctionalDetector(myDetector[i]);
-<a name="l00141"></a>00141                   G4VPrimitiveScorer* primitive = <span class="keyword">new</span> G4PSEnergyDeposit(<span class="stringliteral">&quot;eDep&quot;</span>);
-<a name="l00142"></a>00142           det-&gt;RegisterPrimitive(primitive);
-<a name="l00143"></a>00143           G4SDManager::GetSDMpointer()-&gt;AddNewDetector(det);
-<a name="l00144"></a>00144           detector_log[i]-&gt;SetSensitiveDetector(det);
-<a name="l00145"></a>00145     }
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147 <span class="comment">//  G4MultiFunctionalDetector* myScorer = new G4MultiFunctionalDetector(&quot;myDetector&quot;);</span>
-<a name="l00148"></a>00148 <span class="comment">//  myScorer-&gt;RegisterPrimitive(primitive);</span>
-<a name="l00149"></a>00149 <span class="comment">//</span>
-<a name="l00150"></a>00150 <span class="comment">//  G4SDManager::GetSDMpointer()-&gt;AddNewDetector(myScorer);</span>
-<a name="l00151"></a>00151 <span class="comment">//  detector_log[49]-&gt;SetSensitiveDetector(myScorer);</span>
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153 
-<a name="l00154"></a>00154 <span class="comment">//  cube_log-&gt;SetSensitiveDetector(myScorer);</span>
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156   <span class="comment">// G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(1);</span>
-<a name="l00157"></a>00157   G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(0);
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159   <span class="keywordflow">return</span> <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
-<a name="l00160"></a>00160 }
+<a name="l00124"></a>00124           detector_position[i] = - slabThickness/2.0 - i * slabThickness;
+<a name="l00125"></a>00125           detector_phys[i] = <span class="keyword">new</span> G4PVPlacement(0,
+<a name="l00126"></a>00126                                                           G4ThreeVector(0.0*cm, detector_position[i], 0.0*cm),
+<a name="l00127"></a>00127                                                           detector_log[i],
+<a name="l00128"></a>00128                                                           detector_phys_name[i],
+<a name="l00129"></a>00129                                                           <a class="code" href="classDetectorConstruction.html#a7b8e54313fab5f137b4ca6f9fb2f82f3">experimentalHall_log</a>,
+<a name="l00130"></a>00130                                                           <span class="keyword">false</span>,
+<a name="l00131"></a>00131                                                           0);
+<a name="l00132"></a>00132   }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 <span class="comment">//  G4double maxStep = 0.1*TrackerLength;</span>
+<a name="l00136"></a>00136 <span class="comment">//  logicTracker-&gt;SetUserLimits(new G4UserLimits(maxStep));</span>
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138   <span class="comment">/* End of Volumes construction */</span>
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="comment">/*</span>
+<a name="l00142"></a>00142 <span class="comment"> * Here I set the Sensitive Detector used to accumulate the energy deposited in one specific slice.</span>
+<a name="l00143"></a>00143 <span class="comment"> * There is a bunch of things that must be UNDERSTOOD here.</span>
+<a name="l00144"></a>00144 <span class="comment"> */</span>
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146   <span class="comment">// G4SDParticleFilter* gammaFilter = new G4SDParticleFilter(&quot;gammaFilter&quot;, &quot;gamma&quot;);</span>
+<a name="l00147"></a>00147 <span class="comment">//  G4VPrimitiveScorer* primitive = new G4PSEnergyDeposit(&quot;eDep&quot;);</span>
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150     G4String myDetector[50];
+<a name="l00151"></a>00151     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; 50; ++i) {
+<a name="l00152"></a>00152           myDetector[i] = <span class="stringliteral">&quot;myDetector&quot;</span> + <span class="keyword">static_cast&lt;</span>std::ostringstream*<span class="keyword">&gt;</span>( &amp;(std::ostringstream() &lt;&lt; i) )-&gt;str();
+<a name="l00153"></a>00153           G4MultiFunctionalDetector* det = <span class="keyword">new</span> G4MultiFunctionalDetector(myDetector[i]);
+<a name="l00154"></a>00154                   G4VPrimitiveScorer* primitive = <span class="keyword">new</span> G4PSEnergyDeposit(<span class="stringliteral">&quot;eDep&quot;</span>);
+<a name="l00155"></a>00155           det-&gt;RegisterPrimitive(primitive);
+<a name="l00156"></a>00156           G4SDManager::GetSDMpointer()-&gt;AddNewDetector(det);
+<a name="l00157"></a>00157           detector_log[i]-&gt;SetSensitiveDetector(det);
+<a name="l00158"></a>00158     }
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 <span class="comment">//  G4MultiFunctionalDetector* myScorer = new G4MultiFunctionalDetector(&quot;myDetector&quot;);</span>
+<a name="l00161"></a>00161 <span class="comment">//  myScorer-&gt;RegisterPrimitive(primitive);</span>
+<a name="l00162"></a>00162 <span class="comment">//</span>
+<a name="l00163"></a>00163 <span class="comment">//  G4SDManager::GetSDMpointer()-&gt;AddNewDetector(myScorer);</span>
+<a name="l00164"></a>00164 <span class="comment">//  detector_log[49]-&gt;SetSensitiveDetector(myScorer);</span>
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 <span class="comment">//  cube_log-&gt;SetSensitiveDetector(myScorer);</span>
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169   <span class="comment">// G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(1);</span>
+<a name="l00170"></a>00170   G4SDManager::GetSDMpointer()-&gt;SetVerboseLevel(0);
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172   <span class="keywordflow">return</span> <a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
+<a name="l00173"></a>00173 }
 </pre></div></p>
 
 </div>
@@ -261,11 +270,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This method is related to an attempt made in order to change geometry between runs. </p>
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00048">48</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00052">52</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048                                                         {
-<a name="l00049"></a>00049         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
-<a name="l00050"></a>00050 }
+<p><div class="fragment"><pre class="fragment"><a name="l00052"></a>00052                                                         {
+<a name="l00053"></a>00053         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#a88d78f6bb33edb6a23d84ffb82c35606">experimentalHall_phys</a>;
+<a name="l00054"></a>00054 }
 </pre></div></p>
 
 </div>
@@ -287,11 +296,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This method is related to an attempt made in order to change geometry between runs. </p>
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00055">55</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8cc_source.html#l00059">59</a> of file <a class="el" href="DetectorConstruction_8cc_source.html">DetectorConstruction.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00055"></a>00055                                                   {
-<a name="l00056"></a>00056         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#ac1d6335b137c81e82ee5b95076b06c48">cube_phys</a>;
-<a name="l00057"></a>00057 }
+<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059                                                   {
+<a name="l00060"></a>00060         <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDetectorConstruction.html#ac1d6335b137c81e82ee5b95076b06c48">cube_phys</a>;
+<a name="l00061"></a>00061 }
 </pre></div></p>
 
 </div>
@@ -308,7 +317,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00029">29</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00030">30</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -323,7 +332,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00031">31</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00032">32</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -338,7 +347,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00032">32</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00033">33</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -353,7 +362,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00033">33</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00034">34</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -368,7 +377,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00038">38</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00039">39</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -383,7 +392,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00039">39</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00040">40</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -398,7 +407,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00040">40</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
+<p>Definition at line <a class="el" href="DetectorConstruction_8hh_source.html#l00041">41</a> of file <a class="el" href="DetectorConstruction_8hh_source.html">DetectorConstruction.hh</a>.</p>
 
 </div>
 </div>
@@ -421,7 +430,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Sep 2013 for Geant4 Mater's Simulation by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2013 for Geant4 Mater's Simulation by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -61,26 +61,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00018"></a>00018   <span class="keyword">public</span>:
 <a name="l00019"></a>00019     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classRun.html#a8476edf182546b547d1be728b477e379">RecordEvent</a>(<span class="keyword">const</span> G4Event*);
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="comment">//    inline G4double GetTotalEnergyDeposited() const {</span>
-<a name="l00022"></a>00022 <span class="comment">//      return GetTotal(energySum);</span>
-<a name="l00023"></a>00023 <span class="comment">//    }</span>
+<a name="l00021"></a><a class="code" href="classRun.html#ac9666586168d674f661454125f41d61f">00021</a>     <span class="keyword">inline</span> G4double <a class="code" href="classRun.html#ac9666586168d674f661454125f41d61f">GetMyTotalEnergyDeposited</a>(G4int i)<span class="keyword"> const </span>{
+<a name="l00022"></a>00022         <span class="keywordflow">return</span> <a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">GetTotal</a>(<a class="code" href="classRun.html#a6ada514cdfb1a2f1848cf3e8592ada09">energySum</a>[i]);
+<a name="l00023"></a>00023     }
 <a name="l00024"></a>00024 
-<a name="l00025"></a><a class="code" href="classRun.html#ac9666586168d674f661454125f41d61f">00025</a>     <span class="keyword">inline</span> G4double <a class="code" href="classRun.html#ac9666586168d674f661454125f41d61f">GetMyTotalEnergyDeposited</a>(G4int i)<span class="keyword"> const </span>{
-<a name="l00026"></a>00026         <span class="keywordflow">return</span> <a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">GetTotal</a>(<a class="code" href="classRun.html#acd260105835c94c5f17f4f44cd3e4265">mapSum</a>[i]);
-<a name="l00027"></a>00027     }
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029   <span class="keyword">private</span>:
-<a name="l00030"></a>00030     <span class="comment">//G4THitsMap&lt;G4double&gt; energySum;</span>
-<a name="l00031"></a><a class="code" href="classRun.html#a6ada514cdfb1a2f1848cf3e8592ada09">00031</a>     G4THitsMap&lt;G4double&gt; <a class="code" href="classRun.html#a6ada514cdfb1a2f1848cf3e8592ada09">energySum</a>[50];
-<a name="l00032"></a><a class="code" href="classRun.html#acd260105835c94c5f17f4f44cd3e4265">00032</a>     G4THitsMap&lt;G4double&gt; <a class="code" href="classRun.html#acd260105835c94c5f17f4f44cd3e4265">mapSum</a>[50];
-<a name="l00033"></a><a class="code" href="classRun.html#ade2b5fc580a4ca340092e4cdd5ea552a">00033</a>     G4double <a class="code" href="classRun.html#ade2b5fc580a4ca340092e4cdd5ea552a">myEnergy</a>[50];
-<a name="l00034"></a>00034     <span class="comment">//G4int ID;</span>
-<a name="l00035"></a><a class="code" href="classRun.html#ae23e7cc1a6ecda0991b2d8fbb5a30e85">00035</a>     G4int <a class="code" href="classRun.html#ae23e7cc1a6ecda0991b2d8fbb5a30e85">myID</a>[50];
-<a name="l00036"></a>00036     G4double <a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">GetTotal</a>(<span class="keyword">const</span> G4THitsMap&lt;G4double&gt; &amp;map) <span class="keyword">const</span>;
-<a name="l00037"></a>00037 };
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="preprocessor">#endif</span>
-<a name="l00040"></a>00040 <span class="preprocessor"></span>
+<a name="l00025"></a>00025   <span class="keyword">private</span>:
+<a name="l00026"></a>00026     <span class="comment">//G4THitsMap&lt;G4double&gt; energySum;</span>
+<a name="l00027"></a><a class="code" href="classRun.html#a6ada514cdfb1a2f1848cf3e8592ada09">00027</a>     G4THitsMap&lt;G4double&gt; <a class="code" href="classRun.html#a6ada514cdfb1a2f1848cf3e8592ada09">energySum</a>[50];
+<a name="l00028"></a><a class="code" href="classRun.html#ade2b5fc580a4ca340092e4cdd5ea552a">00028</a>     G4double <a class="code" href="classRun.html#ade2b5fc580a4ca340092e4cdd5ea552a">myEnergy</a>[50];
+<a name="l00029"></a>00029     <span class="comment">//G4int ID;</span>
+<a name="l00030"></a><a class="code" href="classRun.html#ae23e7cc1a6ecda0991b2d8fbb5a30e85">00030</a>     G4int <a class="code" href="classRun.html#ae23e7cc1a6ecda0991b2d8fbb5a30e85">myID</a>[50];
+<a name="l00031"></a>00031     G4double <a class="code" href="classRun.html#afe64166dbad015e3996c8e8728a8c69b">GetTotal</a>(<span class="keyword">const</span> G4THitsMap&lt;G4double&gt; &amp;map) <span class="keyword">const</span>;
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classRun.html#a8c4baf9e8d6f110185f5e8937d36835d">00033</a>     time_t <a class="code" href="classRun.html#a8c4baf9e8d6f110185f5e8937d36835d">timeAtBeginOfEvent</a>;
+<a name="l00034"></a><a class="code" href="classRun.html#a9f40c9220b8f0127be34f3ea7fb497a8">00034</a>     time_t <a class="code" href="classRun.html#a9f40c9220b8f0127be34f3ea7fb497a8">timeAtEndOfEvent</a>;
+<a name="l00035"></a><a class="code" href="classRun.html#af4f2445abebfd878e9db78ea5f05ab64">00035</a>     <span class="keywordtype">double</span> <a class="code" href="classRun.html#af4f2445abebfd878e9db78ea5f05ab64">timeToGo</a>;
+<a name="l00036"></a><a class="code" href="classRun.html#aae4f6ceaf9ef79bb25e3327cd9f0e7bc">00036</a>     <span class="keywordtype">int</span> <a class="code" href="classRun.html#aae4f6ceaf9ef79bb25e3327cd9f0e7bc">timeToGoMinutos</a>;
+<a name="l00037"></a><a class="code" href="classRun.html#a0b45866b1b5e8f63ad704aa27c516832">00037</a>     <span class="keywordtype">int</span> <a class="code" href="classRun.html#a0b45866b1b5e8f63ad704aa27c516832">timeToGoSegundos</a>;
+<a name="l00038"></a><a class="code" href="classRun.html#aefb5b9d9b48c6b5ce38a366fb4414cae">00038</a>     <span class="keywordtype">int</span> <a class="code" href="classRun.html#aefb5b9d9b48c6b5ce38a366fb4414cae">numEventsToGo</a>;
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="preprocessor">#endif</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -96,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Sep 2013 for Geant4 Mater's Simulation by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2013 for Geant4 Mater's Simulation by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
