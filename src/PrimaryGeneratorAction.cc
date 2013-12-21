@@ -28,7 +28,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 //  particleGun->SetParticleEnergy(0.140*MeV);
   particleGun->SetParticleDefinition(particleTable->FindParticle(particleName="e-"));
 
-  particleGun->SetParticleEnergy(MyUtils::getInstance()->getEnergy());  // 0.521*MeV ou 1.033 MeV
+  particleGun->SetParticleEnergy(MyUtils::getInstance()->getEnergy());
 
 //  particleGun->SetParticlePosition(G4ThreeVector(0.0, 1.0*m, 0.0));
 }

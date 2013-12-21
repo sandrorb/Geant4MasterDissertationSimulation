@@ -65,6 +65,12 @@ void setupUIProgramatically(G4UImanager *UI);
  */
 int main(G4int argc, char** argv) {
 
+	//choose the Random engine
+	//CLHEP::HepRandom::setTheEngine(new CLHEP::RanecuEngine());
+	//set random seed with system time
+	G4long seed = time(NULL);
+	CLHEP::HepRandom::setTheSeed(seed);
+
 //	if (argc > 2){
 //		G4cout << "Usage:" << G4endl;
 //		G4cout << "Program Name followed by the number of events to simulate." << G4endl;
@@ -186,7 +192,7 @@ int main(G4int argc, char** argv) {
 	 * information for the simulation.
 	 *
 	 */
-	G4UImanager* UI = G4UImanager::GetUIpointer();
+//	G4UImanager* UI = G4UImanager::GetUIpointer();
 
 	/**
 	 * @code
@@ -195,7 +201,7 @@ int main(G4int argc, char** argv) {
 	 * Local function implemented for a sake of organization.
 	 * This function sets up some UI characteristics.
 	 */
-	setupUIProgramatically(UI);
+	//setupUIProgramatically(UI);
 
 	 // This gets the actual time. Used to compute the simulation time.
 	time_t timeAtBegin = time(0);
@@ -221,7 +227,7 @@ int main(G4int argc, char** argv) {
 	 * Related to G4UIExecutive class
 	 */
 	// Starts interactive session
-	session->SessionStart();
+//	session->SessionStart();
 	delete session;
 
 	#ifdef G4VIS_USE
