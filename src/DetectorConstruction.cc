@@ -119,7 +119,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 	  detector_box[i] = new G4Box(detector_box_name[i], 500.0*mm, slabThickness/2.0, 500.0*mm);
 	  detector_log[i] = new G4LogicalVolume(detector_box[i], phantomMaterial, detector_log_name[i], 0, 0, 0);
 
-	  //detector_log[i]->SetUserLimits(myUtils->getMyMaxStepLimit());
+//	  detector_log[i]->SetUserLimits(myUtils->getMyMaxStepLimit());
 
 	  detector_position[i] = - slabThickness/2.0 - i * slabThickness;
 	  detector_phys[i] = new G4PVPlacement(0,

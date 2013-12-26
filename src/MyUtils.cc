@@ -28,7 +28,7 @@ void MyUtils::setup(){
 
 		cases = new SimulationCase();
 		mySimCases = cases->getCases();
-		G4cout << "\n\n\n\nCase Number is 0\n\n\n\n";
+
 	//	MyMaterial * myMat = new MyMaterial;
 	//	beryllium = myMat->getBeryllium();
 	//	molybdenum = myMat->getMolybdenum();
