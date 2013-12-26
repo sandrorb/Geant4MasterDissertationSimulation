@@ -27,6 +27,10 @@ class MyUtils {
 		void          printInfo();
 		G4int		getCaseNumber();
 		void	setCaseNumber(G4int);
+		int	getSimulationNumber();
+		void	setSimulationNumber(int);
+		int	getNumberOfSimulations();
+		void	setNumberOfSimulations(int);
 
 	private:
 
@@ -66,6 +70,8 @@ class MyUtils {
 		SimulationCase * cases;
 		std::vector<SimulationCase*> mySimCases;
 		G4int caseNumber;
+		int simulationNumber;
+		int numberOfSimulations;
 
 };
 

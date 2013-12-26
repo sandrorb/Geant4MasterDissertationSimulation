@@ -19,6 +19,13 @@
 //#include "G4VSteppingVerbose.hh"
 //#include "ExN07SteppingVerbose.hh"
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
+#include <sstream>
+#include "MyUtils.hh"
+
 RunAction::RunAction() {;}
 
 RunAction::~RunAction() {;}
@@ -50,13 +57,25 @@ void RunAction::EndOfRunAction(const G4Run* aRun) {
 //  G4double deltaZ = 0.02 * ro_for_Be_1033keV_em_cm / ro_for_Be_1033keV_em_cm;
   G4double deltaZ = 0.02;
 
+  MyUtils* myUtils = MyUtils::getInstance(); //myUtils->getSimulationNumber()
+  int fileNum = myUtils->getSimulationNumber();
+  std::ostringstream ss;
+  ss << std::setfill('0') << std::setw(2) << fileNum;
+  std::string fileNumber = ss.str();
+//  std::string fileName = "/home/geant4/Desktop/resultados/caso02_MaxStepLimit-Default_" + fileNumber + ".txt";
+  std::string fileName = "/home/geant4/Desktop/teste_" + fileNumber + ".txt";
+  std::ofstream outFile;
+   outFile.open(fileName.c_str(),std::ofstream::out);
+
   G4cout << "Energy in MeV" << G4endl;
   for (G4int i = 0; i<50; i++) {
 	  G4cout << i * deltaZ + (deltaZ / 2) << "    " << theRun->GetMyTotalEnergyDeposited(i)/MeV << G4endl;
+	  outFile << i * deltaZ + (deltaZ / 2) << "    " << theRun->GetMyTotalEnergyDeposited(i)/MeV << G4endl;
   }
-
+  outFile.close();
 
 //  G4cout << "myEnergy        : " << theRun->GetMyTotalEnergyDeposited(49)/MeV << " MeV" << G4endl;
+  G4cout << "  Simulated Case: " << myUtils->getCaseNumber() << G4endl;
   G4cout << "Number of Events: " << theRun->GetNumberOfEvent() << G4endl;
 }
 

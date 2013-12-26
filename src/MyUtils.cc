@@ -28,7 +28,7 @@ void MyUtils::setup(){
 
 		cases = new SimulationCase();
 		mySimCases = cases->getCases();
-
+		G4cout << "\n\n\n\nCase Number is 0\n\n\n\n";
 	//	MyMaterial * myMat = new MyMaterial;
 	//	beryllium = myMat->getBeryllium();
 	//	molybdenum = myMat->getMolybdenum();
@@ -135,5 +135,19 @@ void MyUtils::setCaseNumber(G4int caseNumber){
 	setup();
 }
 
+G4int MyUtils::getSimulationNumber(){
+	return this->simulationNumber;
+}
 
+void MyUtils::setSimulationNumber(G4int simulationNumber){
+	this->simulationNumber = simulationNumber;
+}
+
+G4int MyUtils::getNumberOfSimulations(){
+	return this->numberOfSimulations;
+}
+
+void MyUtils::setNumberOfSimulations(G4int numberOfSimulations){
+	this->numberOfSimulations = numberOfSimulations;
+}
 

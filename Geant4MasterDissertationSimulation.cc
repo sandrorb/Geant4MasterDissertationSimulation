@@ -68,8 +68,8 @@ int main(G4int argc, char** argv) {
 	//choose the Random engine
 	//CLHEP::HepRandom::setTheEngine(new CLHEP::RanecuEngine());
 	//set random seed with system time
-	G4long seed = time(NULL);
-	CLHEP::HepRandom::setTheSeed(seed);
+//	G4long seed = time(NULL);
+//	CLHEP::HepRandom::setTheSeed(seed);
 
 //	if (argc > 2){
 //		G4cout << "Usage:" << G4endl;
@@ -207,7 +207,14 @@ int main(G4int argc, char** argv) {
 	time_t timeAtBegin = time(0);
 
 	//G4int numberOfEvent = 1000000;
-	runManager->BeamOn(numberOfEvent); // Default is 1 million if not given by command line.
+	myUtils->setNumberOfSimulations(3);
+	myUtils->setSimulationNumber(1);
+	while (myUtils->getSimulationNumber() <= myUtils->getNumberOfSimulations()) {
+		G4long seed = time(NULL);
+		CLHEP::HepRandom::setTheSeed(seed);
+		runManager->BeamOn(numberOfEvent); // Default is 1 million if not given by command line.
+		myUtils->setSimulationNumber(myUtils->getSimulationNumber() + 1);
+	}
 
 	time_t timeAtEnd = time(0);
 	G4cout << "Simulation started at: " << timeAtBegin << G4endl << "Simlulation ended at:: " << timeAtEnd << G4endl;
